@@ -4,7 +4,7 @@ import 'package:m_widget/m_widget.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  MWidget.initialize(
+  await MWidget.initialize(
     defaultLanguage: LanguageType.indonesiaIndonesian,
     defaultTheme: ThemeValue(
       themeMode: ThemeMode.dark,
