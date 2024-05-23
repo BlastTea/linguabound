@@ -1,7 +1,7 @@
 name: linguabound
 description: "A new Flutter project."
 publish_to: 'none'
-version: 0.1.0
+version: 0.1.0+1
 
 environment:
   sdk: '>=3.4.0 <4.0.0'
@@ -18,6 +18,7 @@ dependencies:
       ref: 19376662ee215e49446bc66d8965c86f12e26c41
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
@@ -31,3 +32,8 @@ flutter:
     - family: FeatherBold
       fonts:
         - asset: assets/fonts/FeatherBold/FeatherBold.ttf
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
