@@ -11,10 +11,11 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.5
   flutter_dotenv: ^5.1.0
+  flutter_svg: ^2.0.10+1
   m_widget:
     git:
       url: https://github.com/BlastTea/MWidget.git
-      ref: 7b514524dfd7c61fa605195f8d6d197290592c4b
+      ref: 19376662ee215e49446bc66d8965c86f12e26c41
 
 dev_dependencies:
   flutter_lints: ^3.0.0
@@ -23,3 +24,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/svgs/
+  fonts:
+    - family: FeatherBold
+      fonts:
+        - asset: assets/fonts/FeatherBold/FeatherBold.ttf
