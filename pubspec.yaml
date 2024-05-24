@@ -15,7 +15,7 @@ dependencies:
   m_widget:
     git:
       url: https://github.com/BlastTea/MWidget.git
-      ref: 19376662ee215e49446bc66d8965c86f12e26c41
+      ref: bbe3f3c440976250635e9eab1db77b919c1fd456
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
@@ -37,3 +37,5 @@ flutter_launcher_icons:
   android: true
   ios: true
   image_path: "assets/images/logo.png"
+  adaptive_icon_background: "assets/images/logo-background.png"
+  adaptive_icon_foreground: "assets/images/logo-foreground.png"

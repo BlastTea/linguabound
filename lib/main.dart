@@ -50,7 +50,8 @@ class MainApp extends StatelessWidget {
             titleMedium: kTextStyleTitleMedium.copyWith(fontFamily: kFontFamily),
             titleSmall: kTextStyleTitleSmall.copyWith(fontFamily: kFontFamily),
           );
-
+          
+          // TODO: Implement color for disabled state
           FilledButtonThemeData effectiveFilledButtonTheme = FilledButtonThemeData(
             style: ButtonStyle(
               elevation: WidgetStateProperty.resolveWith((states) => states.contains(WidgetState.pressed) ? 0.0 : 8.0),

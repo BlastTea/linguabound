@@ -28,7 +28,7 @@ class OnBoardingEnd extends StatelessWidget {
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(16.0),
           child: FilledButton(
-            onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const OnBoardingPage3())),
+            onPressed: () {},
             child: const Text('BUAT AKUN'),
           ),
         ),
