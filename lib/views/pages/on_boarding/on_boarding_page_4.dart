@@ -1,4 +1,4 @@
-part of 'pages.dart';
+part of '../pages.dart';
 
 // TODO: maybe use bloc instead of stateful widget?
 class OnBoardingPage4 extends StatefulWidget {
@@ -54,9 +54,9 @@ class _OnBoardingPage4State extends State<OnBoardingPage4> {
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: FilledButton(
+          child: MyFilledButton(
             onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const OnBoardingPage5())),
-            child: const Text('AYO BERKOMITMEN!'),
+            child: const Text('Ayo berkomitmen!'),
           ),
         ),
       );

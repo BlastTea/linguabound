@@ -1,4 +1,4 @@
-part of 'pages.dart';
+part of '../pages.dart';
 
 class OnBoardingPage5 extends StatefulWidget {
   const OnBoardingPage5({super.key});
@@ -45,10 +45,10 @@ class _OnBoardingPage5State extends State<OnBoardingPage5> {
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: FilledButton(
+          child: MyFilledButton(
             // TODO: add excercise before go to end page
             onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const OnBoardingEnd())),
-            child: const Text('LANJUTKAN'),
+            child: const Text('Lanjutkan'),
           ),
         ),
       );

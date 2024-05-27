@@ -1,4 +1,4 @@
-part of 'pages.dart';
+part of '../pages.dart';
 
 class OnBoardingEnd extends StatelessWidget {
   const OnBoardingEnd({super.key});
@@ -27,9 +27,9 @@ class OnBoardingEnd extends StatelessWidget {
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: FilledButton(
-            onPressed: () {},
-            child: const Text('BUAT AKUN'),
+          child: MyFilledButton(
+            onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const SignUpPage())),
+            child: const Text('Buat akun'),
           ),
         ),
       );

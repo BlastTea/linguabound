@@ -29,7 +29,6 @@ class MainApp extends StatelessWidget {
           timeDilation = 1.0;
 
           ColorScheme effectiveColorScheme = colorScheme!.copyWith(
-            primary: kColorPrimary,
             surface: kColorSurface,
           );
 
@@ -50,7 +49,7 @@ class MainApp extends StatelessWidget {
             titleMedium: kTextStyleTitleMedium.copyWith(fontFamily: kFontFamily),
             titleSmall: kTextStyleTitleSmall.copyWith(fontFamily: kFontFamily),
           );
-          
+
           // TODO: Implement color for disabled state
           FilledButtonThemeData effectiveFilledButtonTheme = FilledButtonThemeData(
             style: ButtonStyle(
@@ -60,12 +59,20 @@ class MainApp extends StatelessWidget {
               padding: const WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0)),
               shape: const WidgetStatePropertyAll(
                 RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(14.0),
-                  ),
+                  borderRadius: kBorderRadius,
                 ),
               ),
             ),
+          );
+
+          InputDecorationTheme effectiveInputDecorationTheme = const InputDecorationTheme(
+            border: OutlineInputBorder(
+              borderRadius: kBorderRadius,
+            ),
+          );
+
+          DividerThemeData effectiveDividerTheme = const DividerThemeData(
+            color: kColorBorder,
           );
 
           return MaterialApp(
@@ -74,12 +81,16 @@ class MainApp extends StatelessWidget {
               scaffoldBackgroundColor: effectiveColorScheme.surface,
               textTheme: effectiveTextTheme,
               filledButtonTheme: effectiveFilledButtonTheme,
+              inputDecorationTheme: effectiveInputDecorationTheme,
+              dividerTheme: effectiveDividerTheme,
             ),
             darkTheme: darkTheme.copyWith(
               colorScheme: effectiveColorScheme,
               scaffoldBackgroundColor: effectiveColorScheme.surface,
               textTheme: effectiveTextTheme,
               filledButtonTheme: effectiveFilledButtonTheme,
+              inputDecorationTheme: effectiveInputDecorationTheme,
+              dividerTheme: effectiveDividerTheme,
             ),
             themeMode: themeMode,
             debugShowCheckedModeBanner: false,
