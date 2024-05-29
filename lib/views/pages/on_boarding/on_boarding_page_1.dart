@@ -10,10 +10,22 @@ class OnBoardingPage1 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // TODO: Add shadow to the text
               Text(
                 'Linguabound',
-                style: Theme.of(context).textTheme.displayMedium,
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                  shadows: [
+                    Shadow(
+                      blurRadius: 4.0,
+                      offset: const Offset(0.0, 4.0),
+                      color: const Color(0xFF000000).withOpacity(0.25),
+                    ),
+                    Shadow(
+                      blurRadius: 4.0,
+                      offset: const Offset(0.0, 4.0),
+                      color: const Color(0xFF000000).withOpacity(0.25),
+                    ),
+                  ],
+                ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 128.0),
