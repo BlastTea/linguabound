@@ -23,6 +23,7 @@ class SignUpPage extends StatelessWidget {
                     decoration: InputDecoration(
                       labelText: 'Masukkan email',
                     ),
+                    textInputAction: TextInputAction.next,
                   ),
                 ),
                 const SizedBox(height: 24.0),
@@ -32,6 +33,7 @@ class SignUpPage extends StatelessWidget {
                     decoration: InputDecoration(
                       labelText: 'Masukkan kata sandi',
                     ),
+                    textInputAction: TextInputAction.next,
                   ),
                 ),
                 const SizedBox(height: 24.0),
@@ -41,15 +43,18 @@ class SignUpPage extends StatelessWidget {
                     decoration: InputDecoration(
                       labelText: 'Masukkan nama lengkap',
                     ),
+                    textInputAction: TextInputAction.next,
                   ),
                 ),
                 const SizedBox(height: 24.0),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: TextField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Masukkan username',
                     ),
+                    textInputAction: TextInputAction.next,
+                    onEditingComplete: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const SignUpSuccessfulPage())),
                   ),
                 ),
                 const SizedBox(height: 24.0),

@@ -1,7 +1,7 @@
 name: linguabound
 description: "A new Flutter project."
 publish_to: 'none'
-version: 0.1.1+2
+version: 0.1.2+3
 
 environment:
   sdk: '>=3.4.0 <4.0.0'
@@ -15,7 +15,11 @@ dependencies:
   m_widget:
     git:
       url: https://github.com/BlastTea/MWidget.git
-      ref: bbe3f3c440976250635e9eab1db77b919c1fd456
+      ref: b1191678af1bbefe4ffde909b42804708bb5ab17
+  linguabound_widget:
+    git:
+      url: https://github.com/BlastTea/linguabound_widget.git
+      ref: f2c1c30d369b9884fb72edf9217ae61273f02597
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
@@ -31,7 +35,7 @@ flutter:
   fonts:
     - family: FeatherBold
       fonts:
-        - asset: assets/fonts/FeatherBold/FeatherBold.ttf
+        - asset: packages/linguabound_widget/fonts/FeatherBold/FeatherBold.ttf
 
 flutter_launcher_icons:
   android: true
