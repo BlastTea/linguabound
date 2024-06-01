@@ -32,18 +32,18 @@ class _OnBoardingPage4State extends State<OnBoardingPage4> {
                     const SizedBox(height: 16.0),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: LargeChoiceChip(
-                        label: Text([
+                      child: MyFilledButton.tonal(
+                        selected: _isSelecteds[index],
+                        onPressed: () => setState(() {
+                          _isSelecteds = _isSelecteds.map((e) => false).toList();
+                          _isSelecteds[index] = !_isSelecteds[index];
+                        }),
+                        child: Text([
                           '3 mnt/hari',
                           '10 mnt/hari',
                           '15 mnt/hari',
                           '30 mnt/hari',
                         ][index]),
-                        selected: _isSelecteds[index],
-                        onSelected: (value) => setState(() {
-                          _isSelecteds = _isSelecteds.map((e) => false).toList();
-                          _isSelecteds[index] = value;
-                        }),
                       ),
                     ),
                   ],

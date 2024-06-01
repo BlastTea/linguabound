@@ -271,6 +271,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.19"
+  flutter_sticky_header:
+    dependency: "direct main"
+    description:
+      name: flutter_sticky_header
+      sha256: "017f398fbb45a589e01491861ca20eb6570a763fd9f3888165a978e11248c709"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.5"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -429,11 +437,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: f2c1c30d369b9884fb72edf9217ae61273f02597
-      resolved-ref: f2c1c30d369b9884fb72edf9217ae61273f02597
+      ref: "7fe9f06876a2e6a66ea0e8a65bded3dd69223b74"
+      resolved-ref: "7fe9f06876a2e6a66ea0e8a65bded3dd69223b74"
       url: "https://github.com/BlastTea/linguabound_widget.git"
     source: git
-    version: "0.0.1"
+    version: "1.5.3"
   lints:
     dependency: transitive
     description:
@@ -768,6 +776,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.4.0"
+  value_layout_builder:
+    dependency: transitive
+    description:
+      name: value_layout_builder
+      sha256: "98202ec1807e94ac72725b7f0d15027afde513c55c69ff3f41bcfccb950831bc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.1"
   vector_graphics:
     dependency: transitive
     description:

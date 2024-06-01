@@ -11,15 +11,16 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.5
   flutter_dotenv: ^5.1.0
+  flutter_sticky_header: ^0.6.5
   flutter_svg: ^2.0.10+1
+  linguabound_widget:
+    git:
+      url: https://github.com/BlastTea/linguabound_widget.git
+      ref: 7fe9f06876a2e6a66ea0e8a65bded3dd69223b74
   m_widget:
     git:
       url: https://github.com/BlastTea/MWidget.git
       ref: b1191678af1bbefe4ffde909b42804708bb5ab17
-  linguabound_widget:
-    git:
-      url: https://github.com/BlastTea/linguabound_widget.git
-      ref: f2c1c30d369b9884fb72edf9217ae61273f02597
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1

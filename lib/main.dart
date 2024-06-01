@@ -14,5 +14,7 @@ class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
-  Widget build(BuildContext context) => const LinguaboundMaterialApp(home: OnBoardingPage1());
+  Widget build(BuildContext context) => LinguaboundMaterialApp(
+        home: const OnBoardingPage1(),
+      );
 }

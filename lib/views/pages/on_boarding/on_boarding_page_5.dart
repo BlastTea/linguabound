@@ -28,13 +28,16 @@ class _OnBoardingPage5State extends State<OnBoardingPage5> {
                     const SizedBox(height: 16.0),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: LargeChoiceChip(
-                        label: Text([
-                          'Berbicara dengan percaya diri',
-                          'Mengembangkan kosakata',
-                          'Menciptakan rasa senang dalam belajar bahasa inggris',
-                        ][index]),
-                        selected: false,
+                      child: IgnorePointer(
+                        child: MyFilledButton.tonal(
+                          selected: false,
+                          onPressed: () {},
+                          child: Text([
+                            'Berbicara dengan percaya diri',
+                            'Mengembangkan kosakata',
+                            'Menciptakan rasa senang dalam belajar bahasa inggris',
+                          ][index]),
+                        ),
                       ),
                     ),
                   ],

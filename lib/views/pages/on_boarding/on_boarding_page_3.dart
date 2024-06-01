@@ -32,17 +32,17 @@ class _OnBoardingPage3State extends State<OnBoardingPage3> {
                     const SizedBox(height: 16.0),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: LargeChoiceChip(
-                        label: Text([
+                      child: MyFilledButton.tonal(
+                        selected: _isSelecteds[index],
+                        onPressed: () => setState(() {
+                          _isSelecteds = _isSelecteds.map((e) => false).toList();
+                          _isSelecteds[index] = !_isSelecteds[index];
+                        }),
+                        child: Text([
                           'Aku masih pemula',
                           'Aku tau beberapa kosakata bahasa inggris',
                           'Aku bisa berbicara menggunakan bahasa inggris informal',
                         ][index]),
-                        selected: _isSelecteds[index],
-                        onSelected: (value) => setState(() {
-                          _isSelecteds = _isSelecteds.map((e) => false).toList();
-                          _isSelecteds[index] = value;
-                        }),
                       ),
                     ),
                   ],
