@@ -4,13 +4,13 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  void _setSelectedIndex(int index) => setState(() => _selectedIndex = index);
+  void setSelectedIndex(int index) => setState(() => _selectedIndex = index);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
             selectedIndex: _selectedIndex,
-            onDestinationSelected: _setSelectedIndex,
+            onDestinationSelected: setSelectedIndex,
           ),
         ),
       );

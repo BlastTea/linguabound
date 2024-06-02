@@ -19,7 +19,7 @@ class HomeFragment extends StatelessWidget {
                   pressedBottomBorderWidth: 0.0,
                   onPressed: () {},
                   image: const DecorationImage(
-                    image: NetworkImage('https://avatars.githubusercontent.com/u/116476102?v=4'),
+                    image: NetworkImage(kDummyPictureProfileUrl),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -66,7 +66,7 @@ class HomeFragment extends StatelessWidget {
             children: [
               Flexible(
                 child: MyFilledButton.tonal(
-                  onPressed: () {},
+                  onPressed: () => homePageKey.currentState?.setSelectedIndex(1),
                   icon: SvgPicture.asset('assets/svgs/exercise.svg'),
                   textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(color: kColorPrimary),
                   padding: const EdgeInsets.all(8.0),
@@ -80,7 +80,7 @@ class HomeFragment extends StatelessWidget {
               const SizedBox(width: 16.0),
               Flexible(
                 child: MyFilledButton.tonal(
-                  onPressed: () {},
+                  onPressed: () => homePageKey.currentState?.setSelectedIndex(2),
                   icon: SvgPicture.asset('assets/svgs/meet.svg'),
                   textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(color: kColorPrimary),
                   padding: const EdgeInsets.all(8.0),

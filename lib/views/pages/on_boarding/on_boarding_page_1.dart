@@ -5,25 +5,23 @@ class OnBoardingPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: SafeArea(
-          child: Stack(
-            children: [
-              Image.asset('assets/images/logo half.png'),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Text(
-                      'Belajar\nbahasa inggris itu\nmenyenangkan 👋',
-                      style: Theme.of(context).textTheme.headlineLarge,
-                    ),
+        body: Stack(
+          children: [
+            Image.asset('assets/images/logo half.png'),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Text(
+                    'Belajar\nbahasa inggris itu\nmenyenangkan 👋',
+                    style: Theme.of(context).textTheme.headlineLarge,
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -32,7 +30,7 @@ class OnBoardingPage1 extends StatelessWidget {
             children: [
               MyFilledButton(
                 // TODO: add assesment before go to homepage
-                onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const HomePage())),
+                onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => HomePage(key: homePageKey))),
                 child: const Text('Mulai'),
               ),
               const SizedBox(height: 8.0),
