@@ -7,16 +7,29 @@ class ExerciseFragment extends StatefulWidget {
   State<ExerciseFragment> createState() => _ExerciseFragmentState();
 }
 
-class _ExerciseFragmentState extends State<ExerciseFragment> {
+class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerProviderStateMixin {
   final GlobalKey _activeButtonKey = GlobalKey();
 
   final ScrollController _scrollController = ScrollController();
 
+  late AnimationController _animationController;
+
   @override
   void initState() {
     super.initState();
-    _scrollController.addListener(() => setState(() {}));
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) => setState(() {}));
+    _animationController = AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if (mounted) {
+        _animationController.repeat(reverse: true);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -83,9 +96,21 @@ class _ExerciseFragmentState extends State<ExerciseFragment> {
                     ],
                   ),
                   if (mounted)
-                    Positioned(
-                      top: ((_activeButtonKey.currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero).dy ?? 0.0) - 70.0,
-                      left: ((_activeButtonKey.currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero).dx ?? 0.0) - 10.0,
+                    AnimatedBuilder(
+                      animation: _animationController,
+                      builder: (context, child) {
+                        try {
+                          Offset? activeButtonOffset = (_activeButtonKey.currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero);
+
+                          return Positioned(
+                            top: (activeButtonOffset?.dy ?? 0.0) - 70.0 + (5.0 * CurvedAnimation(parent: _animationController, curve: Curves.easeInOut).value),
+                            left: (activeButtonOffset?.dx ?? 0.0) - 10.0,
+                            child: (activeButtonOffset?.dy ?? 0.0) < 180.0 ? Container() : child!,
+                          );
+                        } catch (e) {
+                          return Container();
+                        }
+                      },
                       child: Stack(
                         children: [
                           SvgPicture.asset(
