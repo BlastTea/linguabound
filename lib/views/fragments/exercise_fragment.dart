@@ -1,7 +1,23 @@
 part of 'fragments.dart';
 
-class ExerciseFragment extends StatelessWidget {
+class ExerciseFragment extends StatefulWidget {
   const ExerciseFragment({super.key});
+
+  @override
+  State<ExerciseFragment> createState() => _ExerciseFragmentState();
+}
+
+class _ExerciseFragmentState extends State<ExerciseFragment> {
+  final GlobalKey _activeButtonKey = GlobalKey();
+
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) => setState(() {}));
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -13,51 +29,79 @@ class ExerciseFragment extends StatelessWidget {
               color: kColorSurface,
             ),
             Expanded(
-              child: CustomScrollView(
-                slivers: [
-                  SliverStickyHeader(
-                    overlapsContent: false,
-                    header: buildContainerHeader(
-                      context: context,
-                      title: 'Bagian 1',
-                      mention: 'Pemula',
-                      description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 5 soal acak',
-                    ),
-                    sliver: buildPartBody(context: context),
+              child: Stack(
+                children: [
+                  CustomScrollView(
+                    controller: _scrollController,
+                    slivers: [
+                      SliverStickyHeader(
+                        overlapsContent: false,
+                        header: buildContainerHeader(
+                          context: context,
+                          title: 'Bagian 1',
+                          mention: 'Pemula',
+                          description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 5 soal acak',
+                        ),
+                        sliver: buildPartBody(
+                          context: context,
+                          activeButtonKey: _activeButtonKey,
+                        ),
+                      ),
+                      SliverStickyHeader(
+                        header: buildContainerHeader(
+                          context: context,
+                          title: 'Bagian 2',
+                          mention: 'Petualang',
+                          description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 10 soal acak',
+                        ),
+                        sliver: buildPartBody(
+                          context: context,
+                          alignment: PartBodyAlignment.right,
+                        ),
+                      ),
+                      SliverStickyHeader(
+                        header: buildContainerHeader(
+                          context: context,
+                          title: 'Bagian 3',
+                          mention: 'Pejuang',
+                          description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 15 soal acak',
+                        ),
+                        sliver: buildPartBody(context: context),
+                      ),
+                      SliverStickyHeader(
+                        header: buildContainerHeader(
+                          context: context,
+                          title: 'Bagian 4',
+                          mention: 'Legenda',
+                          description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 20 soal acak',
+                        ),
+                        sliver: buildPartBody(
+                          context: context,
+                          alignment: PartBodyAlignment.right,
+                        ),
+                      ),
+                    ],
                   ),
-                  SliverStickyHeader(
-                    header: buildContainerHeader(
-                      context: context,
-                      title: 'Bagian 2',
-                      mention: 'Petualang',
-                      description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 10 soal acak',
+                  if (mounted)
+                    Positioned(
+                      top: ((_activeButtonKey.currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero).dy ?? 0.0) - 70.0,
+                      left: ((_activeButtonKey.currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero).dx ?? 0.0) - 10.0,
+                      child: Stack(
+                        children: [
+                          SvgPicture.asset(
+                            'assets/svgs/bubble message start.svg',
+                          ),
+                          Positioned(
+                            top: 12.0,
+                            left: 16.0,
+                            child: Text(
+                              'Mulai',
+                              style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    sliver: buildPartBody(
-                      context: context,
-                      alignment: PartBodyAlignment.right,
-                    ),
-                  ),
-                  SliverStickyHeader(
-                    header: buildContainerHeader(
-                      context: context,
-                      title: 'Bagian 3',
-                      mention: 'Pejuang',
-                      description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 15 soal acak',
-                    ),
-                    sliver: buildPartBody(context: context),
-                  ),
-                  SliverStickyHeader(
-                    header: buildContainerHeader(
-                      context: context,
-                      title: 'Bagian 4',
-                      mention: 'Legenda',
-                      description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 20 soal acak',
-                    ),
-                    sliver: buildPartBody(
-                      context: context,
-                      alignment: PartBodyAlignment.right,
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -112,31 +156,9 @@ class ExerciseFragment extends StatelessWidget {
         ),
       );
 
-  Widget buildCircleButton({
-    required BuildContext context,
-    String? svgAsset,
-    bool enabled = true,
-  }) =>
-      IgnorePointer(
-        ignoring: !enabled,
-        child: MyFilledButton.circle(
-          backgroundColor: enabled ? kColorSurface : const Color(0xFFE5E5E5),
-          borderColor: enabled ? null : const Color(0xFFAFAFAF),
-          radius: 64.0,
-          bottomBorderOnly: true,
-          bottomBorderWidth: 8.0,
-          pressedBottomBorderWidth: 0.0,
-          onPressed: () {},
-          child: svgAsset != null
-              ? SvgPicture.asset(
-                  'assets/svgs/$svgAsset ${enabled ? 'enabled' : 'disabled'}.svg',
-                )
-              : null,
-        ),
-      );
-
   Widget buildPartBody({
     required BuildContext context,
+    Key? activeButtonKey,
     PartBodyAlignment alignment = PartBodyAlignment.left,
   }) {
     bool isLeft = alignment == PartBodyAlignment.left;
@@ -179,8 +201,8 @@ class ExerciseFragment extends StatelessWidget {
               top: 80.0,
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
               right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
-              child: buildCircleButton(
-                context: context,
+              child: CircleExerciseButton(
+                key: activeButtonKey,
                 svgAsset: 'star',
               ),
             ),
@@ -188,8 +210,7 @@ class ExerciseFragment extends StatelessWidget {
               top: 200.0,
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
               right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
-              child: buildCircleButton(
-                context: context,
+              child: const CircleExerciseButton(
                 svgAsset: 'padlock',
                 enabled: false,
               ),
@@ -198,8 +219,7 @@ class ExerciseFragment extends StatelessWidget {
               top: 320.0,
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
               right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
-              child: buildCircleButton(
-                context: context,
+              child: const CircleExerciseButton(
                 svgAsset: 'book',
                 enabled: false,
               ),
@@ -208,8 +228,7 @@ class ExerciseFragment extends StatelessWidget {
               top: 440.0,
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
               right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
-              child: buildCircleButton(
-                context: context,
+              child: const CircleExerciseButton(
                 svgAsset: 'trophy',
                 enabled: false,
               ),
