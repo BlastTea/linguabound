@@ -3,11 +3,13 @@ part of 'widgets.dart';
 class CircleExerciseButton extends StatefulWidget {
   const CircleExerciseButton({
     super.key,
+    this.onPressed,
     this.svgAsset,
     this.enabled = true,
     this.active = false,
   });
 
+  final VoidCallback? onPressed;
   final String? svgAsset;
   final bool enabled;
   final bool active;
@@ -16,7 +18,7 @@ class CircleExerciseButton extends StatefulWidget {
   State<CircleExerciseButton> createState() => _CircleExerciseButtonState();
 }
 
-class _CircleExerciseButtonState extends State<CircleExerciseButton> with SingleTickerProviderStateMixin {
+class _CircleExerciseButtonState extends State<CircleExerciseButton> {
   @override
   Widget build(BuildContext context) => IgnorePointer(
         ignoring: !widget.enabled,
@@ -27,7 +29,7 @@ class _CircleExerciseButtonState extends State<CircleExerciseButton> with Single
           bottomBorderOnly: true,
           bottomBorderWidth: 8.0,
           pressedBottomBorderWidth: 0.0,
-          onPressed: () {},
+          onPressed: widget.onPressed,
           child: widget.svgAsset != null
               ? SvgPicture.asset(
                   'assets/svgs/${widget.svgAsset} ${widget.enabled ? 'enabled' : 'disabled'}.svg',

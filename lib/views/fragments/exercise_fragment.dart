@@ -229,6 +229,7 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
               child: CircleExerciseButton(
                 key: activeButtonKey,
                 svgAsset: 'star',
+                onPressed: activeButtonKey != null ? () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const AssesmentPage())) : () {},
               ),
             ),
             Positioned(

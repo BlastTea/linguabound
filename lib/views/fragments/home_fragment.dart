@@ -97,7 +97,7 @@ class HomeFragment extends StatelessWidget {
           Text('Cek Leaderboard', style: Theme.of(context).textTheme.headlineMedium),
           const SizedBox(height: 16.0),
           MyFilledButton.tonal(
-            onPressed: () {},
+            onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const LeaderboardPage())),
             icon: SvgPicture.asset('assets/svgs/chest.svg'),
             padding: const EdgeInsets.all(16.0),
             borderColor: kColorBorder,
