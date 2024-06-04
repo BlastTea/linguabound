@@ -35,7 +35,7 @@ class OnBoardingPage1 extends StatelessWidget {
               ),
               const SizedBox(height: 8.0),
               MyFilledButton.tonal(
-                onPressed: () {},
+                onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const SignInPage())),
                 child: const Text('Sudah Punya Akun'),
               ),
             ],

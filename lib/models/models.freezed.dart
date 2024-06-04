@@ -20,16 +20,30 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
+  int? get id => throw _privateConstructorUsedError;
+  set id(int? value) => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   set name(String? value) => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   set email(String? value) => throw _privateConstructorUsedError;
-  String? get username => throw _privateConstructorUsedError;
-  set username(String? value) => throw _privateConstructorUsedError;
-  UserDetail? get detail => throw _privateConstructorUsedError;
-  set detail(UserDetail? value) => throw _privateConstructorUsedError;
+  @JsonKey(name: 'email_verified_at')
+  DateTime? get emailVerifiedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'email_verified_at')
+  set emailVerifiedAt(DateTime? value) => throw _privateConstructorUsedError;
+  UserRole? get role => throw _privateConstructorUsedError;
+  set role(UserRole? value) => throw _privateConstructorUsedError;
   String? get foto => throw _privateConstructorUsedError;
   set foto(String? value) => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  set createdAt(DateTime? value) => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
+  DateTime? get updateAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
+  set updateAt(DateTime? value) => throw _privateConstructorUsedError;
+  UserDetail? get detail => throw _privateConstructorUsedError;
+  set detail(UserDetail? value) => throw _privateConstructorUsedError;
   @JsonKey(includeFromJson: false, includeToJson: false)
   Uint8List? get imageData => throw _privateConstructorUsedError;
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -46,11 +60,15 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {String? name,
+      {int? id,
+      String? name,
       String? email,
-      String? username,
-      UserDetail? detail,
+      @JsonKey(name: 'email_verified_at') DateTime? emailVerifiedAt,
+      UserRole? role,
       String? foto,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updateAt,
+      UserDetail? detail,
       @JsonKey(includeFromJson: false, includeToJson: false)
       Uint8List? imageData});
 
@@ -70,14 +88,22 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? email = freezed,
-    Object? username = freezed,
-    Object? detail = freezed,
+    Object? emailVerifiedAt = freezed,
+    Object? role = freezed,
     Object? foto = freezed,
+    Object? createdAt = freezed,
+    Object? updateAt = freezed,
+    Object? detail = freezed,
     Object? imageData = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -86,18 +112,30 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      detail: freezed == detail
-          ? _value.detail
-          : detail // ignore: cast_nullable_to_non_nullable
-              as UserDetail?,
+      emailVerifiedAt: freezed == emailVerifiedAt
+          ? _value.emailVerifiedAt
+          : emailVerifiedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as UserRole?,
       foto: freezed == foto
           ? _value.foto
           : foto // ignore: cast_nullable_to_non_nullable
               as String?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updateAt: freezed == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      detail: freezed == detail
+          ? _value.detail
+          : detail // ignore: cast_nullable_to_non_nullable
+              as UserDetail?,
       imageData: freezed == imageData
           ? _value.imageData
           : imageData // ignore: cast_nullable_to_non_nullable
@@ -126,11 +164,15 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? name,
+      {int? id,
+      String? name,
       String? email,
-      String? username,
-      UserDetail? detail,
+      @JsonKey(name: 'email_verified_at') DateTime? emailVerifiedAt,
+      UserRole? role,
       String? foto,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updateAt,
+      UserDetail? detail,
       @JsonKey(includeFromJson: false, includeToJson: false)
       Uint8List? imageData});
 
@@ -148,14 +190,22 @@ class __$$UserImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? email = freezed,
-    Object? username = freezed,
-    Object? detail = freezed,
+    Object? emailVerifiedAt = freezed,
+    Object? role = freezed,
     Object? foto = freezed,
+    Object? createdAt = freezed,
+    Object? updateAt = freezed,
+    Object? detail = freezed,
     Object? imageData = freezed,
   }) {
     return _then(_$UserImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -164,18 +214,30 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      detail: freezed == detail
-          ? _value.detail
-          : detail // ignore: cast_nullable_to_non_nullable
-              as UserDetail?,
+      emailVerifiedAt: freezed == emailVerifiedAt
+          ? _value.emailVerifiedAt
+          : emailVerifiedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as UserRole?,
       foto: freezed == foto
           ? _value.foto
           : foto // ignore: cast_nullable_to_non_nullable
               as String?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updateAt: freezed == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      detail: freezed == detail
+          ? _value.detail
+          : detail // ignore: cast_nullable_to_non_nullable
+              as UserDetail?,
       imageData: freezed == imageData
           ? _value.imageData
           : imageData // ignore: cast_nullable_to_non_nullable
@@ -188,33 +250,48 @@ class __$$UserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserImpl implements _User {
   _$UserImpl(
-      {this.name,
+      {this.id,
+      this.name,
       this.email,
-      this.username,
-      this.detail,
+      @JsonKey(name: 'email_verified_at') this.emailVerifiedAt,
+      this.role,
       this.foto,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'updated_at') this.updateAt,
+      this.detail,
       @JsonKey(includeFromJson: false, includeToJson: false) this.imageData});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
 
   @override
+  int? id;
+  @override
   String? name;
   @override
   String? email;
   @override
-  String? username;
+  @JsonKey(name: 'email_verified_at')
+  DateTime? emailVerifiedAt;
   @override
-  UserDetail? detail;
+  UserRole? role;
   @override
   String? foto;
+  @override
+  @JsonKey(name: 'created_at')
+  DateTime? createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  DateTime? updateAt;
+  @override
+  UserDetail? detail;
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   Uint8List? imageData;
 
   @override
   String toString() {
-    return 'User(name: $name, email: $email, username: $username, detail: $detail, foto: $foto, imageData: $imageData)';
+    return 'User(id: $id, name: $name, email: $email, emailVerifiedAt: $emailVerifiedAt, role: $role, foto: $foto, createdAt: $createdAt, updateAt: $updateAt, detail: $detail, imageData: $imageData)';
   }
 
   @JsonKey(ignore: true)
@@ -233,16 +310,23 @@ class _$UserImpl implements _User {
 
 abstract class _User implements User {
   factory _User(
-      {String? name,
+      {int? id,
+      String? name,
       String? email,
-      String? username,
-      UserDetail? detail,
+      @JsonKey(name: 'email_verified_at') DateTime? emailVerifiedAt,
+      UserRole? role,
       String? foto,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updateAt,
+      UserDetail? detail,
       @JsonKey(includeFromJson: false, includeToJson: false)
       Uint8List? imageData}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
+  @override
+  int? get id;
+  set id(int? value);
   @override
   String? get name;
   set name(String? value);
@@ -250,14 +334,29 @@ abstract class _User implements User {
   String? get email;
   set email(String? value);
   @override
-  String? get username;
-  set username(String? value);
+  @JsonKey(name: 'email_verified_at')
+  DateTime? get emailVerifiedAt;
+  @JsonKey(name: 'email_verified_at')
+  set emailVerifiedAt(DateTime? value);
   @override
-  UserDetail? get detail;
-  set detail(UserDetail? value);
+  UserRole? get role;
+  set role(UserRole? value);
   @override
   String? get foto;
   set foto(String? value);
+  @override
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt;
+  @JsonKey(name: 'created_at')
+  set createdAt(DateTime? value);
+  @override
+  @JsonKey(name: 'updated_at')
+  DateTime? get updateAt;
+  @JsonKey(name: 'updated_at')
+  set updateAt(DateTime? value);
+  @override
+  UserDetail? get detail;
+  set detail(UserDetail? value);
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   Uint8List? get imageData;
@@ -288,35 +387,95 @@ UserDetail _$UserDetailFromJson(Map<String, dynamic> json) {
 mixin _$UserDetail {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? namaOrangTua, int? exp, int? star,
-            int? level, String? kodeOrangTua)
+    required TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+            int? exp,
+            int? star,
+            int? level,
+            @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+            @JsonKey(name: 'user_id') int? userId,
+            String? username,
+            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)
         remaja,
     required TResult Function(
-            String? nama, String? gelar, String? riwayatPendidikanTerakhir)
+            String? nama,
+            String? gelar,
+            @JsonKey(name: 'riwayat_pendidikan_terakhir')
+            String? riwayatPendidikanTerakhir)
         mentor,
-    required TResult Function(String? nama, String? kode) orangTua,
+    required TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+            String? kode,
+            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)
+        orangTua,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? namaOrangTua, int? exp, int? star, int? level,
-            String? kodeOrangTua)?
+    TResult? Function(
+            int? id,
+            @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+            int? exp,
+            int? star,
+            int? level,
+            @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+            @JsonKey(name: 'user_id') int? userId,
+            String? username,
+            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult? Function(
-            String? nama, String? gelar, String? riwayatPendidikanTerakhir)?
+            String? nama,
+            String? gelar,
+            @JsonKey(name: 'riwayat_pendidikan_terakhir')
+            String? riwayatPendidikanTerakhir)?
         mentor,
-    TResult? Function(String? nama, String? kode)? orangTua,
+    TResult? Function(
+            int? id,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+            String? kode,
+            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
+        orangTua,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? namaOrangTua, int? exp, int? star, int? level,
-            String? kodeOrangTua)?
+    TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+            int? exp,
+            int? star,
+            int? level,
+            @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+            @JsonKey(name: 'user_id') int? userId,
+            String? username,
+            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult Function(
-            String? nama, String? gelar, String? riwayatPendidikanTerakhir)?
+            String? nama,
+            String? gelar,
+            @JsonKey(name: 'riwayat_pendidikan_terakhir')
+            String? riwayatPendidikanTerakhir)?
         mentor,
-    TResult Function(String? nama, String? kode)? orangTua,
+    TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+            String? kode,
+            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
+        orangTua,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -370,11 +529,17 @@ abstract class _$$RemajaImplCopyWith<$Res> {
       __$$RemajaImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {String? namaOrangTua,
+      {int? id,
+      @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
       int? exp,
       int? star,
       int? level,
-      String? kodeOrangTua});
+      @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+      @JsonKey(name: 'user_id') int? userId,
+      String? username,
+      @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -388,13 +553,23 @@ class __$$RemajaImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? namaOrangTua = freezed,
     Object? exp = freezed,
     Object? star = freezed,
     Object? level = freezed,
     Object? kodeOrangTua = freezed,
+    Object? userId = freezed,
+    Object? username = freezed,
+    Object? orangTuaId = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$RemajaImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       namaOrangTua: freezed == namaOrangTua
           ? _value.namaOrangTua
           : namaOrangTua // ignore: cast_nullable_to_non_nullable
@@ -415,6 +590,26 @@ class __$$RemajaImplCopyWithImpl<$Res>
           ? _value.kodeOrangTua
           : kodeOrangTua // ignore: cast_nullable_to_non_nullable
               as String?,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      orangTuaId: freezed == orangTuaId
+          ? _value.orangTuaId
+          : orangTuaId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -423,11 +618,17 @@ class __$$RemajaImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RemajaImpl implements Remaja {
   _$RemajaImpl(
-      {this.namaOrangTua,
+      {this.id,
+      @JsonKey(name: 'nama_orang_tua') this.namaOrangTua,
       this.exp,
       this.star,
       this.level,
-      this.kodeOrangTua,
+      @JsonKey(name: 'kode_orang_tua') this.kodeOrangTua,
+      @JsonKey(name: 'user_id') this.userId,
+      this.username,
+      @JsonKey(name: 'orang_tua_id') this.orangTuaId,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'updated_at') this.updatedAt,
       final String? $type})
       : $type = $type ?? 'remaja';
 
@@ -435,6 +636,9 @@ class _$RemajaImpl implements Remaja {
       _$$RemajaImplFromJson(json);
 
   @override
+  int? id;
+  @override
+  @JsonKey(name: 'nama_orang_tua')
   String? namaOrangTua;
   @override
   int? exp;
@@ -443,14 +647,29 @@ class _$RemajaImpl implements Remaja {
   @override
   int? level;
   @override
+  @JsonKey(name: 'kode_orang_tua')
   String? kodeOrangTua;
+  @override
+  @JsonKey(name: 'user_id')
+  int? userId;
+  @override
+  String? username;
+  @override
+  @JsonKey(name: 'orang_tua_id')
+  int? orangTuaId;
+  @override
+  @JsonKey(name: 'created_at')
+  DateTime? createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  DateTime? updatedAt;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'UserDetail.remaja(namaOrangTua: $namaOrangTua, exp: $exp, star: $star, level: $level, kodeOrangTua: $kodeOrangTua)';
+    return 'UserDetail.remaja(id: $id, namaOrangTua: $namaOrangTua, exp: $exp, star: $star, level: $level, kodeOrangTua: $kodeOrangTua, userId: $userId, username: $username, orangTuaId: $orangTuaId, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @JsonKey(ignore: true)
@@ -462,45 +681,108 @@ class _$RemajaImpl implements Remaja {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? namaOrangTua, int? exp, int? star,
-            int? level, String? kodeOrangTua)
+    required TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+            int? exp,
+            int? star,
+            int? level,
+            @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+            @JsonKey(name: 'user_id') int? userId,
+            String? username,
+            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)
         remaja,
     required TResult Function(
-            String? nama, String? gelar, String? riwayatPendidikanTerakhir)
+            String? nama,
+            String? gelar,
+            @JsonKey(name: 'riwayat_pendidikan_terakhir')
+            String? riwayatPendidikanTerakhir)
         mentor,
-    required TResult Function(String? nama, String? kode) orangTua,
+    required TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+            String? kode,
+            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)
+        orangTua,
   }) {
-    return remaja(namaOrangTua, exp, star, level, kodeOrangTua);
+    return remaja(id, namaOrangTua, exp, star, level, kodeOrangTua, userId,
+        username, orangTuaId, createdAt, updatedAt);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? namaOrangTua, int? exp, int? star, int? level,
-            String? kodeOrangTua)?
+    TResult? Function(
+            int? id,
+            @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+            int? exp,
+            int? star,
+            int? level,
+            @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+            @JsonKey(name: 'user_id') int? userId,
+            String? username,
+            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult? Function(
-            String? nama, String? gelar, String? riwayatPendidikanTerakhir)?
+            String? nama,
+            String? gelar,
+            @JsonKey(name: 'riwayat_pendidikan_terakhir')
+            String? riwayatPendidikanTerakhir)?
         mentor,
-    TResult? Function(String? nama, String? kode)? orangTua,
+    TResult? Function(
+            int? id,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+            String? kode,
+            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
+        orangTua,
   }) {
-    return remaja?.call(namaOrangTua, exp, star, level, kodeOrangTua);
+    return remaja?.call(id, namaOrangTua, exp, star, level, kodeOrangTua,
+        userId, username, orangTuaId, createdAt, updatedAt);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? namaOrangTua, int? exp, int? star, int? level,
-            String? kodeOrangTua)?
+    TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+            int? exp,
+            int? star,
+            int? level,
+            @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+            @JsonKey(name: 'user_id') int? userId,
+            String? username,
+            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult Function(
-            String? nama, String? gelar, String? riwayatPendidikanTerakhir)?
+            String? nama,
+            String? gelar,
+            @JsonKey(name: 'riwayat_pendidikan_terakhir')
+            String? riwayatPendidikanTerakhir)?
         mentor,
-    TResult Function(String? nama, String? kode)? orangTua,
+    TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+            String? kode,
+            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
+        orangTua,
     required TResult orElse(),
   }) {
     if (remaja != null) {
-      return remaja(namaOrangTua, exp, star, level, kodeOrangTua);
+      return remaja(id, namaOrangTua, exp, star, level, kodeOrangTua, userId,
+          username, orangTuaId, createdAt, updatedAt);
     }
     return orElse();
   }
@@ -549,15 +831,25 @@ class _$RemajaImpl implements Remaja {
 
 abstract class Remaja implements UserDetail {
   factory Remaja(
-      {String? namaOrangTua,
+      {int? id,
+      @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
       int? exp,
       int? star,
       int? level,
-      String? kodeOrangTua}) = _$RemajaImpl;
+      @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+      @JsonKey(name: 'user_id') int? userId,
+      String? username,
+      @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt}) = _$RemajaImpl;
 
   factory Remaja.fromJson(Map<String, dynamic> json) = _$RemajaImpl.fromJson;
 
+  int? get id;
+  set id(int? value);
+  @JsonKey(name: 'nama_orang_tua')
   String? get namaOrangTua;
+  @JsonKey(name: 'nama_orang_tua')
   set namaOrangTua(String? value);
   int? get exp;
   set exp(int? value);
@@ -565,8 +857,28 @@ abstract class Remaja implements UserDetail {
   set star(int? value);
   int? get level;
   set level(int? value);
+  @JsonKey(name: 'kode_orang_tua')
   String? get kodeOrangTua;
+  @JsonKey(name: 'kode_orang_tua')
   set kodeOrangTua(String? value);
+  @JsonKey(name: 'user_id')
+  int? get userId;
+  @JsonKey(name: 'user_id')
+  set userId(int? value);
+  String? get username;
+  set username(String? value);
+  @JsonKey(name: 'orang_tua_id')
+  int? get orangTuaId;
+  @JsonKey(name: 'orang_tua_id')
+  set orangTuaId(int? value);
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt;
+  @JsonKey(name: 'created_at')
+  set createdAt(DateTime? value);
+  @JsonKey(name: 'updated_at')
+  DateTime? get updatedAt;
+  @JsonKey(name: 'updated_at')
+  set updatedAt(DateTime? value);
   @JsonKey(ignore: true)
   _$$RemajaImplCopyWith<_$RemajaImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -578,7 +890,11 @@ abstract class _$$MentorImplCopyWith<$Res> {
           _$MentorImpl value, $Res Function(_$MentorImpl) then) =
       __$$MentorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String? nama, String? gelar, String? riwayatPendidikanTerakhir});
+  $Res call(
+      {String? nama,
+      String? gelar,
+      @JsonKey(name: 'riwayat_pendidikan_terakhir')
+      String? riwayatPendidikanTerakhir});
 }
 
 /// @nodoc
@@ -619,6 +935,7 @@ class _$MentorImpl implements Mentor {
   _$MentorImpl(
       {this.nama,
       this.gelar,
+      @JsonKey(name: 'riwayat_pendidikan_terakhir')
       this.riwayatPendidikanTerakhir,
       final String? $type})
       : $type = $type ?? 'mentor';
@@ -631,6 +948,7 @@ class _$MentorImpl implements Mentor {
   @override
   String? gelar;
   @override
+  @JsonKey(name: 'riwayat_pendidikan_terakhir')
   String? riwayatPendidikanTerakhir;
 
   @JsonKey(name: 'runtimeType')
@@ -650,13 +968,33 @@ class _$MentorImpl implements Mentor {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? namaOrangTua, int? exp, int? star,
-            int? level, String? kodeOrangTua)
+    required TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+            int? exp,
+            int? star,
+            int? level,
+            @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+            @JsonKey(name: 'user_id') int? userId,
+            String? username,
+            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)
         remaja,
     required TResult Function(
-            String? nama, String? gelar, String? riwayatPendidikanTerakhir)
+            String? nama,
+            String? gelar,
+            @JsonKey(name: 'riwayat_pendidikan_terakhir')
+            String? riwayatPendidikanTerakhir)
         mentor,
-    required TResult Function(String? nama, String? kode) orangTua,
+    required TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+            String? kode,
+            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)
+        orangTua,
   }) {
     return mentor(nama, gelar, riwayatPendidikanTerakhir);
   }
@@ -664,13 +1002,33 @@ class _$MentorImpl implements Mentor {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? namaOrangTua, int? exp, int? star, int? level,
-            String? kodeOrangTua)?
+    TResult? Function(
+            int? id,
+            @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+            int? exp,
+            int? star,
+            int? level,
+            @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+            @JsonKey(name: 'user_id') int? userId,
+            String? username,
+            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult? Function(
-            String? nama, String? gelar, String? riwayatPendidikanTerakhir)?
+            String? nama,
+            String? gelar,
+            @JsonKey(name: 'riwayat_pendidikan_terakhir')
+            String? riwayatPendidikanTerakhir)?
         mentor,
-    TResult? Function(String? nama, String? kode)? orangTua,
+    TResult? Function(
+            int? id,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+            String? kode,
+            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
+        orangTua,
   }) {
     return mentor?.call(nama, gelar, riwayatPendidikanTerakhir);
   }
@@ -678,13 +1036,33 @@ class _$MentorImpl implements Mentor {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? namaOrangTua, int? exp, int? star, int? level,
-            String? kodeOrangTua)?
+    TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+            int? exp,
+            int? star,
+            int? level,
+            @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+            @JsonKey(name: 'user_id') int? userId,
+            String? username,
+            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult Function(
-            String? nama, String? gelar, String? riwayatPendidikanTerakhir)?
+            String? nama,
+            String? gelar,
+            @JsonKey(name: 'riwayat_pendidikan_terakhir')
+            String? riwayatPendidikanTerakhir)?
         mentor,
-    TResult Function(String? nama, String? kode)? orangTua,
+    TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+            String? kode,
+            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
+        orangTua,
     required TResult orElse(),
   }) {
     if (mentor != null) {
@@ -739,6 +1117,7 @@ abstract class Mentor implements UserDetail {
   factory Mentor(
       {String? nama,
       String? gelar,
+      @JsonKey(name: 'riwayat_pendidikan_terakhir')
       String? riwayatPendidikanTerakhir}) = _$MentorImpl;
 
   factory Mentor.fromJson(Map<String, dynamic> json) = _$MentorImpl.fromJson;
@@ -747,7 +1126,9 @@ abstract class Mentor implements UserDetail {
   set nama(String? value);
   String? get gelar;
   set gelar(String? value);
+  @JsonKey(name: 'riwayat_pendidikan_terakhir')
   String? get riwayatPendidikanTerakhir;
+  @JsonKey(name: 'riwayat_pendidikan_terakhir')
   set riwayatPendidikanTerakhir(String? value);
   @JsonKey(ignore: true)
   _$$MentorImplCopyWith<_$MentorImpl> get copyWith =>
@@ -760,7 +1141,13 @@ abstract class _$$OrangTuaImplCopyWith<$Res> {
           _$OrangTuaImpl value, $Res Function(_$OrangTuaImpl) then) =
       __$$OrangTuaImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String? nama, String? kode});
+  $Res call(
+      {int? id,
+      @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+      String? kode,
+      @JsonKey(name: 'user_id') int? userId,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -774,18 +1161,38 @@ class __$$OrangTuaImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nama = freezed,
+    Object? id = freezed,
+    Object? namaLengkap = freezed,
     Object? kode = freezed,
+    Object? userId = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$OrangTuaImpl(
-      nama: freezed == nama
-          ? _value.nama
-          : nama // ignore: cast_nullable_to_non_nullable
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      namaLengkap: freezed == namaLengkap
+          ? _value.namaLengkap
+          : namaLengkap // ignore: cast_nullable_to_non_nullable
               as String?,
       kode: freezed == kode
           ? _value.kode
           : kode // ignore: cast_nullable_to_non_nullable
               as String?,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -793,23 +1200,42 @@ class __$$OrangTuaImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$OrangTuaImpl implements OrangTua {
-  _$OrangTuaImpl({this.nama, this.kode, final String? $type})
+  _$OrangTuaImpl(
+      {this.id,
+      @JsonKey(name: 'nama_lengkap') this.namaLengkap,
+      this.kode,
+      @JsonKey(name: 'user_id') this.userId,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'updated_at') this.updatedAt,
+      final String? $type})
       : $type = $type ?? 'orangTua';
 
   factory _$OrangTuaImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrangTuaImplFromJson(json);
 
   @override
-  String? nama;
+  int? id;
+  @override
+  @JsonKey(name: 'nama_lengkap')
+  String? namaLengkap;
   @override
   String? kode;
+  @override
+  @JsonKey(name: 'user_id')
+  int? userId;
+  @override
+  @JsonKey(name: 'created_at')
+  DateTime? createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  DateTime? updatedAt;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'UserDetail.orangTua(nama: $nama, kode: $kode)';
+    return 'UserDetail.orangTua(id: $id, namaLengkap: $namaLengkap, kode: $kode, userId: $userId, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @JsonKey(ignore: true)
@@ -821,45 +1247,105 @@ class _$OrangTuaImpl implements OrangTua {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? namaOrangTua, int? exp, int? star,
-            int? level, String? kodeOrangTua)
+    required TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+            int? exp,
+            int? star,
+            int? level,
+            @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+            @JsonKey(name: 'user_id') int? userId,
+            String? username,
+            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)
         remaja,
     required TResult Function(
-            String? nama, String? gelar, String? riwayatPendidikanTerakhir)
+            String? nama,
+            String? gelar,
+            @JsonKey(name: 'riwayat_pendidikan_terakhir')
+            String? riwayatPendidikanTerakhir)
         mentor,
-    required TResult Function(String? nama, String? kode) orangTua,
+    required TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+            String? kode,
+            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)
+        orangTua,
   }) {
-    return orangTua(nama, kode);
+    return orangTua(id, namaLengkap, kode, userId, createdAt, updatedAt);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? namaOrangTua, int? exp, int? star, int? level,
-            String? kodeOrangTua)?
+    TResult? Function(
+            int? id,
+            @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+            int? exp,
+            int? star,
+            int? level,
+            @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+            @JsonKey(name: 'user_id') int? userId,
+            String? username,
+            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult? Function(
-            String? nama, String? gelar, String? riwayatPendidikanTerakhir)?
+            String? nama,
+            String? gelar,
+            @JsonKey(name: 'riwayat_pendidikan_terakhir')
+            String? riwayatPendidikanTerakhir)?
         mentor,
-    TResult? Function(String? nama, String? kode)? orangTua,
+    TResult? Function(
+            int? id,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+            String? kode,
+            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
+        orangTua,
   }) {
-    return orangTua?.call(nama, kode);
+    return orangTua?.call(id, namaLengkap, kode, userId, createdAt, updatedAt);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? namaOrangTua, int? exp, int? star, int? level,
-            String? kodeOrangTua)?
+    TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+            int? exp,
+            int? star,
+            int? level,
+            @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+            @JsonKey(name: 'user_id') int? userId,
+            String? username,
+            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult Function(
-            String? nama, String? gelar, String? riwayatPendidikanTerakhir)?
+            String? nama,
+            String? gelar,
+            @JsonKey(name: 'riwayat_pendidikan_terakhir')
+            String? riwayatPendidikanTerakhir)?
         mentor,
-    TResult Function(String? nama, String? kode)? orangTua,
+    TResult Function(
+            int? id,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+            String? kode,
+            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'created_at') DateTime? createdAt,
+            @JsonKey(name: 'updated_at') DateTime? updatedAt)?
+        orangTua,
     required TResult orElse(),
   }) {
     if (orangTua != null) {
-      return orangTua(nama, kode);
+      return orangTua(id, namaLengkap, kode, userId, createdAt, updatedAt);
     }
     return orElse();
   }
@@ -907,15 +1393,37 @@ class _$OrangTuaImpl implements OrangTua {
 }
 
 abstract class OrangTua implements UserDetail {
-  factory OrangTua({String? nama, String? kode}) = _$OrangTuaImpl;
+  factory OrangTua(
+      {int? id,
+      @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+      String? kode,
+      @JsonKey(name: 'user_id') int? userId,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt}) = _$OrangTuaImpl;
 
   factory OrangTua.fromJson(Map<String, dynamic> json) =
       _$OrangTuaImpl.fromJson;
 
-  String? get nama;
-  set nama(String? value);
+  int? get id;
+  set id(int? value);
+  @JsonKey(name: 'nama_lengkap')
+  String? get namaLengkap;
+  @JsonKey(name: 'nama_lengkap')
+  set namaLengkap(String? value);
   String? get kode;
   set kode(String? value);
+  @JsonKey(name: 'user_id')
+  int? get userId;
+  @JsonKey(name: 'user_id')
+  set userId(int? value);
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt;
+  @JsonKey(name: 'created_at')
+  set createdAt(DateTime? value);
+  @JsonKey(name: 'updated_at')
+  DateTime? get updatedAt;
+  @JsonKey(name: 'updated_at')
+  set updatedAt(DateTime? value);
   @JsonKey(ignore: true)
   _$$OrangTuaImplCopyWith<_$OrangTuaImpl> get copyWith =>
       throw _privateConstructorUsedError;

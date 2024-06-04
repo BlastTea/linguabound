@@ -1,7 +1,12 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:linguabound/blocs/blocs.dart';
+import 'package:linguabound/main.dart';
 import 'package:linguabound/utils/utils.dart';
 import 'package:linguabound/views/fragments/fragments.dart';
 import 'package:linguabound_widget/linguabound_widget.dart';
@@ -11,6 +16,8 @@ part 'home_page.dart';
 part 'detail_meet_page.dart';
 part 'assesment_page.dart';
 part 'leaderboard_page.dart';
+part 'edit_profile_page.dart';
+part 'change_password_page.dart';
 
 part 'on_boarding/on_boarding_page_1.dart';
 part 'on_boarding/on_boarding_page_2.dart';

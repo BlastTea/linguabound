@@ -1,21 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:linguabound/blocs/blocs.dart';
+import 'package:linguabound/services/services.dart';
+import 'package:linguabound/utils/utils.dart';
 import 'package:linguabound/views/pages/pages.dart';
 import 'package:linguabound_widget/linguabound_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await dotenv.load();
+
   await LinguaboundWidget.initialize();
 
-  runApp(const MainApp());
+  try {
+    await ApiHelper.signInWithToken();
+  } catch (e) {
+    ApiHelper.handleError(e);
+  }
+
+  runApp(const MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  static AuthenticationBloc authenticationBloc = AuthenticationBloc();
 
   @override
-  Widget build(BuildContext context) => const LinguaboundMaterialApp(
-        title: 'Linguabound',
-        home: const OnBoardingPage1(),
+  Widget build(BuildContext context) => MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => authenticationBloc),
+        ],
+        child: LinguaboundMaterialApp(
+          title: 'Linguabound',
+          home: currentUser != null ? const HomePage() : const OnBoardingPage1(),
+        ),
       );
 }

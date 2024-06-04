@@ -13,4 +13,4 @@ const kDummyPictureProfileUrl = 'https://avatars.githubusercontent.com/u/1164761
 
 const keyToken = 'token';
 
-late User currentUser;
+User? currentUser;

@@ -605,11 +605,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: ae5caac799cd261176656299471403d42327fb70
-      resolved-ref: ae5caac799cd261176656299471403d42327fb70
+      ref: e4728c1f0a11eed4fe1c9cc9fc35909cf6940595
+      resolved-ref: e4728c1f0a11eed4fe1c9cc9fc35909cf6940595
       url: "https://github.com/BlastTea/linguabound_widget.git"
     source: git
-    version: "1.6.1"
+    version: "1.6.4"
   lints:
     dependency: transitive
     description:

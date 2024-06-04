@@ -101,14 +101,21 @@ final class ApiHelper {
 
   static Future<void> _refreshCurrentUser(dynamic response) async {
     if (response != null) {
-      currentUser = User.fromJson(response['user']);
-      if (currentUser.foto != null) {
+      currentUser = User.fromJson(response['data']);
+      if (currentUser!.foto != null) {
         try {
-          currentUser.imageData = await getFile(uri: Uri.parse(currentUser.foto!), timeout: const Duration(seconds: 10));
+          currentUser!.imageData = await getFile(uri: Uri.parse(currentUser!.foto!), timeout: const Duration(seconds: 10));
         } catch (e) {
           // Ignored, really
         }
       }
+      return;
+    }
+
+    try {
+      await 
+    } catch (e) {
+      ApiHelper.handleError(e);
     }
   }
 
@@ -133,42 +140,36 @@ final class ApiHelper {
     }
 
     if (refreshCurrentUser) {
-      dynamic response = await post(pathUrl: dotenv.env['PATH_AUTH_USER']!);
+      dynamic response = await post(pathUrl: dotenv.env['ENDPOINT_AUTH_USER']!);
       await _refreshCurrentUser(response);
     }
 
     return token;
   }
 
-  static Future<bool> signIn({required String username, required String password}) async {
-    try {
-      dynamic response = await _request(
-        method: 'POST',
-        uri: Uri.parse('$_url/${dotenv.env['PATH_AUTH_SINGIN']}'),
-        body: {
-          'username': username,
-          'password': password,
-        },
-        ignoreAuthorization: true,
-        timeout: const Duration(seconds: 30),
-      );
+  static Future<void> signIn({required String email, required String password}) async {
+    dynamic response = await _request(
+      method: 'POST',
+      uri: Uri.parse('$_url/${dotenv.env['ENDPOINT_AUTH_LOGIN']}'),
+      body: {
+        'email': email,
+        'password': password,
+      },
+      ignoreAuthorization: true,
+      timeout: const Duration(seconds: 30),
+    );
 
-      SharedPreferences sharedPref = await SharedPreferences.getInstance();
-      await sharedPref.setString(keyToken, response['token']);
+    SharedPreferences sharedPref = await SharedPreferences.getInstance();
+    await sharedPref.setString(keyToken, response['token']);
 
-      await _refreshCurrentUser(response);
-      return true;
-    } catch (e) {
-      ApiHelper.handleError(e);
-      return false;
-    }
+    await _refreshCurrentUser(response);
   }
 
   static Future<void> signInWithToken() async => _getToken(refreshCurrentUser: true);
 
   static Future<void> signOut() async {
     try {
-      await post(pathUrl: dotenv.env['PATH_AUTH_SIGNOUT']!);
+      await post(pathUrl: dotenv.env['ENDPOINT_LOGOUT']!);
     } catch (e) {
       // Ignored, really
     }
@@ -211,34 +212,30 @@ final class ApiHelper {
       );
 
   static Future<void> handleError(Object e) {
-    if (e is Map && e['status_code'] == 401) {
+    if (e is Map && (e['status_code'] == 401 || e['status_code'] == 422)) {
+      if (e['data']['message'] is Map) return showErrorDialog(e['data']['message'].toString());
+
+      if (e['data']['message'] == 'The provided credentials are incorrect.') return showErrorDialog('Email atau Password salah');
+
       while (NavigationHelper.canGoBack()) {
         NavigationHelper.back();
       }
       NavigationHelper.toReplacement(MaterialPageRoute(builder: (context) => const SignInPage()));
 
-      if (e['data']['message'] is Map) return showInformationDialog(e['data']['message'].toString());
-
-      String? message = Language.getInstance().getValue(e['data']['message']);
-
-      if (message != null) return showErrorDialog(message);
-
-      return showInformationDialog(Language.getInstance().getValue('Your session has ended')!);
+      return showInformationDialog('Sesi Anda telah berakhir');
     }
 
-    if (e is Map && e['status_code'] == 404) return showErrorDialog(Language.getInstance().getValue('URL not found, please update the application')!);
+    if (e is Map && e['status_code'] == 404) return showErrorDialog('URL tidak ditemukan, silahkan update aplikasi');
 
-    if (e is Map && e['status_code'] == 500) return showErrorDialog(Language.getInstance().getValue('An error occurred on the server')!);
+    if (e is Map && e['status_code'] == 500) return showErrorDialog('Terjadi error di server');
 
     if (e is Map && e['data'] is Map && e['data']['message'] != null) {
       if (e['data']['message'] is Map) return showErrorDialog(e['data']['message'].toString());
 
-      String? message = Language.getInstance().getValue(e['data']['message']);
-
-      return showErrorDialog(message ?? e['data']['message']);
+      return showErrorDialog(e['data']['message']);
     }
 
-    if (e is http.ClientException) return showErrorDialog(Language.getInstance().getValue('Failed to connect to server, please check your internet connection')!);
+    if (e is http.ClientException) return showErrorDialog('Gagal terhubung ke server, silahkan periksa koneksi internet Anda');
 
     if (e is FormatException) return showErrorDialog('${e.source}, ${e.message}');
 
