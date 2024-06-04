@@ -9,8 +9,8 @@ class SignInPage extends StatelessWidget {
           stateAuthentication as AuthenticationDataLoaded;
 
           if (kDebugMode) {
-            stateAuthentication.textControllerEmail.text = dotenv.env['USERNAME_DUMMY_ORANGTUA']!;
-            stateAuthentication.textControllerPassword.text = dotenv.env['PASSWORD_DUMMY_ORANGTUA']!;
+            stateAuthentication.textControllerEmailSignIn.text = dotenv.env['USERNAME_DUMMY_ORANGTUA']!;
+            stateAuthentication.textControllerPasswordSignIn.text = dotenv.env['PASSWORD_DUMMY_ORANGTUA']!;
 
             // stateAuthentication.textControllerEmail.text = dotenv.env['USERNAME_DUMMY_REMAJA']!;
             // stateAuthentication.textControllerPassword.text = dotenv.env['PASSWORD_DUMMY_REMAJA']!;
@@ -33,7 +33,7 @@ class SignInPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: TextField(
-                        controller: stateAuthentication.textControllerEmail,
+                        controller: stateAuthentication.textControllerEmailSignIn,
                         decoration: const InputDecoration(
                           labelText: 'Email',
                         ),
@@ -44,15 +44,15 @@ class SignInPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: TextField(
-                        controller: stateAuthentication.textControllerPassword,
+                        controller: stateAuthentication.textControllerPasswordSignIn,
                         decoration: InputDecoration(
                           labelText: 'Password',
                           suffixIcon: IconButton(
-                            onPressed: () => MyApp.authenticationBloc.add(SetLoginPasswordVisible(value: !stateAuthentication.isPasswordVisible)),
-                            icon: Icon(!stateAuthentication.isPasswordVisible ? Icons.visibility : Icons.visibility_off),
+                            onPressed: () => MyApp.authenticationBloc.add(SetSignInPasswordVisible(value: !stateAuthentication.isSignInPasswordVisible)),
+                            icon: Icon(!stateAuthentication.isSignInPasswordVisible ? Icons.visibility : Icons.visibility_off),
                           ),
                         ),
-                        obscureText: !stateAuthentication.isPasswordVisible,
+                        obscureText: !stateAuthentication.isSignInPasswordVisible,
                         onEditingComplete: () => MyApp.authenticationBloc.add(SignInPressed()),
                       ),
                     ),

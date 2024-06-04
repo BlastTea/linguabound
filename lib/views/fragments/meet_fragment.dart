@@ -7,38 +7,38 @@ class MeetFragment extends StatelessWidget {
   Widget build(BuildContext context) => CustomScrollView(
         slivers: [
           SliverToBoxAdapter(child: SizedBox(height: MediaQuery.viewPaddingOf(context).top)),
-          const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            sliver: SliverToBoxAdapter(
-              child: BannerContainer(
-                title: const Text('10 dalam 1 sesi'),
-                subtitle: const Text('Marilah terbuka pada hal-hal yang paling penting'),
-                actions: [
-                  TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                    child: Text(
-                      'Meet Sekarang',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
-                    ),
-                  ),
-                  const SizedBox(width: 8.0),
-                  const Icon(
-                    Icons.date_range_outlined,
-                    color: kColorBorder,
-                    size: 17.0,
-                  )
-                ],
-                image: Image.asset('assets/images/Meetup Icon.png'),
-              ),
-            ),
-          ),
-          const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            sliver: SliverToBoxAdapter(child: Text('Semua Sesi', style: Theme.of(context).textTheme.headlineMedium)),
-          ),
+          // const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
+          // SliverPadding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          //   sliver: SliverToBoxAdapter(
+          //     child: BannerContainer(
+          //       title: const Text('10 dalam 1 sesi'),
+          //       subtitle: const Text('Marilah terbuka pada hal-hal yang paling penting'),
+          //       actions: [
+          //         TextButton(
+          //           onPressed: () {},
+          //           style: TextButton.styleFrom(padding: EdgeInsets.zero),
+          //           child: Text(
+          //             'Meet Sekarang',
+          //             style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
+          //           ),
+          //         ),
+          //         const SizedBox(width: 8.0),
+          //         const Icon(
+          //           Icons.date_range_outlined,
+          //           color: kColorBorder,
+          //           size: 17.0,
+          //         )
+          //       ],
+          //       image: Image.asset('assets/images/Meetup Icon.png'),
+          //     ),
+          //   ),
+          // ),
+          // const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
+          // SliverPadding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          //   sliver: SliverToBoxAdapter(child: Text('Semua Sesi', style: Theme.of(context).textTheme.headlineMedium)),
+          // ),
           const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),

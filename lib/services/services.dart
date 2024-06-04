@@ -9,6 +9,7 @@ import 'package:linguabound/main.dart';
 import 'package:linguabound/models/models.dart';
 import 'package:linguabound/utils/utils.dart';
 import 'package:linguabound/views/pages/pages.dart';
+import 'package:linguabound_widget/linguabound_widget.dart';
 import 'package:m_widget/m_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

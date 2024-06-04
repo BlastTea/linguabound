@@ -1,4 +1,4 @@
-part of '../pages.dart';
+part of 'pages.dart';
 
 class OnBoardingPage1 extends StatelessWidget {
   const OnBoardingPage1({super.key});
@@ -29,8 +29,7 @@ class OnBoardingPage1 extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               MyFilledButton(
-                // TODO: add assesment before go to homepage
-                onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => HomePage(key: homePageKey))),
+                onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => SignUpSelectRolePage(key: homePageKey))),
                 child: const Text('Mulai'),
               ),
               const SizedBox(height: 8.0),

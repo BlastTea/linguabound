@@ -9,8 +9,20 @@ class SetAuthenticationState extends AuthenticationEvent {
   final AuthenticationState? state;
 }
 
-class SetLoginPasswordVisible extends AuthenticationEvent {
-  SetLoginPasswordVisible({required this.value});
+class SetSignInPasswordVisible extends AuthenticationEvent {
+  SetSignInPasswordVisible({required this.value});
+
+  final bool value;
+}
+
+class SetSignUpPasswordVisible extends AuthenticationEvent {
+  SetSignUpPasswordVisible({required this.value});
+
+  final bool value;
+}
+
+class SetSignUpPasswordConfirmationVisible extends AuthenticationEvent {
+  SetSignUpPasswordConfirmationVisible({required this.value});
 
   final bool value;
 }

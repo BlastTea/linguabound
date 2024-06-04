@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,13 +22,9 @@ part 'leaderboard_page.dart';
 part 'edit_profile_page.dart';
 part 'change_password_page.dart';
 
-part 'on_boarding/on_boarding_page_1.dart';
-part 'on_boarding/on_boarding_page_2.dart';
-part 'on_boarding/on_boarding_page_3.dart';
-part 'on_boarding/on_boarding_page_4.dart';
-part 'on_boarding/on_boarding_page_5.dart';
-part 'on_boarding/on_boarding_end.dart';
+part 'on_boarding_page.dart';
 
 part 'sign_in/sign_up_page.dart';
 part 'sign_in/sign_up_successful_page.dart';
 part 'sign_in/sign_in_page.dart';
+part 'sign_in/sign_up_select_role_page.dart';

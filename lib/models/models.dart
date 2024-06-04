@@ -5,10 +5,16 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'models.g.dart';
 part 'models.freezed.dart';
 
+int? _parseInt(dynamic value) => value is String? && value != null
+    ? int.tryParse(value)
+    : value is int
+        ? value
+        : null;
+
 @unfreezed
 class User with _$User {
   factory User({
-    int? id,
+    @JsonKey(fromJson: _parseInt) int? id,
     String? name,
     String? email,
     @JsonKey(name: 'email_verified_at') DateTime? emailVerifiedAt,
@@ -32,11 +38,11 @@ class User with _$User {
 sealed class UserDetail with _$UserDetail {
   @FreezedUnionValue('Remaja')
   factory UserDetail.remaja({
-    int? id,
+    @JsonKey(fromJson: _parseInt) int? id,
     @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-    int? exp,
-    int? star,
-    int? level,
+    @JsonKey(fromJson: _parseInt) int? exp,
+    @JsonKey(fromJson: _parseInt) int? star,
+    @JsonKey(fromJson: _parseInt) int? level,
     @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
     @JsonKey(name: 'user_id') int? userId,
     String? username,
@@ -54,7 +60,7 @@ sealed class UserDetail with _$UserDetail {
 
   @FreezedUnionValue('Parent')
   factory UserDetail.orangTua({
-    int? id,
+    @JsonKey(fromJson: _parseInt) int? id,
     @JsonKey(name: 'nama_lengkap') String? namaLengkap,
     String? kode,
     @JsonKey(name: 'user_id') int? userId,
@@ -68,11 +74,11 @@ sealed class UserDetail with _$UserDetail {
 @freezed
 class Leaderboard with _$Leaderboard {
   factory Leaderboard({
-    int? id,
+    @JsonKey(fromJson: _parseInt) int? id,
     @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-    int? exp,
-    int? star,
-    int? level,
+    @JsonKey(fromJson: _parseInt) int? exp,
+    @JsonKey(fromJson: _parseInt) int? star,
+    @JsonKey(fromJson: _parseInt) int? level,
     @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
     @JsonKey(name: 'user_id') int? userId,
     String? username,
@@ -90,5 +96,11 @@ enum UserRole {
   @JsonValue('Mentor')
   mentor,
   @JsonValue('Parent')
-  parent,
+  parent;
+
+  String get text => switch (this) {
+        remaja => 'Remaja',
+        mentor => 'Mentor',
+        parent => 'Orang Tua',
+      };
 }

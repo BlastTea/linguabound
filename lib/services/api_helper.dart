@@ -118,7 +118,9 @@ final class ApiHelper {
       // }
     }
 
-    MyApp.leaderboardBloc.add(InitializeLeaderboardData());
+    if (currentUser != null) {
+      MyApp.leaderboardBloc.add(InitializeLeaderboardData());
+    }
   }
 
   static Future<String?> _getToken({bool refreshCurrentUser = false}) async {
@@ -185,7 +187,7 @@ final class ApiHelper {
     while (NavigationHelper.canGoBack()) {
       NavigationHelper.back();
     }
-    NavigationHelper.toReplacement(MaterialPageRoute(builder: (context) => const SignInPage()));
+    NavigationHelper.toReplacement(SlidePageRoute(pageBuilder: (context) => const OnBoardingPage1()));
     await Future.delayed(const Duration(milliseconds: 300));
 
     // TODO: Set all bloc to initial

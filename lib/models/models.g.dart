@@ -7,7 +7,7 @@ part of 'models.dart';
 // **************************************************************************
 
 _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
-      id: (json['id'] as num?)?.toInt(),
+      id: _parseInt(json['id']),
       name: json['name'] as String?,
       email: json['email'] as String?,
       emailVerifiedAt: json['email_verified_at'] == null
@@ -46,11 +46,11 @@ const _$UserRoleEnumMap = {
 };
 
 _$RemajaImpl _$$RemajaImplFromJson(Map<String, dynamic> json) => _$RemajaImpl(
-      id: (json['id'] as num?)?.toInt(),
+      id: _parseInt(json['id']),
       namaOrangTua: json['nama_orang_tua'] as String?,
-      exp: (json['exp'] as num?)?.toInt(),
-      star: (json['star'] as num?)?.toInt(),
-      level: (json['level'] as num?)?.toInt(),
+      exp: _parseInt(json['exp']),
+      star: _parseInt(json['star']),
+      level: _parseInt(json['level']),
       kodeOrangTua: json['kode_orang_tua'] as String?,
       userId: (json['user_id'] as num?)?.toInt(),
       username: json['username'] as String?,
@@ -97,7 +97,7 @@ Map<String, dynamic> _$$MentorImplToJson(_$MentorImpl instance) =>
 
 _$OrangTuaImpl _$$OrangTuaImplFromJson(Map<String, dynamic> json) =>
     _$OrangTuaImpl(
-      id: (json['id'] as num?)?.toInt(),
+      id: _parseInt(json['id']),
       namaLengkap: json['nama_lengkap'] as String?,
       kode: json['kode'] as String?,
       userId: (json['user_id'] as num?)?.toInt(),
@@ -123,11 +123,11 @@ Map<String, dynamic> _$$OrangTuaImplToJson(_$OrangTuaImpl instance) =>
 
 _$LeaderboardImpl _$$LeaderboardImplFromJson(Map<String, dynamic> json) =>
     _$LeaderboardImpl(
-      id: (json['id'] as num?)?.toInt(),
+      id: _parseInt(json['id']),
       namaOrangTua: json['nama_orang_tua'] as String?,
-      exp: (json['exp'] as num?)?.toInt(),
-      star: (json['star'] as num?)?.toInt(),
-      level: (json['level'] as num?)?.toInt(),
+      exp: _parseInt(json['exp']),
+      star: _parseInt(json['star']),
+      level: _parseInt(json['level']),
       kodeOrangTua: json['kode_orang_tua'] as String?,
       userId: (json['user_id'] as num?)?.toInt(),
       username: json['username'] as String?,

@@ -4,19 +4,19 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
   AuthenticationBloc() : super(_authenticationDataLoaded) {
     on<SetAuthenticationState>((event, emit) => emit(event.state ?? _authenticationDataLoaded));
 
-    on<SetLoginPasswordVisible>((event, emit) {
-      _isPasswordVisible = event.value;
+    on<SetSignInPasswordVisible>((event, emit) {
+      _isSignInPasswordVisible = event.value;
       emit(_authenticationDataLoaded);
     });
 
     on<SignInPressed>((event, emit) async {
-      if (_textControllerEmail.text.trim().isEmpty) {
+      if (_textControllerEmailSignIn.text.trim().isEmpty) {
         NavigationHelper.clearSnackBars();
         NavigationHelper.showSnackBar(const SnackBar(content: Text('Email masih kosong')));
         return;
       }
 
-      if (_textControllerPassword.text.trim().isEmpty) {
+      if (_textControllerPasswordSignIn.text.trim().isEmpty) {
         NavigationHelper.clearSnackBars();
         NavigationHelper.showSnackBar(const SnackBar(content: Text('Password masih kosong')));
         return;
@@ -26,8 +26,8 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
 
       try {
         await ApiHelper.signIn(
-          email: _textControllerEmail.text.trim(),
-          password: _textControllerPassword.text.trim(),
+          email: _textControllerEmailSignIn.text.trim(),
+          password: _textControllerPasswordSignIn.text.trim(),
         );
       } catch (e) {
         NavigationHelper.back();
@@ -39,21 +39,48 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
         NavigationHelper.back();
       }
       NavigationHelper.toReplacement(SlidePageRoute(pageBuilder: (context) => HomePage(key: homePageKey)));
+      await Future.delayed(Durations.medium3);
     });
 
-    on<SignUpPressed>((event, emit) async {
-      // TODO: implement sign up
-    });
+    on<SignUpPressed>((event, emit) async {});
   }
 
-  static final TextEditingController _textControllerEmail = TextEditingController();
-  static final TextEditingController _textControllerPassword = TextEditingController();
+  static final TextEditingController _textControllerUsernameSignUp = TextEditingController();
+  static final TextEditingController _textControllerNameSignUp = TextEditingController();
+  static final TextEditingController _textControllerEmailSignUp = TextEditingController();
+  static final TextEditingController _textControllerPasswordSignUp = TextEditingController();
+  static final TextEditingController _textControllerPasswordConfirmationSignUp = TextEditingController();
+  static final TextEditingController _textControllerEmailSignIn = TextEditingController();
+  static final TextEditingController _textControllerPasswordSignIn = TextEditingController();
 
-  static bool _isPasswordVisible = false;
+  static bool _isSignInPasswordVisible = false;
+  static bool _isSignUpPasswordVisible = false;
+  static bool _isSignUpPasswordConfirmationVisible = false;
 
   static AuthenticationDataLoaded get _authenticationDataLoaded => AuthenticationDataLoaded(
-        textControllerEmail: _textControllerEmail,
-        textControllerPassword: _textControllerPassword,
-        isPasswordVisible: _isPasswordVisible,
+        textControllerUsernameSignUp: _textControllerUsernameSignUp,
+        textControllerNameSignup: _textControllerNameSignUp,
+        textControllerEmailSignUp: _textControllerEmailSignUp,
+        textControllerPasswordSignUp: _textControllerPasswordSignUp,
+        textControllerPasswordConfirmationSignUp: _textControllerPasswordConfirmationSignUp,
+        textControllerEmailSignIn: _textControllerEmailSignIn,
+        textControllerPasswordSignIn: _textControllerPasswordSignIn,
+        isSignInPasswordVisible: _isSignInPasswordVisible,
+        isSignUpPasswordVisible: _isSignUpPasswordVisible,
+        isSignUpPasswordConfirmationVisible: _isSignUpPasswordConfirmationVisible,
       );
+
+  void _setStateToInitial() {
+    _textControllerUsernameSignUp.clear();
+    _textControllerNameSignUp.clear();
+    _textControllerEmailSignUp.clear();
+    _textControllerPasswordSignUp.clear();
+    _textControllerPasswordConfirmationSignUp.clear();
+    _textControllerEmailSignIn.clear();
+    _textControllerPasswordSignIn.clear();
+
+    _isSignInPasswordVisible = false;
+    _isSignUpPasswordVisible = false;
+    _isSignUpPasswordConfirmationVisible = false;
+  }
 }

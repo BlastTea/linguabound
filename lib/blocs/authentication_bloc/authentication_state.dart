@@ -5,13 +5,27 @@ abstract class AuthenticationState {}
 
 class AuthenticationDataLoaded extends AuthenticationState {
   AuthenticationDataLoaded({
-    required this.textControllerEmail,
-    required this.textControllerPassword,
-    required this.isPasswordVisible,
+    required this.textControllerUsernameSignUp,
+    required this.textControllerNameSignup,
+    required this.textControllerEmailSignUp,
+    required this.textControllerPasswordSignUp,
+    required this.textControllerPasswordConfirmationSignUp,
+    required this.textControllerEmailSignIn,
+    required this.textControllerPasswordSignIn,
+    required this.isSignInPasswordVisible,
+    required this.isSignUpPasswordVisible,
+    required this.isSignUpPasswordConfirmationVisible,
   });
 
-  final TextEditingController textControllerEmail;
-  final TextEditingController textControllerPassword;
+  final TextEditingController textControllerUsernameSignUp;
+  final TextEditingController textControllerNameSignup;
+  final TextEditingController textControllerEmailSignUp;
+  final TextEditingController textControllerPasswordSignUp;
+  final TextEditingController textControllerPasswordConfirmationSignUp;
+  final TextEditingController textControllerEmailSignIn;
+  final TextEditingController textControllerPasswordSignIn;
 
-  final bool isPasswordVisible;
+  final bool isSignInPasswordVisible;
+  final bool isSignUpPasswordVisible;
+  final bool isSignUpPasswordConfirmationVisible;
 }

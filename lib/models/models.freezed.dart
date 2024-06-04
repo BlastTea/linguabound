@@ -20,7 +20,9 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
+  @JsonKey(fromJson: _parseInt)
   int? get id => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseInt)
   set id(int? value) => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   set name(String? value) => throw _privateConstructorUsedError;
@@ -60,7 +62,7 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {int? id,
+      {@JsonKey(fromJson: _parseInt) int? id,
       String? name,
       String? email,
       @JsonKey(name: 'email_verified_at') DateTime? emailVerifiedAt,
@@ -164,7 +166,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int? id,
+      {@JsonKey(fromJson: _parseInt) int? id,
       String? name,
       String? email,
       @JsonKey(name: 'email_verified_at') DateTime? emailVerifiedAt,
@@ -250,7 +252,7 @@ class __$$UserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserImpl implements _User {
   _$UserImpl(
-      {this.id,
+      {@JsonKey(fromJson: _parseInt) this.id,
       this.name,
       this.email,
       @JsonKey(name: 'email_verified_at') this.emailVerifiedAt,
@@ -265,6 +267,7 @@ class _$UserImpl implements _User {
       _$$UserImplFromJson(json);
 
   @override
+  @JsonKey(fromJson: _parseInt)
   int? id;
   @override
   String? name;
@@ -310,7 +313,7 @@ class _$UserImpl implements _User {
 
 abstract class _User implements User {
   factory _User(
-      {int? id,
+      {@JsonKey(fromJson: _parseInt) int? id,
       String? name,
       String? email,
       @JsonKey(name: 'email_verified_at') DateTime? emailVerifiedAt,
@@ -325,7 +328,9 @@ abstract class _User implements User {
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
   @override
+  @JsonKey(fromJson: _parseInt)
   int? get id;
+  @JsonKey(fromJson: _parseInt)
   set id(int? value);
   @override
   String? get name;
@@ -388,11 +393,11 @@ mixin _$UserDetail {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-            int? exp,
-            int? star,
-            int? level,
+            @JsonKey(fromJson: _parseInt) int? exp,
+            @JsonKey(fromJson: _parseInt) int? star,
+            @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
             @JsonKey(name: 'user_id') int? userId,
             String? username,
@@ -407,7 +412,7 @@ mixin _$UserDetail {
             String? riwayatPendidikanTerakhir)
         mentor,
     required TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
             @JsonKey(name: 'user_id') int? userId,
@@ -419,11 +424,11 @@ mixin _$UserDetail {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-            int? exp,
-            int? star,
-            int? level,
+            @JsonKey(fromJson: _parseInt) int? exp,
+            @JsonKey(fromJson: _parseInt) int? star,
+            @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
             @JsonKey(name: 'user_id') int? userId,
             String? username,
@@ -438,7 +443,7 @@ mixin _$UserDetail {
             String? riwayatPendidikanTerakhir)?
         mentor,
     TResult? Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
             @JsonKey(name: 'user_id') int? userId,
@@ -450,11 +455,11 @@ mixin _$UserDetail {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-            int? exp,
-            int? star,
-            int? level,
+            @JsonKey(fromJson: _parseInt) int? exp,
+            @JsonKey(fromJson: _parseInt) int? star,
+            @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
             @JsonKey(name: 'user_id') int? userId,
             String? username,
@@ -469,7 +474,7 @@ mixin _$UserDetail {
             String? riwayatPendidikanTerakhir)?
         mentor,
     TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
             @JsonKey(name: 'user_id') int? userId,
@@ -529,11 +534,11 @@ abstract class _$$RemajaImplCopyWith<$Res> {
       __$$RemajaImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {int? id,
+      {@JsonKey(fromJson: _parseInt) int? id,
       @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-      int? exp,
-      int? star,
-      int? level,
+      @JsonKey(fromJson: _parseInt) int? exp,
+      @JsonKey(fromJson: _parseInt) int? star,
+      @JsonKey(fromJson: _parseInt) int? level,
       @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
       @JsonKey(name: 'user_id') int? userId,
       String? username,
@@ -618,11 +623,11 @@ class __$$RemajaImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RemajaImpl implements Remaja {
   _$RemajaImpl(
-      {this.id,
+      {@JsonKey(fromJson: _parseInt) this.id,
       @JsonKey(name: 'nama_orang_tua') this.namaOrangTua,
-      this.exp,
-      this.star,
-      this.level,
+      @JsonKey(fromJson: _parseInt) this.exp,
+      @JsonKey(fromJson: _parseInt) this.star,
+      @JsonKey(fromJson: _parseInt) this.level,
       @JsonKey(name: 'kode_orang_tua') this.kodeOrangTua,
       @JsonKey(name: 'user_id') this.userId,
       this.username,
@@ -636,15 +641,19 @@ class _$RemajaImpl implements Remaja {
       _$$RemajaImplFromJson(json);
 
   @override
+  @JsonKey(fromJson: _parseInt)
   int? id;
   @override
   @JsonKey(name: 'nama_orang_tua')
   String? namaOrangTua;
   @override
+  @JsonKey(fromJson: _parseInt)
   int? exp;
   @override
+  @JsonKey(fromJson: _parseInt)
   int? star;
   @override
+  @JsonKey(fromJson: _parseInt)
   int? level;
   @override
   @JsonKey(name: 'kode_orang_tua')
@@ -682,11 +691,11 @@ class _$RemajaImpl implements Remaja {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-            int? exp,
-            int? star,
-            int? level,
+            @JsonKey(fromJson: _parseInt) int? exp,
+            @JsonKey(fromJson: _parseInt) int? star,
+            @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
             @JsonKey(name: 'user_id') int? userId,
             String? username,
@@ -701,7 +710,7 @@ class _$RemajaImpl implements Remaja {
             String? riwayatPendidikanTerakhir)
         mentor,
     required TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
             @JsonKey(name: 'user_id') int? userId,
@@ -717,11 +726,11 @@ class _$RemajaImpl implements Remaja {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-            int? exp,
-            int? star,
-            int? level,
+            @JsonKey(fromJson: _parseInt) int? exp,
+            @JsonKey(fromJson: _parseInt) int? star,
+            @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
             @JsonKey(name: 'user_id') int? userId,
             String? username,
@@ -736,7 +745,7 @@ class _$RemajaImpl implements Remaja {
             String? riwayatPendidikanTerakhir)?
         mentor,
     TResult? Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
             @JsonKey(name: 'user_id') int? userId,
@@ -752,11 +761,11 @@ class _$RemajaImpl implements Remaja {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-            int? exp,
-            int? star,
-            int? level,
+            @JsonKey(fromJson: _parseInt) int? exp,
+            @JsonKey(fromJson: _parseInt) int? star,
+            @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
             @JsonKey(name: 'user_id') int? userId,
             String? username,
@@ -771,7 +780,7 @@ class _$RemajaImpl implements Remaja {
             String? riwayatPendidikanTerakhir)?
         mentor,
     TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
             @JsonKey(name: 'user_id') int? userId,
@@ -831,11 +840,11 @@ class _$RemajaImpl implements Remaja {
 
 abstract class Remaja implements UserDetail {
   factory Remaja(
-      {int? id,
+      {@JsonKey(fromJson: _parseInt) int? id,
       @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-      int? exp,
-      int? star,
-      int? level,
+      @JsonKey(fromJson: _parseInt) int? exp,
+      @JsonKey(fromJson: _parseInt) int? star,
+      @JsonKey(fromJson: _parseInt) int? level,
       @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
       @JsonKey(name: 'user_id') int? userId,
       String? username,
@@ -845,17 +854,25 @@ abstract class Remaja implements UserDetail {
 
   factory Remaja.fromJson(Map<String, dynamic> json) = _$RemajaImpl.fromJson;
 
+  @JsonKey(fromJson: _parseInt)
   int? get id;
+  @JsonKey(fromJson: _parseInt)
   set id(int? value);
   @JsonKey(name: 'nama_orang_tua')
   String? get namaOrangTua;
   @JsonKey(name: 'nama_orang_tua')
   set namaOrangTua(String? value);
+  @JsonKey(fromJson: _parseInt)
   int? get exp;
+  @JsonKey(fromJson: _parseInt)
   set exp(int? value);
+  @JsonKey(fromJson: _parseInt)
   int? get star;
+  @JsonKey(fromJson: _parseInt)
   set star(int? value);
+  @JsonKey(fromJson: _parseInt)
   int? get level;
+  @JsonKey(fromJson: _parseInt)
   set level(int? value);
   @JsonKey(name: 'kode_orang_tua')
   String? get kodeOrangTua;
@@ -969,11 +986,11 @@ class _$MentorImpl implements Mentor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-            int? exp,
-            int? star,
-            int? level,
+            @JsonKey(fromJson: _parseInt) int? exp,
+            @JsonKey(fromJson: _parseInt) int? star,
+            @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
             @JsonKey(name: 'user_id') int? userId,
             String? username,
@@ -988,7 +1005,7 @@ class _$MentorImpl implements Mentor {
             String? riwayatPendidikanTerakhir)
         mentor,
     required TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
             @JsonKey(name: 'user_id') int? userId,
@@ -1003,11 +1020,11 @@ class _$MentorImpl implements Mentor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-            int? exp,
-            int? star,
-            int? level,
+            @JsonKey(fromJson: _parseInt) int? exp,
+            @JsonKey(fromJson: _parseInt) int? star,
+            @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
             @JsonKey(name: 'user_id') int? userId,
             String? username,
@@ -1022,7 +1039,7 @@ class _$MentorImpl implements Mentor {
             String? riwayatPendidikanTerakhir)?
         mentor,
     TResult? Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
             @JsonKey(name: 'user_id') int? userId,
@@ -1037,11 +1054,11 @@ class _$MentorImpl implements Mentor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-            int? exp,
-            int? star,
-            int? level,
+            @JsonKey(fromJson: _parseInt) int? exp,
+            @JsonKey(fromJson: _parseInt) int? star,
+            @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
             @JsonKey(name: 'user_id') int? userId,
             String? username,
@@ -1056,7 +1073,7 @@ class _$MentorImpl implements Mentor {
             String? riwayatPendidikanTerakhir)?
         mentor,
     TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
             @JsonKey(name: 'user_id') int? userId,
@@ -1142,7 +1159,7 @@ abstract class _$$OrangTuaImplCopyWith<$Res> {
       __$$OrangTuaImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {int? id,
+      {@JsonKey(fromJson: _parseInt) int? id,
       @JsonKey(name: 'nama_lengkap') String? namaLengkap,
       String? kode,
       @JsonKey(name: 'user_id') int? userId,
@@ -1201,7 +1218,7 @@ class __$$OrangTuaImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OrangTuaImpl implements OrangTua {
   _$OrangTuaImpl(
-      {this.id,
+      {@JsonKey(fromJson: _parseInt) this.id,
       @JsonKey(name: 'nama_lengkap') this.namaLengkap,
       this.kode,
       @JsonKey(name: 'user_id') this.userId,
@@ -1214,6 +1231,7 @@ class _$OrangTuaImpl implements OrangTua {
       _$$OrangTuaImplFromJson(json);
 
   @override
+  @JsonKey(fromJson: _parseInt)
   int? id;
   @override
   @JsonKey(name: 'nama_lengkap')
@@ -1248,11 +1266,11 @@ class _$OrangTuaImpl implements OrangTua {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-            int? exp,
-            int? star,
-            int? level,
+            @JsonKey(fromJson: _parseInt) int? exp,
+            @JsonKey(fromJson: _parseInt) int? star,
+            @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
             @JsonKey(name: 'user_id') int? userId,
             String? username,
@@ -1267,7 +1285,7 @@ class _$OrangTuaImpl implements OrangTua {
             String? riwayatPendidikanTerakhir)
         mentor,
     required TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
             @JsonKey(name: 'user_id') int? userId,
@@ -1282,11 +1300,11 @@ class _$OrangTuaImpl implements OrangTua {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-            int? exp,
-            int? star,
-            int? level,
+            @JsonKey(fromJson: _parseInt) int? exp,
+            @JsonKey(fromJson: _parseInt) int? star,
+            @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
             @JsonKey(name: 'user_id') int? userId,
             String? username,
@@ -1301,7 +1319,7 @@ class _$OrangTuaImpl implements OrangTua {
             String? riwayatPendidikanTerakhir)?
         mentor,
     TResult? Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
             @JsonKey(name: 'user_id') int? userId,
@@ -1316,11 +1334,11 @@ class _$OrangTuaImpl implements OrangTua {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-            int? exp,
-            int? star,
-            int? level,
+            @JsonKey(fromJson: _parseInt) int? exp,
+            @JsonKey(fromJson: _parseInt) int? star,
+            @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
             @JsonKey(name: 'user_id') int? userId,
             String? username,
@@ -1335,7 +1353,7 @@ class _$OrangTuaImpl implements OrangTua {
             String? riwayatPendidikanTerakhir)?
         mentor,
     TResult Function(
-            int? id,
+            @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
             @JsonKey(name: 'user_id') int? userId,
@@ -1394,7 +1412,7 @@ class _$OrangTuaImpl implements OrangTua {
 
 abstract class OrangTua implements UserDetail {
   factory OrangTua(
-      {int? id,
+      {@JsonKey(fromJson: _parseInt) int? id,
       @JsonKey(name: 'nama_lengkap') String? namaLengkap,
       String? kode,
       @JsonKey(name: 'user_id') int? userId,
@@ -1404,7 +1422,9 @@ abstract class OrangTua implements UserDetail {
   factory OrangTua.fromJson(Map<String, dynamic> json) =
       _$OrangTuaImpl.fromJson;
 
+  @JsonKey(fromJson: _parseInt)
   int? get id;
+  @JsonKey(fromJson: _parseInt)
   set id(int? value);
   @JsonKey(name: 'nama_lengkap')
   String? get namaLengkap;
@@ -1435,11 +1455,15 @@ Leaderboard _$LeaderboardFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Leaderboard {
+  @JsonKey(fromJson: _parseInt)
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'nama_orang_tua')
   String? get namaOrangTua => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseInt)
   int? get exp => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseInt)
   int? get star => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseInt)
   int? get level => throw _privateConstructorUsedError;
   @JsonKey(name: 'kode_orang_tua')
   String? get kodeOrangTua => throw _privateConstructorUsedError;
@@ -1466,11 +1490,11 @@ abstract class $LeaderboardCopyWith<$Res> {
       _$LeaderboardCopyWithImpl<$Res, Leaderboard>;
   @useResult
   $Res call(
-      {int? id,
+      {@JsonKey(fromJson: _parseInt) int? id,
       @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-      int? exp,
-      int? star,
-      int? level,
+      @JsonKey(fromJson: _parseInt) int? exp,
+      @JsonKey(fromJson: _parseInt) int? star,
+      @JsonKey(fromJson: _parseInt) int? level,
       @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
       @JsonKey(name: 'user_id') int? userId,
       String? username,
@@ -1562,11 +1586,11 @@ abstract class _$$LeaderboardImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? id,
+      {@JsonKey(fromJson: _parseInt) int? id,
       @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
-      int? exp,
-      int? star,
-      int? level,
+      @JsonKey(fromJson: _parseInt) int? exp,
+      @JsonKey(fromJson: _parseInt) int? star,
+      @JsonKey(fromJson: _parseInt) int? level,
       @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
       @JsonKey(name: 'user_id') int? userId,
       String? username,
@@ -1651,11 +1675,11 @@ class __$$LeaderboardImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$LeaderboardImpl implements _Leaderboard {
   _$LeaderboardImpl(
-      {this.id,
+      {@JsonKey(fromJson: _parseInt) this.id,
       @JsonKey(name: 'nama_orang_tua') this.namaOrangTua,
-      this.exp,
-      this.star,
-      this.level,
+      @JsonKey(fromJson: _parseInt) this.exp,
+      @JsonKey(fromJson: _parseInt) this.star,
+      @JsonKey(fromJson: _parseInt) this.level,
       @JsonKey(name: 'kode_orang_tua') this.kodeOrangTua,
       @JsonKey(name: 'user_id') this.userId,
       this.username,
@@ -1667,15 +1691,19 @@ class _$LeaderboardImpl implements _Leaderboard {
       _$$LeaderboardImplFromJson(json);
 
   @override
+  @JsonKey(fromJson: _parseInt)
   final int? id;
   @override
   @JsonKey(name: 'nama_orang_tua')
   final String? namaOrangTua;
   @override
+  @JsonKey(fromJson: _parseInt)
   final int? exp;
   @override
+  @JsonKey(fromJson: _parseInt)
   final int? star;
   @override
+  @JsonKey(fromJson: _parseInt)
   final int? level;
   @override
   @JsonKey(name: 'kode_orang_tua')
@@ -1745,11 +1773,11 @@ class _$LeaderboardImpl implements _Leaderboard {
 
 abstract class _Leaderboard implements Leaderboard {
   factory _Leaderboard(
-          {final int? id,
+          {@JsonKey(fromJson: _parseInt) final int? id,
           @JsonKey(name: 'nama_orang_tua') final String? namaOrangTua,
-          final int? exp,
-          final int? star,
-          final int? level,
+          @JsonKey(fromJson: _parseInt) final int? exp,
+          @JsonKey(fromJson: _parseInt) final int? star,
+          @JsonKey(fromJson: _parseInt) final int? level,
           @JsonKey(name: 'kode_orang_tua') final String? kodeOrangTua,
           @JsonKey(name: 'user_id') final int? userId,
           final String? username,
@@ -1762,15 +1790,19 @@ abstract class _Leaderboard implements Leaderboard {
       _$LeaderboardImpl.fromJson;
 
   @override
+  @JsonKey(fromJson: _parseInt)
   int? get id;
   @override
   @JsonKey(name: 'nama_orang_tua')
   String? get namaOrangTua;
   @override
+  @JsonKey(fromJson: _parseInt)
   int? get exp;
   @override
+  @JsonKey(fromJson: _parseInt)
   int? get star;
   @override
+  @JsonKey(fromJson: _parseInt)
   int? get level;
   @override
   @JsonKey(name: 'kode_orang_tua')

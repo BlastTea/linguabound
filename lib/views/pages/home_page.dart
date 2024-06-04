@@ -17,7 +17,7 @@ class HomePageState extends State<HomePage> {
         body: [
           const HomeFragment(),
           const ExerciseFragment(),
-          const MeetFragment(),
+          if (currentUser?.role == UserRole.remaja) const MeetFragment(),
           const ProfileFragment(),
         ][_selectedIndex],
         bottomNavigationBar: NavigationBarTheme(
@@ -42,16 +42,17 @@ class HomePageState extends State<HomePage> {
                   width: 30.0,
                   height: 30.0,
                 ),
-                label: 'Latihan',
+                label: currentUser?.role == UserRole.remaja ? 'Latihan' : 'Laporan',
               ),
-              MyNavigationDestination(
-                icon: SvgPicture.asset(
-                  'assets/svgs/meet.svg',
-                  width: 30.0,
-                  height: 30.0,
+              if (currentUser?.role == UserRole.remaja)
+                MyNavigationDestination(
+                  icon: SvgPicture.asset(
+                    'assets/svgs/meet.svg',
+                    width: 30.0,
+                    height: 30.0,
+                  ),
+                  label: 'Meet',
                 ),
-                label: 'Meet',
-              ),
               MyNavigationDestination(
                 icon: SvgPicture.asset(
                   'assets/svgs/profile.svg',
