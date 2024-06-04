@@ -29,4 +29,8 @@ class SetSignUpPasswordConfirmationVisible extends AuthenticationEvent {
 
 class SignInPressed extends AuthenticationEvent {}
 
-class SignUpPressed extends AuthenticationEvent {}
+class SignUpPressed extends AuthenticationEvent {
+  SignUpPressed({required this.role});
+
+  final UserRole role;
+}

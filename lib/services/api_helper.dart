@@ -110,12 +110,15 @@ final class ApiHelper {
         }
       }
     } else {
-      // TODO: Uncomment below code for sign in with token
-      // try {
-      //   currentUser = await ApiHelper.get(pathUrl: dotenv.env['ENDPOINT_AUTH_USER']!).then((value) => User.fromJson(value['data']));
-      // } catch (e) {
-      //   ApiHelper.handleError(e);
-      // }
+      try {
+        dynamic response = await ApiHelper.get(pathUrl: dotenv.env['ENDPOINT_AUTH_LOGGED']!);
+
+        response['data']['detail']['role'] = response['data']['role'];
+
+        currentUser = User.fromJson(response['data']);
+      } catch (e) {
+        // Ignored, really
+      }
     }
 
     if (currentUser != null) {
@@ -223,6 +226,10 @@ final class ApiHelper {
       if (e['data']['message'] is Map) return showErrorDialog(e['data']['message'].toString());
 
       if (e['data']['message'] == 'The provided credentials are incorrect.') return showErrorDialog('Email atau Password salah');
+
+      if (e['data']['message'] == 'The email field must be a valid email address.') return showErrorDialog('Email tidak valid');
+
+      if (e['data']['message'] == 'The email has already been taken.') return showErrorDialog('Email sudah dipakai');
 
       while (NavigationHelper.canGoBack()) {
         NavigationHelper.back();

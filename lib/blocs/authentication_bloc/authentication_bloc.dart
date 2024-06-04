@@ -9,6 +9,16 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       emit(_authenticationDataLoaded);
     });
 
+    on<SetSignUpPasswordVisible>((event, emit) {
+      _isSignUpPasswordVisible = event.value;
+      emit(_authenticationDataLoaded);
+    });
+
+    on<SetSignUpPasswordConfirmationVisible>((event, emit) {
+      _isSignUpPasswordConfirmationVisible = event.value;
+      emit(_authenticationDataLoaded);
+    });
+
     on<SignInPressed>((event, emit) async {
       if (_textControllerEmailSignIn.text.trim().isEmpty) {
         NavigationHelper.clearSnackBars();
@@ -39,11 +49,77 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
         NavigationHelper.back();
       }
       NavigationHelper.toReplacement(SlidePageRoute(pageBuilder: (context) => HomePage(key: homePageKey)));
+
       await Future.delayed(Durations.medium3);
+      _setStateToInitial();
     });
 
-    on<SignUpPressed>((event, emit) async {});
+    on<SignUpPressed>((event, emit) async {
+      if (_textControllerUsernameSignUp.text.trim().isEmpty) {
+        NavigationHelper.clearSnackBars();
+        NavigationHelper.showSnackBar(SnackBar(content: Text('${event.role == UserRole.remaja ? 'Username' : 'Nama Lengkap'} masih kosong')));
+        return;
+      }
+
+      if (_textControllerNameSignUp.text.trim().isEmpty) {
+        NavigationHelper.clearSnackBars();
+        NavigationHelper.showSnackBar(const SnackBar(content: Text('Nama masih kosong')));
+        return;
+      }
+
+      if (_textControllerEmailSignUp.text.trim().isEmpty) {
+        NavigationHelper.clearSnackBars();
+        NavigationHelper.showSnackBar(const SnackBar(content: Text('Email masih kosong')));
+        return;
+      }
+
+      if (_textControllerPasswordSignUp.text.trim().isEmpty) {
+        NavigationHelper.clearSnackBars();
+        NavigationHelper.showSnackBar(const SnackBar(content: Text('Password masih kosong')));
+        return;
+      }
+
+      if (_textControllerPasswordConfirmationSignUp.text.trim().isEmpty) {
+        NavigationHelper.clearSnackBars();
+        NavigationHelper.showSnackBar(const SnackBar(content: Text('Konfirmasi Password masih kosong')));
+        return;
+      }
+
+      showLoadingDialog();
+
+      try {
+        await ApiHelper.post(
+          pathUrl: dotenv.env[switch (event.role) {
+            UserRole.remaja => 'ENDPOINT_REGISTER_REMAJA',
+            UserRole.parent => 'ENDPOINT_REGISTER_PARENT',
+            _ => 'ENDPOINT_REGISTER_REMAJA',
+          }]!,
+          body: {
+            event.role == UserRole.remaja ? 'username' : 'nama_lengkap': _textControllerUsernameSignUp.text.trim(),
+            'name': _textControllerNameSignUp.text.trim(),
+            'email': _textControllerEmailSignUp.text.trim(),
+            'password': _textControllerPasswordSignUp.text.trim(),
+            'password_confirmation': _textControllerPasswordConfirmationSignUp.text.trim(),
+          },
+          ignoreAuthorization: true,
+        );
+      } catch (e) {
+        NavigationHelper.back();
+        await ApiHelper.handleError(e);
+        return;
+      }
+
+      NavigationHelper.back();
+      NavigationHelper.back();
+      NavigationHelper.back();
+      NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const SignUpSuccessfulPage()));
+
+      await Future.delayed(Durations.medium3);
+      _setStateToInitial();
+    });
   }
+
+  static final FocusNode _focusNodePasswordConfirmation = FocusNode();
 
   static final TextEditingController _textControllerUsernameSignUp = TextEditingController();
   static final TextEditingController _textControllerNameSignUp = TextEditingController();
@@ -58,6 +134,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
   static bool _isSignUpPasswordConfirmationVisible = false;
 
   static AuthenticationDataLoaded get _authenticationDataLoaded => AuthenticationDataLoaded(
+        focusNodePasswordConfirmation: _focusNodePasswordConfirmation,
         textControllerUsernameSignUp: _textControllerUsernameSignUp,
         textControllerNameSignup: _textControllerNameSignUp,
         textControllerEmailSignUp: _textControllerEmailSignUp,

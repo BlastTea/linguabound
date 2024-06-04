@@ -24,7 +24,7 @@ class LeaderboardBloc extends Bloc<LeaderboardEvent, LeaderboardState> {
           }]!,
         );
 
-        _leaderboards = (response['data']['all'] as List).map((e) => Leaderboard.fromJson(e)).toList();
+        _leaderboards = (response['data']['leaders'] as List).map((e) => Leaderboard.fromJson(e)).toList();
 
         _position = response['data']['position'];
       } catch (e) {

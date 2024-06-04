@@ -24,7 +24,10 @@ class SignUpSuccessfulPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: MyFilledButton(
-                  onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const SignInPage())),
+                  onPressed: () {
+                    NavigationHelper.back();
+                    NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const SignInPage()));
+                  },
                   child: const Text('Login'),
                 ),
               ),

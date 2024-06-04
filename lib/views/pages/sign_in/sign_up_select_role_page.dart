@@ -41,7 +41,7 @@ class _SignUpSelectRolePageState extends State<SignUpSelectRolePage> {
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(16.0),
           child: MyFilledButton(
-            onPressed: _selectedValue == null ? null : () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const SignUpPage())),
+            onPressed: _selectedValue == null ? null : () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => SignUpPage(selectedRole: _selectedValue!))),
             child: const Text('Lanjutkan'),
           ),
         ),

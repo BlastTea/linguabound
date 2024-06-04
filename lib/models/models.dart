@@ -75,16 +75,10 @@ sealed class UserDetail with _$UserDetail {
 class Leaderboard with _$Leaderboard {
   factory Leaderboard({
     @JsonKey(fromJson: _parseInt) int? id,
-    @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+    String? name,
     @JsonKey(fromJson: _parseInt) int? exp,
     @JsonKey(fromJson: _parseInt) int? star,
-    @JsonKey(fromJson: _parseInt) int? level,
-    @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-    @JsonKey(name: 'user_id') int? userId,
-    String? username,
-    @JsonKey(name: 'orang_tua_id') int? orangTuaId,
-    @JsonKey(name: 'created_at') DateTime? createdAt,
-    @JsonKey(name: 'updated_at') DateTime? updatedAt,
+    String? foto,
   }) = _Leaderboard;
 
   factory Leaderboard.fromJson(Map<String, dynamic> json) => _$LeaderboardFromJson(json);

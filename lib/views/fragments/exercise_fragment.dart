@@ -168,26 +168,14 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
         ),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                DefaultTextStyle(
-                  style: Theme.of(context).textTheme.titleLarge!,
-                  child: Row(
-                    children: [
-                      Text('$title・'),
-                      Text(mention),
-                    ],
-                  ),
-                ),
-                Row(
-                  children: [
-                    SvgPicture.asset('assets/svgs/exp.svg'),
-                    const SizedBox(width: 8.0),
-                    const Text('120 Exp'),
-                  ],
-                ),
-              ],
+            DefaultTextStyle(
+              style: Theme.of(context).textTheme.titleLarge!,
+              child: Row(
+                children: [
+                  Text('$title・'),
+                  Text(mention),
+                ],
+              ),
             ),
             const SizedBox(height: 8.0),
             Text(description),

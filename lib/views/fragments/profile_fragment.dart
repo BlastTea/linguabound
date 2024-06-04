@@ -51,10 +51,7 @@ class ProfileFragment extends StatelessWidget {
             title: const Text('Logout'),
             iconColor: kColorWhite,
             textColor: kColorWhite,
-            onTap: () async {
-              await ApiHelper.signOut();
-              NavigationHelper.toReplacement(SlidePageRoute(pageBuilder: (context) => const OnBoardingPage1()));
-            },
+            onTap: () => ApiHelper.signOut(),
           ),
         ],
       ),

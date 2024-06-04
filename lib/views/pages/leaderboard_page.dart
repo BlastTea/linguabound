@@ -32,7 +32,7 @@ class LeaderboardPage extends StatelessWidget {
                 children: [
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
-                    decoration: index == stateLeaderboard.position
+                    decoration: index + 1 == stateLeaderboard.position
                         ? BoxDecoration(
                             color: kColorWhite.withOpacity(0.2),
                             borderRadius: kBorderRadius,
@@ -59,13 +59,14 @@ class LeaderboardPage extends StatelessWidget {
                           tag: 'Leaderboard $index',
                           width: 56.0,
                           height: 56.0,
-                          image: const NetworkImage(kDummyPictureProfileUrl),
+                          image: CachedNetworkImageProvider(leaderboard.foto ?? ''),
+                          cachedNetworkImageError: (e) => const AssetImage('assets/images/person.jpg'),
                         ),
                         const SizedBox(width: 8.0),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(leaderboard.username ?? '?'),
+                            Text(leaderboard.name ?? '?'),
                             const SizedBox(height: 8.0),
                             Row(
                               children: [
