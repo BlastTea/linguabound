@@ -61,7 +61,7 @@ _$RemajaImpl _$$RemajaImplFromJson(Map<String, dynamic> json) => _$RemajaImpl(
       updatedAt: json['updated_at'] == null
           ? null
           : DateTime.parse(json['updated_at'] as String),
-      $type: json['runtimeType'] as String?,
+      $type: json['role'] as String?,
     );
 
 Map<String, dynamic> _$$RemajaImplToJson(_$RemajaImpl instance) =>
@@ -77,14 +77,14 @@ Map<String, dynamic> _$$RemajaImplToJson(_$RemajaImpl instance) =>
       'orang_tua_id': instance.orangTuaId,
       'created_at': instance.createdAt?.toIso8601String(),
       'updated_at': instance.updatedAt?.toIso8601String(),
-      'runtimeType': instance.$type,
+      'role': instance.$type,
     };
 
 _$MentorImpl _$$MentorImplFromJson(Map<String, dynamic> json) => _$MentorImpl(
       nama: json['nama'] as String?,
       gelar: json['gelar'] as String?,
       riwayatPendidikanTerakhir: json['riwayat_pendidikan_terakhir'] as String?,
-      $type: json['runtimeType'] as String?,
+      $type: json['role'] as String?,
     );
 
 Map<String, dynamic> _$$MentorImplToJson(_$MentorImpl instance) =>
@@ -92,7 +92,7 @@ Map<String, dynamic> _$$MentorImplToJson(_$MentorImpl instance) =>
       'nama': instance.nama,
       'gelar': instance.gelar,
       'riwayat_pendidikan_terakhir': instance.riwayatPendidikanTerakhir,
-      'runtimeType': instance.$type,
+      'role': instance.$type,
     };
 
 _$OrangTuaImpl _$$OrangTuaImplFromJson(Map<String, dynamic> json) =>
@@ -107,7 +107,7 @@ _$OrangTuaImpl _$$OrangTuaImplFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updated_at'] == null
           ? null
           : DateTime.parse(json['updated_at'] as String),
-      $type: json['runtimeType'] as String?,
+      $type: json['role'] as String?,
     );
 
 Map<String, dynamic> _$$OrangTuaImplToJson(_$OrangTuaImpl instance) =>
@@ -118,5 +118,39 @@ Map<String, dynamic> _$$OrangTuaImplToJson(_$OrangTuaImpl instance) =>
       'user_id': instance.userId,
       'created_at': instance.createdAt?.toIso8601String(),
       'updated_at': instance.updatedAt?.toIso8601String(),
-      'runtimeType': instance.$type,
+      'role': instance.$type,
+    };
+
+_$LeaderboardImpl _$$LeaderboardImplFromJson(Map<String, dynamic> json) =>
+    _$LeaderboardImpl(
+      id: (json['id'] as num?)?.toInt(),
+      namaOrangTua: json['nama_orang_tua'] as String?,
+      exp: (json['exp'] as num?)?.toInt(),
+      star: (json['star'] as num?)?.toInt(),
+      level: (json['level'] as num?)?.toInt(),
+      kodeOrangTua: json['kode_orang_tua'] as String?,
+      userId: (json['user_id'] as num?)?.toInt(),
+      username: json['username'] as String?,
+      orangTuaId: (json['orang_tua_id'] as num?)?.toInt(),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+    );
+
+Map<String, dynamic> _$$LeaderboardImplToJson(_$LeaderboardImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'nama_orang_tua': instance.namaOrangTua,
+      'exp': instance.exp,
+      'star': instance.star,
+      'level': instance.level,
+      'kode_orang_tua': instance.kodeOrangTua,
+      'user_id': instance.userId,
+      'username': instance.username,
+      'orang_tua_id': instance.orangTuaId,
+      'created_at': instance.createdAt?.toIso8601String(),
+      'updated_at': instance.updatedAt?.toIso8601String(),
     };

@@ -112,11 +112,11 @@ final class ApiHelper {
       return;
     }
 
-    try {
-      await 
-    } catch (e) {
-      ApiHelper.handleError(e);
-    }
+    // try {
+    //   currentUser = await ApiHelper.get(pathUrl: dotenv.env['ENDPOINT_AUTH_USER']!).then((value) => User.fromJson(value['data']));
+    // } catch (e) {
+    //   ApiHelper.handleError(e);
+    // }
   }
 
   static Future<String?> _getToken({bool refreshCurrentUser = false}) async {
@@ -161,6 +161,8 @@ final class ApiHelper {
 
     SharedPreferences sharedPref = await SharedPreferences.getInstance();
     await sharedPref.setString(keyToken, response['token']);
+
+    response['data']['detail']['role'] = response['data']['role'];
 
     await _refreshCurrentUser(response);
   }

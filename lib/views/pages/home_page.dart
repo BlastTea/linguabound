@@ -34,7 +34,7 @@ class HomePageState extends State<HomePage> {
                   width: 30.0,
                   height: 30.0,
                 ),
-                label: 'Home',
+                label: 'Beranda',
               ),
               MyNavigationDestination(
                 icon: SvgPicture.asset(
@@ -42,7 +42,7 @@ class HomePageState extends State<HomePage> {
                   width: 30.0,
                   height: 30.0,
                 ),
-                label: 'Exercise',
+                label: 'Latihan',
               ),
               MyNavigationDestination(
                 icon: SvgPicture.asset(
@@ -58,7 +58,7 @@ class HomePageState extends State<HomePage> {
                   width: 30.0,
                   height: 30.0,
                 ),
-                label: 'Profile',
+                label: 'Profil',
               ),
             ],
             selectedIndex: _selectedIndex,

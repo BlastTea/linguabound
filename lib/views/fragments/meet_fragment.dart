@@ -12,14 +12,14 @@ class MeetFragment extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             sliver: SliverToBoxAdapter(
               child: BannerContainer(
-                title: const Text('10 on 1 Sessions'),
-                subtitle: const Text('Let\'s open up to the things that matter the most '),
+                title: const Text('10 dalam 1 sesi'),
+                subtitle: const Text('Marilah terbuka pada hal-hal yang paling penting'),
                 actions: [
                   TextButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(padding: EdgeInsets.zero),
                     child: Text(
-                      'Meet Now',
+                      'Meet Sekarang',
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
                     ),
                   ),

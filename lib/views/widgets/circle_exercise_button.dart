@@ -6,13 +6,11 @@ class CircleExerciseButton extends StatefulWidget {
     this.onPressed,
     this.svgAsset,
     this.enabled = true,
-    this.active = false,
   });
 
   final VoidCallback? onPressed;
   final String? svgAsset;
   final bool enabled;
-  final bool active;
 
   @override
   State<CircleExerciseButton> createState() => _CircleExerciseButtonState();

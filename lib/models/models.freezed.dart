@@ -369,17 +369,17 @@ abstract class _User implements User {
 }
 
 UserDetail _$UserDetailFromJson(Map<String, dynamic> json) {
-  switch (json['runtimeType']) {
-    case 'remaja':
+  switch (json['role']) {
+    case 'Remaja':
       return Remaja.fromJson(json);
-    case 'mentor':
+    case 'Mentor':
       return Mentor.fromJson(json);
-    case 'orangTua':
+    case 'Parent':
       return OrangTua.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(json, 'runtimeType', 'UserDetail',
-          'Invalid union type "${json['runtimeType']}"!');
+      throw CheckedFromJsonException(
+          json, 'role', 'UserDetail', 'Invalid union type "${json['role']}"!');
   }
 }
 
@@ -630,7 +630,7 @@ class _$RemajaImpl implements Remaja {
       @JsonKey(name: 'created_at') this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt,
       final String? $type})
-      : $type = $type ?? 'remaja';
+      : $type = $type ?? 'Remaja';
 
   factory _$RemajaImpl.fromJson(Map<String, dynamic> json) =>
       _$$RemajaImplFromJson(json);
@@ -664,7 +664,7 @@ class _$RemajaImpl implements Remaja {
   @JsonKey(name: 'updated_at')
   DateTime? updatedAt;
 
-  @JsonKey(name: 'runtimeType')
+  @JsonKey(name: 'role')
   final String $type;
 
   @override
@@ -938,7 +938,7 @@ class _$MentorImpl implements Mentor {
       @JsonKey(name: 'riwayat_pendidikan_terakhir')
       this.riwayatPendidikanTerakhir,
       final String? $type})
-      : $type = $type ?? 'mentor';
+      : $type = $type ?? 'Mentor';
 
   factory _$MentorImpl.fromJson(Map<String, dynamic> json) =>
       _$$MentorImplFromJson(json);
@@ -951,7 +951,7 @@ class _$MentorImpl implements Mentor {
   @JsonKey(name: 'riwayat_pendidikan_terakhir')
   String? riwayatPendidikanTerakhir;
 
-  @JsonKey(name: 'runtimeType')
+  @JsonKey(name: 'role')
   final String $type;
 
   @override
@@ -1208,7 +1208,7 @@ class _$OrangTuaImpl implements OrangTua {
       @JsonKey(name: 'created_at') this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt,
       final String? $type})
-      : $type = $type ?? 'orangTua';
+      : $type = $type ?? 'Parent';
 
   factory _$OrangTuaImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrangTuaImplFromJson(json);
@@ -1230,7 +1230,7 @@ class _$OrangTuaImpl implements OrangTua {
   @JsonKey(name: 'updated_at')
   DateTime? updatedAt;
 
-  @JsonKey(name: 'runtimeType')
+  @JsonKey(name: 'role')
   final String $type;
 
   @override
@@ -1426,5 +1426,371 @@ abstract class OrangTua implements UserDetail {
   set updatedAt(DateTime? value);
   @JsonKey(ignore: true)
   _$$OrangTuaImplCopyWith<_$OrangTuaImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Leaderboard _$LeaderboardFromJson(Map<String, dynamic> json) {
+  return _Leaderboard.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Leaderboard {
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'nama_orang_tua')
+  String? get namaOrangTua => throw _privateConstructorUsedError;
+  int? get exp => throw _privateConstructorUsedError;
+  int? get star => throw _privateConstructorUsedError;
+  int? get level => throw _privateConstructorUsedError;
+  @JsonKey(name: 'kode_orang_tua')
+  String? get kodeOrangTua => throw _privateConstructorUsedError;
+  @JsonKey(name: 'user_id')
+  int? get userId => throw _privateConstructorUsedError;
+  String? get username => throw _privateConstructorUsedError;
+  @JsonKey(name: 'orang_tua_id')
+  int? get orangTuaId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $LeaderboardCopyWith<Leaderboard> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LeaderboardCopyWith<$Res> {
+  factory $LeaderboardCopyWith(
+          Leaderboard value, $Res Function(Leaderboard) then) =
+      _$LeaderboardCopyWithImpl<$Res, Leaderboard>;
+  @useResult
+  $Res call(
+      {int? id,
+      @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+      int? exp,
+      int? star,
+      int? level,
+      @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+      @JsonKey(name: 'user_id') int? userId,
+      String? username,
+      @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt});
+}
+
+/// @nodoc
+class _$LeaderboardCopyWithImpl<$Res, $Val extends Leaderboard>
+    implements $LeaderboardCopyWith<$Res> {
+  _$LeaderboardCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? namaOrangTua = freezed,
+    Object? exp = freezed,
+    Object? star = freezed,
+    Object? level = freezed,
+    Object? kodeOrangTua = freezed,
+    Object? userId = freezed,
+    Object? username = freezed,
+    Object? orangTuaId = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      namaOrangTua: freezed == namaOrangTua
+          ? _value.namaOrangTua
+          : namaOrangTua // ignore: cast_nullable_to_non_nullable
+              as String?,
+      exp: freezed == exp
+          ? _value.exp
+          : exp // ignore: cast_nullable_to_non_nullable
+              as int?,
+      star: freezed == star
+          ? _value.star
+          : star // ignore: cast_nullable_to_non_nullable
+              as int?,
+      level: freezed == level
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as int?,
+      kodeOrangTua: freezed == kodeOrangTua
+          ? _value.kodeOrangTua
+          : kodeOrangTua // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      orangTuaId: freezed == orangTuaId
+          ? _value.orangTuaId
+          : orangTuaId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$LeaderboardImplCopyWith<$Res>
+    implements $LeaderboardCopyWith<$Res> {
+  factory _$$LeaderboardImplCopyWith(
+          _$LeaderboardImpl value, $Res Function(_$LeaderboardImpl) then) =
+      __$$LeaderboardImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int? id,
+      @JsonKey(name: 'nama_orang_tua') String? namaOrangTua,
+      int? exp,
+      int? star,
+      int? level,
+      @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
+      @JsonKey(name: 'user_id') int? userId,
+      String? username,
+      @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt});
+}
+
+/// @nodoc
+class __$$LeaderboardImplCopyWithImpl<$Res>
+    extends _$LeaderboardCopyWithImpl<$Res, _$LeaderboardImpl>
+    implements _$$LeaderboardImplCopyWith<$Res> {
+  __$$LeaderboardImplCopyWithImpl(
+      _$LeaderboardImpl _value, $Res Function(_$LeaderboardImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? namaOrangTua = freezed,
+    Object? exp = freezed,
+    Object? star = freezed,
+    Object? level = freezed,
+    Object? kodeOrangTua = freezed,
+    Object? userId = freezed,
+    Object? username = freezed,
+    Object? orangTuaId = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+  }) {
+    return _then(_$LeaderboardImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      namaOrangTua: freezed == namaOrangTua
+          ? _value.namaOrangTua
+          : namaOrangTua // ignore: cast_nullable_to_non_nullable
+              as String?,
+      exp: freezed == exp
+          ? _value.exp
+          : exp // ignore: cast_nullable_to_non_nullable
+              as int?,
+      star: freezed == star
+          ? _value.star
+          : star // ignore: cast_nullable_to_non_nullable
+              as int?,
+      level: freezed == level
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as int?,
+      kodeOrangTua: freezed == kodeOrangTua
+          ? _value.kodeOrangTua
+          : kodeOrangTua // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      orangTuaId: freezed == orangTuaId
+          ? _value.orangTuaId
+          : orangTuaId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$LeaderboardImpl implements _Leaderboard {
+  _$LeaderboardImpl(
+      {this.id,
+      @JsonKey(name: 'nama_orang_tua') this.namaOrangTua,
+      this.exp,
+      this.star,
+      this.level,
+      @JsonKey(name: 'kode_orang_tua') this.kodeOrangTua,
+      @JsonKey(name: 'user_id') this.userId,
+      this.username,
+      @JsonKey(name: 'orang_tua_id') this.orangTuaId,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'updated_at') this.updatedAt});
+
+  factory _$LeaderboardImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LeaderboardImplFromJson(json);
+
+  @override
+  final int? id;
+  @override
+  @JsonKey(name: 'nama_orang_tua')
+  final String? namaOrangTua;
+  @override
+  final int? exp;
+  @override
+  final int? star;
+  @override
+  final int? level;
+  @override
+  @JsonKey(name: 'kode_orang_tua')
+  final String? kodeOrangTua;
+  @override
+  @JsonKey(name: 'user_id')
+  final int? userId;
+  @override
+  final String? username;
+  @override
+  @JsonKey(name: 'orang_tua_id')
+  final int? orangTuaId;
+  @override
+  @JsonKey(name: 'created_at')
+  final DateTime? createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  final DateTime? updatedAt;
+
+  @override
+  String toString() {
+    return 'Leaderboard(id: $id, namaOrangTua: $namaOrangTua, exp: $exp, star: $star, level: $level, kodeOrangTua: $kodeOrangTua, userId: $userId, username: $username, orangTuaId: $orangTuaId, createdAt: $createdAt, updatedAt: $updatedAt)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LeaderboardImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.namaOrangTua, namaOrangTua) ||
+                other.namaOrangTua == namaOrangTua) &&
+            (identical(other.exp, exp) || other.exp == exp) &&
+            (identical(other.star, star) || other.star == star) &&
+            (identical(other.level, level) || other.level == level) &&
+            (identical(other.kodeOrangTua, kodeOrangTua) ||
+                other.kodeOrangTua == kodeOrangTua) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.orangTuaId, orangTuaId) ||
+                other.orangTuaId == orangTuaId) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, namaOrangTua, exp, star,
+      level, kodeOrangTua, userId, username, orangTuaId, createdAt, updatedAt);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LeaderboardImplCopyWith<_$LeaderboardImpl> get copyWith =>
+      __$$LeaderboardImplCopyWithImpl<_$LeaderboardImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$LeaderboardImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Leaderboard implements Leaderboard {
+  factory _Leaderboard(
+          {final int? id,
+          @JsonKey(name: 'nama_orang_tua') final String? namaOrangTua,
+          final int? exp,
+          final int? star,
+          final int? level,
+          @JsonKey(name: 'kode_orang_tua') final String? kodeOrangTua,
+          @JsonKey(name: 'user_id') final int? userId,
+          final String? username,
+          @JsonKey(name: 'orang_tua_id') final int? orangTuaId,
+          @JsonKey(name: 'created_at') final DateTime? createdAt,
+          @JsonKey(name: 'updated_at') final DateTime? updatedAt}) =
+      _$LeaderboardImpl;
+
+  factory _Leaderboard.fromJson(Map<String, dynamic> json) =
+      _$LeaderboardImpl.fromJson;
+
+  @override
+  int? get id;
+  @override
+  @JsonKey(name: 'nama_orang_tua')
+  String? get namaOrangTua;
+  @override
+  int? get exp;
+  @override
+  int? get star;
+  @override
+  int? get level;
+  @override
+  @JsonKey(name: 'kode_orang_tua')
+  String? get kodeOrangTua;
+  @override
+  @JsonKey(name: 'user_id')
+  int? get userId;
+  @override
+  String? get username;
+  @override
+  @JsonKey(name: 'orang_tua_id')
+  int? get orangTuaId;
+  @override
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  DateTime? get updatedAt;
+  @override
+  @JsonKey(ignore: true)
+  _$$LeaderboardImplCopyWith<_$LeaderboardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

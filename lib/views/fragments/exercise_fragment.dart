@@ -8,7 +8,9 @@ class ExerciseFragment extends StatefulWidget {
 }
 
 class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerProviderStateMixin {
-  final GlobalKey _activeButtonKey = GlobalKey();
+  final List<GlobalKey> _buttonKeys = List.generate(16, (index) => GlobalKey());
+
+  final List<bool> _actives = List.generate(16, [0, 1].contains);
 
   final ScrollController _scrollController = ScrollController();
 
@@ -57,7 +59,8 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
                         ),
                         sliver: buildPartBody(
                           context: context,
-                          activeButtonKey: _activeButtonKey,
+                          startIndex: 0,
+                          actives: _actives.skip(0).toList(),
                         ),
                       ),
                       SliverStickyHeader(
@@ -69,6 +72,8 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
                         ),
                         sliver: buildPartBody(
                           context: context,
+                          startIndex: 4,
+                          actives: _actives.skip(4).toList(),
                           alignment: PartBodyAlignment.right,
                         ),
                       ),
@@ -79,7 +84,11 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
                           mention: 'Pejuang',
                           description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 15 soal acak',
                         ),
-                        sliver: buildPartBody(context: context),
+                        sliver: buildPartBody(
+                          context: context,
+                          startIndex: 8,
+                          actives: _actives.skip(8).toList(),
+                        ),
                       ),
                       SliverStickyHeader(
                         header: buildContainerHeader(
@@ -90,6 +99,8 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
                         ),
                         sliver: buildPartBody(
                           context: context,
+                          startIndex: 12,
+                          actives: _actives.skip(12).toList(),
                           alignment: PartBodyAlignment.right,
                         ),
                       ),
@@ -100,32 +111,35 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
                       animation: _animationController,
                       builder: (context, child) {
                         try {
-                          Offset? activeButtonOffset = (_activeButtonKey.currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero);
+                          int index = _actives.lastIndexWhere((element) => element);
+
+                          Offset? activeButtonOffset = (_buttonKeys[index].currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero);
 
                           return Positioned(
                             top: (activeButtonOffset?.dy ?? 0.0) - 70.0 + (5.0 * CurvedAnimation(parent: _animationController, curve: Curves.easeInOut).value),
                             left: (activeButtonOffset?.dx ?? 0.0) - 10.0,
-                            child: (activeButtonOffset?.dy ?? 0.0) < 180.0 ? Container() : child!,
+                            child: (activeButtonOffset?.dy ?? 0.0) < 180.0
+                                ? Container()
+                                : Stack(
+                                    children: [
+                                      SvgPicture.asset(
+                                        'assets/svgs/bubble message start.svg',
+                                      ),
+                                      Positioned(
+                                        top: 12.0,
+                                        left: index > 0 ? 14.0 : 16.0,
+                                        child: Text(
+                                          index > 0 ? 'Lanjut' : 'Mulai',
+                                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                           );
                         } catch (e) {
                           return Container();
                         }
                       },
-                      child: Stack(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/svgs/bubble message start.svg',
-                          ),
-                          Positioned(
-                            top: 12.0,
-                            left: 16.0,
-                            child: Text(
-                              'Mulai',
-                              style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
-                            ),
-                          ),
-                        ],
-                      ),
                     ),
                 ],
               ),
@@ -183,7 +197,8 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
 
   Widget buildPartBody({
     required BuildContext context,
-    Key? activeButtonKey,
+    required int startIndex,
+    required List<bool> actives,
     PartBodyAlignment alignment = PartBodyAlignment.left,
   }) {
     bool isLeft = alignment == PartBodyAlignment.left;
@@ -227,36 +242,43 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
               right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
               child: CircleExerciseButton(
-                key: activeButtonKey,
+                key: _buttonKeys[startIndex],
                 svgAsset: 'star',
-                onPressed: activeButtonKey != null ? () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const AssesmentPage())) : () {},
+                onPressed: actives[0] ? () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const AssesmentPage())) : () {},
+                enabled: actives[0],
               ),
             ),
             Positioned(
               top: 200.0,
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
               right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
-              child: const CircleExerciseButton(
+              child: CircleExerciseButton(
+                key: _buttonKeys[startIndex + 1],
                 svgAsset: 'padlock',
-                enabled: false,
+                onPressed: actives[1] ? () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const AssesmentPage())) : () {},
+                enabled: actives[1],
               ),
             ),
             Positioned(
               top: 320.0,
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
               right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
-              child: const CircleExerciseButton(
+              child: CircleExerciseButton(
+                key: _buttonKeys[startIndex + 2],
                 svgAsset: 'book',
-                enabled: false,
+                onPressed: actives[2] ? () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const AssesmentPage())) : () {},
+                enabled: actives[2],
               ),
             ),
             Positioned(
               top: 440.0,
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
               right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
-              child: const CircleExerciseButton(
+              child: CircleExerciseButton(
+                key: _buttonKeys[startIndex + 3],
                 svgAsset: 'trophy',
-                enabled: false,
+                onPressed: actives[3] ? () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const AssesmentPage())) : () {},
+                enabled: actives[3],
               ),
             ),
           ],
