@@ -1,5 +1,6 @@
 part of '../blocs.dart';
 
+@immutable
 abstract class AuthenticationState {}
 
 class AuthenticationDataLoaded extends AuthenticationState {

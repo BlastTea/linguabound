@@ -1,5 +1,6 @@
 part of '../blocs.dart';
 
+@immutable
 abstract class AuthenticationEvent {}
 
 class SetAuthenticationState extends AuthenticationEvent {

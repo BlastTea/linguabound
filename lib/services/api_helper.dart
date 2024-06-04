@@ -109,14 +109,16 @@ final class ApiHelper {
           // Ignored, really
         }
       }
-      return;
+    } else {
+      // TODO: Uncomment below code for sign in with token
+      // try {
+      //   currentUser = await ApiHelper.get(pathUrl: dotenv.env['ENDPOINT_AUTH_USER']!).then((value) => User.fromJson(value['data']));
+      // } catch (e) {
+      //   ApiHelper.handleError(e);
+      // }
     }
 
-    // try {
-    //   currentUser = await ApiHelper.get(pathUrl: dotenv.env['ENDPOINT_AUTH_USER']!).then((value) => User.fromJson(value['data']));
-    // } catch (e) {
-    //   ApiHelper.handleError(e);
-    // }
+    MyApp.leaderboardBloc.add(InitializeLeaderboardData());
   }
 
   static Future<String?> _getToken({bool refreshCurrentUser = false}) async {
@@ -187,15 +189,16 @@ final class ApiHelper {
     await Future.delayed(const Duration(milliseconds: 300));
 
     // TODO: Set all bloc to initial
+    MyApp.leaderboardBloc.add(SetLeaderboardToInitial());
   }
 
-  static Future<dynamic> get({required String pathUrl}) => _request(method: 'GET', uri: Uri.parse('$_url/api/$pathUrl'));
+  static Future<dynamic> get({required String pathUrl}) => _request(method: 'GET', uri: Uri.parse('$_url/$pathUrl'));
 
-  static Future<dynamic> post({required String pathUrl, Map<String, dynamic>? body, bool ignoreAuthorization = false}) => _request(method: 'POST', uri: Uri.parse('$_url/api/$pathUrl'), body: body, ignoreAuthorization: ignoreAuthorization);
+  static Future<dynamic> post({required String pathUrl, Map<String, dynamic>? body, bool ignoreAuthorization = false}) => _request(method: 'POST', uri: Uri.parse('$_url/$pathUrl'), body: body, ignoreAuthorization: ignoreAuthorization);
 
-  static Future<dynamic> put({required String pathUrl, Map<String, dynamic>? body}) => _request(method: 'PUT', uri: Uri.parse('$_url/api/$pathUrl'), body: body);
+  static Future<dynamic> put({required String pathUrl, Map<String, dynamic>? body}) => _request(method: 'PUT', uri: Uri.parse('$_url/$pathUrl'), body: body);
 
-  static Future<dynamic> delete({required String pathUrl, Map<String, dynamic>? body}) => _request(method: 'DELETE', uri: Uri.parse('$_url/api/$pathUrl'), body: body);
+  static Future<dynamic> delete({required String pathUrl, Map<String, dynamic>? body}) => _request(method: 'DELETE', uri: Uri.parse('$_url/$pathUrl'), body: body);
 
   static Future<dynamic> getFile({required Uri uri, Duration? timeout}) => _request(method: 'GET', uri: uri, decode: false, ignoreAuthorization: true, timeout: timeout);
 

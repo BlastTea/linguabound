@@ -27,11 +27,13 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   static AuthenticationBloc authenticationBloc = AuthenticationBloc();
+  static LeaderboardBloc leaderboardBloc = LeaderboardBloc();
 
   @override
   Widget build(BuildContext context) => MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => authenticationBloc),
+          BlocProvider(create: (context) => leaderboardBloc),
         ],
         child: LinguaboundMaterialApp(
           title: 'Linguabound',

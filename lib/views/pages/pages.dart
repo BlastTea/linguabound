@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:linguabound/blocs/blocs.dart';
 import 'package:linguabound/main.dart';
+import 'package:linguabound/models/models.dart';
 import 'package:linguabound/utils/utils.dart';
 import 'package:linguabound/views/fragments/fragments.dart';
 import 'package:linguabound_widget/linguabound_widget.dart';
