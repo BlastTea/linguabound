@@ -27,16 +27,18 @@ class LeaderboardPage extends StatelessWidget {
                 child: CustomScrollView(
                   slivers: [
                     const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
-                    SliverPadding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      sliver: SliverToBoxAdapter(
-                        child: Text(
-                          'Urutan Anda saat ini di ${stateLeaderboard.position ?? '-'}',
-                          style: Theme.of(context).textTheme.titleLarge,
+                    if (stateLeaderboard.position != null) ...[
+                      SliverPadding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        sliver: SliverToBoxAdapter(
+                          child: Text(
+                            'Urutan kamu saat ini di ${stateLeaderboard.position ?? '-'}',
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
                         ),
                       ),
-                    ),
-                    const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
+                      const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
+                    ],
                     SliverPadding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       sliver: SliverList.builder(
@@ -86,7 +88,7 @@ class LeaderboardPage extends StatelessWidget {
                                           children: [
                                             SvgPicture.asset('assets/svgs/fire.svg'),
                                             const SizedBox(width: 8.0),
-                                            Text('${leaderboard.star ?? 0} Star'),
+                                            Text('${leaderboard.star ?? 0} Bintang'),
                                             const SizedBox(width: 32.0),
                                             SvgPicture.asset('assets/svgs/exp.svg'),
                                             const SizedBox(width: 8.0),

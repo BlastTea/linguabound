@@ -28,7 +28,7 @@ class HomeFragment extends StatelessWidget {
                 children: [
                   SvgPicture.asset('assets/svgs/fire.svg'),
                   const SizedBox(width: 8.0),
-                  const Text('1 Star'),
+                  const Text('1 Bintang'),
                   const SizedBox(width: 32.0),
                   SvgPicture.asset('assets/svgs/exp.svg'),
                   const SizedBox(width: 8.0),
@@ -122,7 +122,7 @@ class HomeFragment extends StatelessWidget {
                   const SizedBox(height: 8.0),
                   Text(
                     // 'You\'ve Reached a Great Milestone! Celebrate Your Victory.',
-                    'Kamu telah mencapai tonggak sejarah yang luar biasa! Rayakan Kemenangan Kamu.',
+                    'Kamu telah mencapai tonggak sejarah yang luar biasa!',
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(color: kColorBorder),
                     textAlign: TextAlign.start,
                   ),

@@ -38,7 +38,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       while (NavigationHelper.canGoBack()) {
         NavigationHelper.back();
       }
-      NavigationHelper.toReplacement(SlidePageRoute(pageBuilder: (context) => const HomePage()));
+      NavigationHelper.toReplacement(SlidePageRoute(pageBuilder: (context) => HomePage(key: homePageKey)));
     });
 
     on<SignUpPressed>((event, emit) async {

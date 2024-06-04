@@ -18,8 +18,8 @@ class LeaderboardBloc extends Bloc<LeaderboardEvent, LeaderboardState> {
       try {
         dynamic response = await ApiHelper.get(
           pathUrl: dotenv.env[switch (currentUser?.role) {
-            // UserRole.remaja => 'ENDPOINT_LEADERBOARD_REMAJA',
-            // UserRole.parent =>
+            UserRole.remaja => 'ENDPOINT_LEADERBOARD_REMAJA',
+            UserRole.parent => 'ENDPOINT_LEADERBOARD_PARENT',
             _ => 'ENDPOINT_LEADERBOARD_REMAJA',
           }]!,
         );
