@@ -163,6 +163,32 @@ Map<String, dynamic> _$$ExerciseImplToJson(_$ExerciseImpl instance) =>
       'nama_sub_bagian': instance.namaSubBagian,
     };
 
+_$HistoryExerciseImpl _$$HistoryExerciseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$HistoryExerciseImpl(
+      id: _parseInt(json['id']),
+      remajaId: _parseInt(json['remaja_id']),
+      bagianId: _parseInt(json['bagian_id']),
+      subBagianId: _parseInt(json['sub_bagian_id']),
+      nilai: _parseInt(json['nilai']),
+      completed: _parseBool(json['completed']),
+      namaBagian: json['nama_bagian'] as String?,
+      namaSubBagian: json['nama_sub_bagian'] as String?,
+    );
+
+Map<String, dynamic> _$$HistoryExerciseImplToJson(
+        _$HistoryExerciseImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'remaja_id': instance.remajaId,
+      'bagian_id': instance.bagianId,
+      'sub_bagian_id': instance.subBagianId,
+      'nilai': instance.nilai,
+      'completed': instance.completed,
+      'nama_bagian': instance.namaBagian,
+      'nama_sub_bagian': instance.namaSubBagian,
+    };
+
 _$DataSoalImpl _$$DataSoalImplFromJson(Map<String, dynamic> json) =>
     _$DataSoalImpl(
       soal: json['soal'] == null
@@ -225,3 +251,59 @@ Map<String, dynamic> _$$PilihanImplToJson(_$PilihanImpl instance) =>
       'updated_at': instance.updatedAt?.toIso8601String(),
       'soal_id': instance.soalId,
     };
+
+_$MeetImpl _$$MeetImplFromJson(Map<String, dynamic> json) => _$MeetImpl(
+      id: _parseInt(json['id']),
+      topik: json['topik'] as String?,
+      deskripsi: json['deskripsi'] as String?,
+      jamMulai: json['jam_mulai'] == null
+          ? null
+          : DateTime.parse(json['jam_mulai'] as String),
+      jamBerakhir: json['jam_berakhir'] == null
+          ? null
+          : DateTime.parse(json['jam_berakhir'] as String),
+      tanggal: json['tanggal'] == null
+          ? null
+          : DateTime.parse(json['tanggal'] as String),
+      link: json['link'] as String?,
+      materi: json['materi'] as String?,
+      totalRemaja: (json['total_remaja'] as num?)?.toInt(),
+      mentorId: (json['mentor_id'] as num?)?.toInt(),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+      status: $enumDecodeNullable(_$MeetStatusEnumMap, json['status']),
+      namaLengkap: json['nama_lengkap'] as String?,
+      gelar: json['gelar'] as String?,
+      riwayatPendidikanTerakhir: json['riwayat_pendidikan_terakhir'] as String?,
+      foto: json['foto'] as String?,
+    );
+
+Map<String, dynamic> _$$MeetImplToJson(_$MeetImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'topik': instance.topik,
+      'deskripsi': instance.deskripsi,
+      'jam_mulai': instance.jamMulai?.toIso8601String(),
+      'jam_berakhir': instance.jamBerakhir?.toIso8601String(),
+      'tanggal': instance.tanggal?.toIso8601String(),
+      'link': instance.link,
+      'materi': instance.materi,
+      'total_remaja': instance.totalRemaja,
+      'mentor_id': instance.mentorId,
+      'created_at': instance.createdAt?.toIso8601String(),
+      'updated_at': instance.updatedAt?.toIso8601String(),
+      'status': _$MeetStatusEnumMap[instance.status],
+      'nama_lengkap': instance.namaLengkap,
+      'gelar': instance.gelar,
+      'riwayat_pendidikan_terakhir': instance.riwayatPendidikanTerakhir,
+      'foto': instance.foto,
+    };
+
+const _$MeetStatusEnumMap = {
+  MeetStatus.sudahDipublish: 'Sudah dipublish',
+  MeetStatus.belumDipublish: 'Belum dipublish',
+};

@@ -124,7 +124,10 @@ final class ApiHelper {
     if (currentUser != null) {
       // TODO: Initialize all bloc
       MyApp.leaderboardBloc.add(InitializeLeaderboardData());
-      MyApp.exerciseBloc.add(InitializeExerciseData());
+      if (currentUser?.role == UserRole.remaja) {
+        MyApp.exerciseBloc.add(InitializeExerciseData());
+      }
+      MyApp.meetBloc.add(InitializeMeetData());
     }
   }
 
@@ -197,7 +200,10 @@ final class ApiHelper {
 
     // TODO: Set all bloc to initial
     MyApp.leaderboardBloc.add(SetLeaderboardToInitial());
-    MyApp.exerciseBloc.add(SetExerciseToInitial());
+    if (currentUser?.role == UserRole.remaja) {
+      MyApp.exerciseBloc.add(SetExerciseToInitial());
+    }
+    MyApp.meetBloc.add(SetMeetToInitial());
   }
 
   static Future<dynamic> get({required String pathUrl}) => _request(method: 'GET', uri: Uri.parse('$_url/$pathUrl'));

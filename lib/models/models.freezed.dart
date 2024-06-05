@@ -1989,6 +1989,320 @@ abstract class _Exercise implements Exercise {
       throw _privateConstructorUsedError;
 }
 
+HistoryExercise _$HistoryExerciseFromJson(Map<String, dynamic> json) {
+  return _HistoryExercise.fromJson(json);
+}
+
+/// @nodoc
+mixin _$HistoryExercise {
+  @JsonKey(fromJson: _parseInt)
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'remaja_id', fromJson: _parseInt)
+  int? get remajaId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'bagian_id', fromJson: _parseInt)
+  int? get bagianId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
+  int? get subBagianId => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseInt)
+  int? get nilai => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseBool)
+  bool? get completed => throw _privateConstructorUsedError;
+  @JsonKey(name: 'nama_bagian')
+  String? get namaBagian => throw _privateConstructorUsedError;
+  @JsonKey(name: 'nama_sub_bagian')
+  String? get namaSubBagian => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $HistoryExerciseCopyWith<HistoryExercise> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $HistoryExerciseCopyWith<$Res> {
+  factory $HistoryExerciseCopyWith(
+          HistoryExercise value, $Res Function(HistoryExercise) then) =
+      _$HistoryExerciseCopyWithImpl<$Res, HistoryExercise>;
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      @JsonKey(name: 'remaja_id', fromJson: _parseInt) int? remajaId,
+      @JsonKey(name: 'bagian_id', fromJson: _parseInt) int? bagianId,
+      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
+      @JsonKey(fromJson: _parseInt) int? nilai,
+      @JsonKey(fromJson: _parseBool) bool? completed,
+      @JsonKey(name: 'nama_bagian') String? namaBagian,
+      @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian});
+}
+
+/// @nodoc
+class _$HistoryExerciseCopyWithImpl<$Res, $Val extends HistoryExercise>
+    implements $HistoryExerciseCopyWith<$Res> {
+  _$HistoryExerciseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? remajaId = freezed,
+    Object? bagianId = freezed,
+    Object? subBagianId = freezed,
+    Object? nilai = freezed,
+    Object? completed = freezed,
+    Object? namaBagian = freezed,
+    Object? namaSubBagian = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      remajaId: freezed == remajaId
+          ? _value.remajaId
+          : remajaId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      bagianId: freezed == bagianId
+          ? _value.bagianId
+          : bagianId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      subBagianId: freezed == subBagianId
+          ? _value.subBagianId
+          : subBagianId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      nilai: freezed == nilai
+          ? _value.nilai
+          : nilai // ignore: cast_nullable_to_non_nullable
+              as int?,
+      completed: freezed == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      namaBagian: freezed == namaBagian
+          ? _value.namaBagian
+          : namaBagian // ignore: cast_nullable_to_non_nullable
+              as String?,
+      namaSubBagian: freezed == namaSubBagian
+          ? _value.namaSubBagian
+          : namaSubBagian // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$HistoryExerciseImplCopyWith<$Res>
+    implements $HistoryExerciseCopyWith<$Res> {
+  factory _$$HistoryExerciseImplCopyWith(_$HistoryExerciseImpl value,
+          $Res Function(_$HistoryExerciseImpl) then) =
+      __$$HistoryExerciseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      @JsonKey(name: 'remaja_id', fromJson: _parseInt) int? remajaId,
+      @JsonKey(name: 'bagian_id', fromJson: _parseInt) int? bagianId,
+      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
+      @JsonKey(fromJson: _parseInt) int? nilai,
+      @JsonKey(fromJson: _parseBool) bool? completed,
+      @JsonKey(name: 'nama_bagian') String? namaBagian,
+      @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian});
+}
+
+/// @nodoc
+class __$$HistoryExerciseImplCopyWithImpl<$Res>
+    extends _$HistoryExerciseCopyWithImpl<$Res, _$HistoryExerciseImpl>
+    implements _$$HistoryExerciseImplCopyWith<$Res> {
+  __$$HistoryExerciseImplCopyWithImpl(
+      _$HistoryExerciseImpl _value, $Res Function(_$HistoryExerciseImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? remajaId = freezed,
+    Object? bagianId = freezed,
+    Object? subBagianId = freezed,
+    Object? nilai = freezed,
+    Object? completed = freezed,
+    Object? namaBagian = freezed,
+    Object? namaSubBagian = freezed,
+  }) {
+    return _then(_$HistoryExerciseImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      remajaId: freezed == remajaId
+          ? _value.remajaId
+          : remajaId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      bagianId: freezed == bagianId
+          ? _value.bagianId
+          : bagianId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      subBagianId: freezed == subBagianId
+          ? _value.subBagianId
+          : subBagianId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      nilai: freezed == nilai
+          ? _value.nilai
+          : nilai // ignore: cast_nullable_to_non_nullable
+              as int?,
+      completed: freezed == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      namaBagian: freezed == namaBagian
+          ? _value.namaBagian
+          : namaBagian // ignore: cast_nullable_to_non_nullable
+              as String?,
+      namaSubBagian: freezed == namaSubBagian
+          ? _value.namaSubBagian
+          : namaSubBagian // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$HistoryExerciseImpl implements _HistoryExercise {
+  _$HistoryExerciseImpl(
+      {@JsonKey(fromJson: _parseInt) this.id,
+      @JsonKey(name: 'remaja_id', fromJson: _parseInt) this.remajaId,
+      @JsonKey(name: 'bagian_id', fromJson: _parseInt) this.bagianId,
+      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) this.subBagianId,
+      @JsonKey(fromJson: _parseInt) this.nilai,
+      @JsonKey(fromJson: _parseBool) this.completed,
+      @JsonKey(name: 'nama_bagian') this.namaBagian,
+      @JsonKey(name: 'nama_sub_bagian') this.namaSubBagian});
+
+  factory _$HistoryExerciseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HistoryExerciseImplFromJson(json);
+
+  @override
+  @JsonKey(fromJson: _parseInt)
+  final int? id;
+  @override
+  @JsonKey(name: 'remaja_id', fromJson: _parseInt)
+  final int? remajaId;
+  @override
+  @JsonKey(name: 'bagian_id', fromJson: _parseInt)
+  final int? bagianId;
+  @override
+  @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
+  final int? subBagianId;
+  @override
+  @JsonKey(fromJson: _parseInt)
+  final int? nilai;
+  @override
+  @JsonKey(fromJson: _parseBool)
+  final bool? completed;
+  @override
+  @JsonKey(name: 'nama_bagian')
+  final String? namaBagian;
+  @override
+  @JsonKey(name: 'nama_sub_bagian')
+  final String? namaSubBagian;
+
+  @override
+  String toString() {
+    return 'HistoryExercise(id: $id, remajaId: $remajaId, bagianId: $bagianId, subBagianId: $subBagianId, nilai: $nilai, completed: $completed, namaBagian: $namaBagian, namaSubBagian: $namaSubBagian)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HistoryExerciseImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.remajaId, remajaId) ||
+                other.remajaId == remajaId) &&
+            (identical(other.bagianId, bagianId) ||
+                other.bagianId == bagianId) &&
+            (identical(other.subBagianId, subBagianId) ||
+                other.subBagianId == subBagianId) &&
+            (identical(other.nilai, nilai) || other.nilai == nilai) &&
+            (identical(other.completed, completed) ||
+                other.completed == completed) &&
+            (identical(other.namaBagian, namaBagian) ||
+                other.namaBagian == namaBagian) &&
+            (identical(other.namaSubBagian, namaSubBagian) ||
+                other.namaSubBagian == namaSubBagian));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, remajaId, bagianId,
+      subBagianId, nilai, completed, namaBagian, namaSubBagian);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HistoryExerciseImplCopyWith<_$HistoryExerciseImpl> get copyWith =>
+      __$$HistoryExerciseImplCopyWithImpl<_$HistoryExerciseImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$HistoryExerciseImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _HistoryExercise implements HistoryExercise {
+  factory _HistoryExercise(
+          {@JsonKey(fromJson: _parseInt) final int? id,
+          @JsonKey(name: 'remaja_id', fromJson: _parseInt) final int? remajaId,
+          @JsonKey(name: 'bagian_id', fromJson: _parseInt) final int? bagianId,
+          @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
+          final int? subBagianId,
+          @JsonKey(fromJson: _parseInt) final int? nilai,
+          @JsonKey(fromJson: _parseBool) final bool? completed,
+          @JsonKey(name: 'nama_bagian') final String? namaBagian,
+          @JsonKey(name: 'nama_sub_bagian') final String? namaSubBagian}) =
+      _$HistoryExerciseImpl;
+
+  factory _HistoryExercise.fromJson(Map<String, dynamic> json) =
+      _$HistoryExerciseImpl.fromJson;
+
+  @override
+  @JsonKey(fromJson: _parseInt)
+  int? get id;
+  @override
+  @JsonKey(name: 'remaja_id', fromJson: _parseInt)
+  int? get remajaId;
+  @override
+  @JsonKey(name: 'bagian_id', fromJson: _parseInt)
+  int? get bagianId;
+  @override
+  @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
+  int? get subBagianId;
+  @override
+  @JsonKey(fromJson: _parseInt)
+  int? get nilai;
+  @override
+  @JsonKey(fromJson: _parseBool)
+  bool? get completed;
+  @override
+  @JsonKey(name: 'nama_bagian')
+  String? get namaBagian;
+  @override
+  @JsonKey(name: 'nama_sub_bagian')
+  String? get namaSubBagian;
+  @override
+  @JsonKey(ignore: true)
+  _$$HistoryExerciseImplCopyWith<_$HistoryExerciseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 DataSoal _$DataSoalFromJson(Map<String, dynamic> json) {
   return _DataSoal.fromJson(json);
 }
@@ -2675,5 +2989,519 @@ abstract class _Pilihan implements Pilihan {
   @override
   @JsonKey(ignore: true)
   _$$PilihanImplCopyWith<_$PilihanImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Meet _$MeetFromJson(Map<String, dynamic> json) {
+  return _Meet.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Meet {
+  @JsonKey(fromJson: _parseInt)
+  int? get id => throw _privateConstructorUsedError;
+  String? get topik => throw _privateConstructorUsedError;
+  String? get deskripsi => throw _privateConstructorUsedError;
+  @JsonKey(name: 'jam_mulai')
+  DateTime? get jamMulai => throw _privateConstructorUsedError;
+  @JsonKey(name: 'jam_berakhir')
+  DateTime? get jamBerakhir => throw _privateConstructorUsedError;
+  DateTime? get tanggal => throw _privateConstructorUsedError;
+  String? get link => throw _privateConstructorUsedError;
+  String? get materi => throw _privateConstructorUsedError;
+  @JsonKey(name: 'total_remaja')
+  int? get totalRemaja => throw _privateConstructorUsedError;
+  @JsonKey(name: 'mentor_id')
+  int? get mentorId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  MeetStatus? get status => throw _privateConstructorUsedError;
+  @JsonKey(name: 'nama_lengkap')
+  String? get namaLengkap => throw _privateConstructorUsedError;
+  String? get gelar => throw _privateConstructorUsedError;
+  @JsonKey(name: 'riwayat_pendidikan_terakhir')
+  String? get riwayatPendidikanTerakhir => throw _privateConstructorUsedError;
+  String? get foto => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MeetCopyWith<Meet> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MeetCopyWith<$Res> {
+  factory $MeetCopyWith(Meet value, $Res Function(Meet) then) =
+      _$MeetCopyWithImpl<$Res, Meet>;
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      String? topik,
+      String? deskripsi,
+      @JsonKey(name: 'jam_mulai') DateTime? jamMulai,
+      @JsonKey(name: 'jam_berakhir') DateTime? jamBerakhir,
+      DateTime? tanggal,
+      String? link,
+      String? materi,
+      @JsonKey(name: 'total_remaja') int? totalRemaja,
+      @JsonKey(name: 'mentor_id') int? mentorId,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt,
+      MeetStatus? status,
+      @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+      String? gelar,
+      @JsonKey(name: 'riwayat_pendidikan_terakhir')
+      String? riwayatPendidikanTerakhir,
+      String? foto});
+}
+
+/// @nodoc
+class _$MeetCopyWithImpl<$Res, $Val extends Meet>
+    implements $MeetCopyWith<$Res> {
+  _$MeetCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? topik = freezed,
+    Object? deskripsi = freezed,
+    Object? jamMulai = freezed,
+    Object? jamBerakhir = freezed,
+    Object? tanggal = freezed,
+    Object? link = freezed,
+    Object? materi = freezed,
+    Object? totalRemaja = freezed,
+    Object? mentorId = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? status = freezed,
+    Object? namaLengkap = freezed,
+    Object? gelar = freezed,
+    Object? riwayatPendidikanTerakhir = freezed,
+    Object? foto = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      topik: freezed == topik
+          ? _value.topik
+          : topik // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deskripsi: freezed == deskripsi
+          ? _value.deskripsi
+          : deskripsi // ignore: cast_nullable_to_non_nullable
+              as String?,
+      jamMulai: freezed == jamMulai
+          ? _value.jamMulai
+          : jamMulai // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      jamBerakhir: freezed == jamBerakhir
+          ? _value.jamBerakhir
+          : jamBerakhir // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      tanggal: freezed == tanggal
+          ? _value.tanggal
+          : tanggal // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String?,
+      materi: freezed == materi
+          ? _value.materi
+          : materi // ignore: cast_nullable_to_non_nullable
+              as String?,
+      totalRemaja: freezed == totalRemaja
+          ? _value.totalRemaja
+          : totalRemaja // ignore: cast_nullable_to_non_nullable
+              as int?,
+      mentorId: freezed == mentorId
+          ? _value.mentorId
+          : mentorId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as MeetStatus?,
+      namaLengkap: freezed == namaLengkap
+          ? _value.namaLengkap
+          : namaLengkap // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gelar: freezed == gelar
+          ? _value.gelar
+          : gelar // ignore: cast_nullable_to_non_nullable
+              as String?,
+      riwayatPendidikanTerakhir: freezed == riwayatPendidikanTerakhir
+          ? _value.riwayatPendidikanTerakhir
+          : riwayatPendidikanTerakhir // ignore: cast_nullable_to_non_nullable
+              as String?,
+      foto: freezed == foto
+          ? _value.foto
+          : foto // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$MeetImplCopyWith<$Res> implements $MeetCopyWith<$Res> {
+  factory _$$MeetImplCopyWith(
+          _$MeetImpl value, $Res Function(_$MeetImpl) then) =
+      __$$MeetImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      String? topik,
+      String? deskripsi,
+      @JsonKey(name: 'jam_mulai') DateTime? jamMulai,
+      @JsonKey(name: 'jam_berakhir') DateTime? jamBerakhir,
+      DateTime? tanggal,
+      String? link,
+      String? materi,
+      @JsonKey(name: 'total_remaja') int? totalRemaja,
+      @JsonKey(name: 'mentor_id') int? mentorId,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt,
+      MeetStatus? status,
+      @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+      String? gelar,
+      @JsonKey(name: 'riwayat_pendidikan_terakhir')
+      String? riwayatPendidikanTerakhir,
+      String? foto});
+}
+
+/// @nodoc
+class __$$MeetImplCopyWithImpl<$Res>
+    extends _$MeetCopyWithImpl<$Res, _$MeetImpl>
+    implements _$$MeetImplCopyWith<$Res> {
+  __$$MeetImplCopyWithImpl(_$MeetImpl _value, $Res Function(_$MeetImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? topik = freezed,
+    Object? deskripsi = freezed,
+    Object? jamMulai = freezed,
+    Object? jamBerakhir = freezed,
+    Object? tanggal = freezed,
+    Object? link = freezed,
+    Object? materi = freezed,
+    Object? totalRemaja = freezed,
+    Object? mentorId = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? status = freezed,
+    Object? namaLengkap = freezed,
+    Object? gelar = freezed,
+    Object? riwayatPendidikanTerakhir = freezed,
+    Object? foto = freezed,
+  }) {
+    return _then(_$MeetImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      topik: freezed == topik
+          ? _value.topik
+          : topik // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deskripsi: freezed == deskripsi
+          ? _value.deskripsi
+          : deskripsi // ignore: cast_nullable_to_non_nullable
+              as String?,
+      jamMulai: freezed == jamMulai
+          ? _value.jamMulai
+          : jamMulai // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      jamBerakhir: freezed == jamBerakhir
+          ? _value.jamBerakhir
+          : jamBerakhir // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      tanggal: freezed == tanggal
+          ? _value.tanggal
+          : tanggal // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String?,
+      materi: freezed == materi
+          ? _value.materi
+          : materi // ignore: cast_nullable_to_non_nullable
+              as String?,
+      totalRemaja: freezed == totalRemaja
+          ? _value.totalRemaja
+          : totalRemaja // ignore: cast_nullable_to_non_nullable
+              as int?,
+      mentorId: freezed == mentorId
+          ? _value.mentorId
+          : mentorId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as MeetStatus?,
+      namaLengkap: freezed == namaLengkap
+          ? _value.namaLengkap
+          : namaLengkap // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gelar: freezed == gelar
+          ? _value.gelar
+          : gelar // ignore: cast_nullable_to_non_nullable
+              as String?,
+      riwayatPendidikanTerakhir: freezed == riwayatPendidikanTerakhir
+          ? _value.riwayatPendidikanTerakhir
+          : riwayatPendidikanTerakhir // ignore: cast_nullable_to_non_nullable
+              as String?,
+      foto: freezed == foto
+          ? _value.foto
+          : foto // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$MeetImpl implements _Meet {
+  _$MeetImpl(
+      {@JsonKey(fromJson: _parseInt) this.id,
+      this.topik,
+      this.deskripsi,
+      @JsonKey(name: 'jam_mulai') this.jamMulai,
+      @JsonKey(name: 'jam_berakhir') this.jamBerakhir,
+      this.tanggal,
+      this.link,
+      this.materi,
+      @JsonKey(name: 'total_remaja') this.totalRemaja,
+      @JsonKey(name: 'mentor_id') this.mentorId,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'updated_at') this.updatedAt,
+      this.status,
+      @JsonKey(name: 'nama_lengkap') this.namaLengkap,
+      this.gelar,
+      @JsonKey(name: 'riwayat_pendidikan_terakhir')
+      this.riwayatPendidikanTerakhir,
+      this.foto});
+
+  factory _$MeetImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MeetImplFromJson(json);
+
+  @override
+  @JsonKey(fromJson: _parseInt)
+  final int? id;
+  @override
+  final String? topik;
+  @override
+  final String? deskripsi;
+  @override
+  @JsonKey(name: 'jam_mulai')
+  final DateTime? jamMulai;
+  @override
+  @JsonKey(name: 'jam_berakhir')
+  final DateTime? jamBerakhir;
+  @override
+  final DateTime? tanggal;
+  @override
+  final String? link;
+  @override
+  final String? materi;
+  @override
+  @JsonKey(name: 'total_remaja')
+  final int? totalRemaja;
+  @override
+  @JsonKey(name: 'mentor_id')
+  final int? mentorId;
+  @override
+  @JsonKey(name: 'created_at')
+  final DateTime? createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  final DateTime? updatedAt;
+  @override
+  final MeetStatus? status;
+  @override
+  @JsonKey(name: 'nama_lengkap')
+  final String? namaLengkap;
+  @override
+  final String? gelar;
+  @override
+  @JsonKey(name: 'riwayat_pendidikan_terakhir')
+  final String? riwayatPendidikanTerakhir;
+  @override
+  final String? foto;
+
+  @override
+  String toString() {
+    return 'Meet(id: $id, topik: $topik, deskripsi: $deskripsi, jamMulai: $jamMulai, jamBerakhir: $jamBerakhir, tanggal: $tanggal, link: $link, materi: $materi, totalRemaja: $totalRemaja, mentorId: $mentorId, createdAt: $createdAt, updatedAt: $updatedAt, status: $status, namaLengkap: $namaLengkap, gelar: $gelar, riwayatPendidikanTerakhir: $riwayatPendidikanTerakhir, foto: $foto)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MeetImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.topik, topik) || other.topik == topik) &&
+            (identical(other.deskripsi, deskripsi) ||
+                other.deskripsi == deskripsi) &&
+            (identical(other.jamMulai, jamMulai) ||
+                other.jamMulai == jamMulai) &&
+            (identical(other.jamBerakhir, jamBerakhir) ||
+                other.jamBerakhir == jamBerakhir) &&
+            (identical(other.tanggal, tanggal) || other.tanggal == tanggal) &&
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.materi, materi) || other.materi == materi) &&
+            (identical(other.totalRemaja, totalRemaja) ||
+                other.totalRemaja == totalRemaja) &&
+            (identical(other.mentorId, mentorId) ||
+                other.mentorId == mentorId) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.namaLengkap, namaLengkap) ||
+                other.namaLengkap == namaLengkap) &&
+            (identical(other.gelar, gelar) || other.gelar == gelar) &&
+            (identical(other.riwayatPendidikanTerakhir,
+                    riwayatPendidikanTerakhir) ||
+                other.riwayatPendidikanTerakhir == riwayatPendidikanTerakhir) &&
+            (identical(other.foto, foto) || other.foto == foto));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      topik,
+      deskripsi,
+      jamMulai,
+      jamBerakhir,
+      tanggal,
+      link,
+      materi,
+      totalRemaja,
+      mentorId,
+      createdAt,
+      updatedAt,
+      status,
+      namaLengkap,
+      gelar,
+      riwayatPendidikanTerakhir,
+      foto);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MeetImplCopyWith<_$MeetImpl> get copyWith =>
+      __$$MeetImplCopyWithImpl<_$MeetImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$MeetImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Meet implements Meet {
+  factory _Meet(
+      {@JsonKey(fromJson: _parseInt) final int? id,
+      final String? topik,
+      final String? deskripsi,
+      @JsonKey(name: 'jam_mulai') final DateTime? jamMulai,
+      @JsonKey(name: 'jam_berakhir') final DateTime? jamBerakhir,
+      final DateTime? tanggal,
+      final String? link,
+      final String? materi,
+      @JsonKey(name: 'total_remaja') final int? totalRemaja,
+      @JsonKey(name: 'mentor_id') final int? mentorId,
+      @JsonKey(name: 'created_at') final DateTime? createdAt,
+      @JsonKey(name: 'updated_at') final DateTime? updatedAt,
+      final MeetStatus? status,
+      @JsonKey(name: 'nama_lengkap') final String? namaLengkap,
+      final String? gelar,
+      @JsonKey(name: 'riwayat_pendidikan_terakhir')
+      final String? riwayatPendidikanTerakhir,
+      final String? foto}) = _$MeetImpl;
+
+  factory _Meet.fromJson(Map<String, dynamic> json) = _$MeetImpl.fromJson;
+
+  @override
+  @JsonKey(fromJson: _parseInt)
+  int? get id;
+  @override
+  String? get topik;
+  @override
+  String? get deskripsi;
+  @override
+  @JsonKey(name: 'jam_mulai')
+  DateTime? get jamMulai;
+  @override
+  @JsonKey(name: 'jam_berakhir')
+  DateTime? get jamBerakhir;
+  @override
+  DateTime? get tanggal;
+  @override
+  String? get link;
+  @override
+  String? get materi;
+  @override
+  @JsonKey(name: 'total_remaja')
+  int? get totalRemaja;
+  @override
+  @JsonKey(name: 'mentor_id')
+  int? get mentorId;
+  @override
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  DateTime? get updatedAt;
+  @override
+  MeetStatus? get status;
+  @override
+  @JsonKey(name: 'nama_lengkap')
+  String? get namaLengkap;
+  @override
+  String? get gelar;
+  @override
+  @JsonKey(name: 'riwayat_pendidikan_terakhir')
+  String? get riwayatPendidikanTerakhir;
+  @override
+  String? get foto;
+  @override
+  @JsonKey(ignore: true)
+  _$$MeetImplCopyWith<_$MeetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

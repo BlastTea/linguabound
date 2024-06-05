@@ -4,60 +4,66 @@ class MeetFragment extends StatelessWidget {
   const MeetFragment({super.key});
 
   @override
-  Widget build(BuildContext context) => CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: MediaQuery.viewPaddingOf(context).top)),
-          // const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
-          // SliverPadding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          //   sliver: SliverToBoxAdapter(
-          //     child: BannerContainer(
-          //       title: const Text('10 dalam 1 sesi'),
-          //       subtitle: const Text('Marilah terbuka pada hal-hal yang paling penting'),
-          //       actions: [
-          //         TextButton(
-          //           onPressed: () {},
-          //           style: TextButton.styleFrom(padding: EdgeInsets.zero),
-          //           child: Text(
-          //             'Meet Sekarang',
-          //             style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
-          //           ),
-          //         ),
-          //         const SizedBox(width: 8.0),
-          //         const Icon(
-          //           Icons.date_range_outlined,
-          //           color: kColorBorder,
-          //           size: 17.0,
-          //         )
-          //       ],
-          //       image: Image.asset('assets/images/Meetup Icon.png'),
-          //     ),
-          //   ),
-          // ),
-          // const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
-          // SliverPadding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          //   sliver: SliverToBoxAdapter(child: Text('Semua Sesi', style: Theme.of(context).textTheme.headlineMedium)),
-          // ),
-          const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            sliver: SliverList.builder(
-              itemBuilder: (context, index) => buildMeetList(context: context, networkImage: kDummyPictureProfileUrl, name: 'Mr. Marakopolo', topic: 'Belajar Vocabulary', date: DateTime.now(), startTime: const TimeOfDay(hour: 7, minute: 30), endTime: const TimeOfDay(hour: 8, minute: 30)),
-              itemCount: 1000,
+  Widget build(BuildContext context) => BlocBuilder<MeetBloc, MeetState>(
+        builder: (context, stateMeet) {
+          if (stateMeet is MeetDataLoaded) {
+            return RefreshIndicator(
+              onRefresh: () {
+                Completer<bool> completer = Completer();
+                MyApp.meetBloc.add(InitializeMeetData(completer: completer));
+                return completer.future;
+              },
+              child: CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(child: SizedBox(height: MediaQuery.viewPaddingOf(context).top)),
+                  const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    sliver: SliverToBoxAdapter(
+                      child: Text(
+                        'List Kelas Tersedia',
+                        style: Theme.of(context).textTheme.headlineSmall,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                  const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    sliver: SliverList.builder(
+                      itemBuilder: (context, index) {
+                        Meet meet = stateMeet.meets[index];
+
+                        return buildMeetList(
+                          context: context,
+                          meet: meet,
+                        );
+                      },
+                      itemCount: stateMeet.meets.length,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          } else if (stateMeet is MeetError) {
+            return SafeArea(
+              child: ErrorOccuredButton(
+                onRetryPressed: () => MyApp.meetBloc.add(InitializeMeetData()),
+              ),
+            );
+          }
+
+          return const SafeArea(
+            child: Center(
+              child: CircularProgressIndicator(),
             ),
-          ),
-        ],
+          );
+        },
       );
 
   Widget buildMeetList({
     required BuildContext context,
-    required String networkImage,
-    required String name,
-    required String topic,
-    required DateTime date,
-    required TimeOfDay startTime,
-    required TimeOfDay endTime,
+    required Meet meet,
   }) =>
       Column(
         children: [
@@ -73,26 +79,26 @@ class MeetFragment extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      IgnorePointer(
-                        child: MyFilledButton.circle(
-                          bottomBorderWidth: 2.0,
-                          onPressed: () {},
-                          image: DecorationImage(
-                            image: NetworkImage(networkImage),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 16.0),
+                      // IgnorePointer(
+                      //   child: MyFilledButton.circle(
+                      //     bottomBorderWidth: 2.0,
+                      //     onPressed: () {},
+                      //     image: DecorationImage(
+                      //       image: CachedNetworkImageProvider(meet.),
+                      //     ),
+                      //   ),
+                      // ),
+                      // const SizedBox(width: 16.0),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            name,
+                            meet.topik ?? '-',
                             style: Theme.of(context).textTheme.titleLarge!.copyWith(color: kColorBorder),
                           ),
                           const SizedBox(height: 4.0),
                           Text(
-                            topic,
+                            meet.deskripsi ?? '-',
                             style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorBorder),
                           ),
                         ],
@@ -115,7 +121,7 @@ class MeetFragment extends StatelessWidget {
                               ),
                               const SizedBox(width: 8.0),
                               Text(
-                                date.toFormattedDate(withMonthName: true),
+                                meet.tanggal?.toFormattedDate(withMonthName: true) ?? '-',
                                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorBorder),
                               ),
                             ],
@@ -130,7 +136,7 @@ class MeetFragment extends StatelessWidget {
                               ),
                               const SizedBox(width: 8.0),
                               Text(
-                                '${startTime.toFormattedString()} - ${endTime.toFormattedString()}',
+                                '${TimeOfDay.fromDateTime(meet.jamMulai ?? DateTime.now()).toFormattedString()} - ${TimeOfDay.fromDateTime(meet.jamBerakhir ?? DateTime.now()).toFormattedString()}',
                                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorBorder),
                               ),
                             ],
@@ -138,7 +144,7 @@ class MeetFragment extends StatelessWidget {
                         ],
                       ),
                       FilledButton(
-                        onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const DetailMeetPage())),
+                        onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => DetailMeetPage(meet: meet))),
                         style: FilledButton.styleFrom(
                           backgroundColor: kColorBorder,
                           foregroundColor: kColorWhite,

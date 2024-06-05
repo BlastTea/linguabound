@@ -1,20 +1,24 @@
 import 'dart:async';
-import 'dart:math';
+import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:linguabound/blocs/blocs.dart';
 import 'package:linguabound/main.dart';
 import 'package:linguabound/models/models.dart';
+import 'package:linguabound/services/services.dart';
 import 'package:linguabound/utils/utils.dart';
 import 'package:linguabound/views/fragments/fragments.dart';
 import 'package:linguabound_widget/linguabound_widget.dart';
 import 'package:m_widget/m_widget.dart';
+import 'package:open_file_plus/open_file_plus.dart';
+import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 part 'home_page.dart';
 part 'detail_meet_page.dart';

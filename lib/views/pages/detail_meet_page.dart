@@ -1,7 +1,12 @@
 part of 'pages.dart';
 
 class DetailMeetPage extends StatelessWidget {
-  const DetailMeetPage({super.key});
+  const DetailMeetPage({
+    super.key,
+    required this.meet,
+  });
+
+  final Meet meet;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -20,7 +25,7 @@ class DetailMeetPage extends StatelessWidget {
           children: [
             const SizedBox(height: 16.0),
             Text('Anda melakukan meet dengan', style: Theme.of(context).textTheme.titleSmall),
-            Text('Altamis Fattah Atmaja', style: Theme.of(context).textTheme.titleLarge),
+            Text('${meet.namaLengkap ?? '-'}, ${meet.gelar ?? ''}', style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 16.0),
             Transform.translate(
               offset: const Offset(-30.0, 0.0),
@@ -28,15 +33,68 @@ class DetailMeetPage extends StatelessWidget {
             ),
             const SizedBox(height: 16.0),
             Text('Topik', style: Theme.of(context).textTheme.headlineMedium),
-            Text('Worem ipsum dolor sit amet, consectetur adipiscing elit', style: Theme.of(context).textTheme.bodySmall),
+            Text(meet.topik ?? '-', style: Theme.of(context).textTheme.bodySmall),
             const SizedBox(height: 16.0),
-            Text('Pembahasan', style: Theme.of(context).textTheme.headlineMedium),
-            Text('Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis. Ut commodo efficitur neque.', style: Theme.of(context).textTheme.bodySmall),
+            Text('Deskripsi', style: Theme.of(context).textTheme.headlineMedium),
+            Text(meet.deskripsi ?? '-', style: Theme.of(context).textTheme.bodySmall),
             const SizedBox(height: 16.0),
             Text('Cek Materi', style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: 16.0),
             MyFilledButton.tonal(
-              onPressed: () {},
+              onPressed: meet.materi != null
+                  ? () async {
+                      showLoadingDialog();
+
+                      try {
+                        final bytes = await ApiHelper.getFile(uri: Uri.parse(meet.materi!));
+
+                        Directory directory = await getApplicationCacheDirectory();
+
+                        String filePath = path.joinAll([directory.path, 'materials', path.basename(meet.materi!)]);
+
+                        String parentPath = path.dirname(filePath);
+                        String fileName = path.basenameWithoutExtension(filePath);
+                        String extension = path.extension(filePath);
+
+                        String getExtension() => extension.isNotEmpty ? extension : '';
+
+                        File file = File(path.joinAll([parentPath, '$fileName${getExtension()}']));
+
+                        int fileIteration = 1;
+                        while (await file.exists()) {
+                          file = File(path.joinAll([parentPath, '$fileName (${fileIteration++})${getExtension()}']));
+                        }
+
+                        if (!await file.exists()) await file.create(recursive: true);
+                        await file.writeAsBytes(bytes);
+
+                        OpenFile.open(file.path).then((value) {
+                          switch (value.type) {
+                            case ResultType.error:
+                              showErrorDialog(value.message);
+                            case ResultType.fileNotFound:
+                              NavigationHelper.clearSnackBars();
+                              NavigationHelper.showSnackBar(SnackBar(content: Text(Language.getInstance().getValue('File not found')!)));
+                            case ResultType.noAppToOpen:
+                              NavigationHelper.clearSnackBars();
+                              NavigationHelper.showSnackBar(SnackBar(content: Text(Language.getInstance().getValue('No application was found to open the file')!)));
+                            case ResultType.permissionDenied:
+                              NavigationHelper.clearSnackBars();
+                              NavigationHelper.showSnackBar(SnackBar(content: Text(Language.getInstance().getValue('Permission not granted')!)));
+                            default:
+                          }
+                        });
+
+                        throw 'NOTHING';
+                      } catch (e) {
+                        if (e != 'NOTHING') {
+                          NavigationHelper.back();
+                          ApiHelper.handleError(e);
+                          return;
+                        }
+                      }
+                    }
+                  : null,
               icon: SvgPicture.asset('assets/svgs/chest.svg'),
               padding: const EdgeInsets.all(16.0),
               borderColor: kColorBorder,
@@ -68,7 +126,7 @@ class DetailMeetPage extends StatelessWidget {
             ),
             const SizedBox(height: 16.0),
             MyFilledButton(
-              onPressed: () {},
+              onPressed: meet.link != null ? () => launchUrl(Uri.parse(meet.link!)) : null,
               child: const Text('Gabung'),
             ),
             const SizedBox(height: 16.0),

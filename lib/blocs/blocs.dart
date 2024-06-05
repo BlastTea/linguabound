@@ -22,3 +22,7 @@ part 'leaderboard_bloc/leaderboard_state.dart';
 part 'exercise_bloc/exercise_bloc.dart';
 part 'exercise_bloc/exercise_event.dart';
 part 'exercise_bloc/exercise_state.dart';
+
+part 'meet_bloc/meet_bloc.dart';
+part 'meet_bloc/meet_event.dart';
+part 'meet_bloc/meet_state.dart';

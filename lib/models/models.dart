@@ -106,6 +106,22 @@ class Exercise with _$Exercise {
 }
 
 @freezed
+class HistoryExercise with _$Exercise {
+  factory HistoryExercise({
+    @JsonKey(fromJson: _parseInt) int? id,
+    @JsonKey(name: 'remaja_id', fromJson: _parseInt) int? remajaId,
+    @JsonKey(name: 'bagian_id', fromJson: _parseInt) int? bagianId,
+    @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
+    @JsonKey(fromJson: _parseInt) int? nilai,
+    @JsonKey(fromJson: _parseBool) bool? completed,
+    @JsonKey(name: 'nama_bagian') String? namaBagian,
+    @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian,
+  }) = _HistoryExercise;
+
+  factory HistoryExercise.fromJson(Map<String, dynamic> json) => _$HistoryExerciseFromJson(json);
+}
+
+@freezed
 class DataSoal with _$DataSoal {
   factory DataSoal({
     Soal? soal,
@@ -143,6 +159,31 @@ class Pilihan with _$Pilihan {
   factory Pilihan.fromJson(Map<String, dynamic> json) => _$PilihanFromJson(json);
 }
 
+@freezed
+class Meet with _$Meet {
+  factory Meet({
+    @JsonKey(fromJson: _parseInt) int? id,
+    String? topik,
+    String? deskripsi,
+    @JsonKey(name: 'jam_mulai') DateTime? jamMulai,
+    @JsonKey(name: 'jam_berakhir') DateTime? jamBerakhir,
+    DateTime? tanggal,
+    String? link,
+    String? materi,
+    @JsonKey(name: 'total_remaja') int? totalRemaja,
+    @JsonKey(name: 'mentor_id') int? mentorId,
+    @JsonKey(name: 'created_at') DateTime? createdAt,
+    @JsonKey(name: 'updated_at') DateTime? updatedAt,
+    MeetStatus? status,
+    @JsonKey(name: 'nama_lengkap') String? namaLengkap,
+    String? gelar,
+    @JsonKey(name: 'riwayat_pendidikan_terakhir') String? riwayatPendidikanTerakhir,
+    String? foto,
+  }) = _Meet;
+
+  factory Meet.fromJson(Map<String, dynamic> json) => _$MeetFromJson(json);
+}
+
 enum UserRole {
   @JsonValue('Remaja')
   remaja,
@@ -155,5 +196,17 @@ enum UserRole {
         remaja => 'Remaja',
         mentor => 'Mentor',
         parent => 'Orang Tua',
+      };
+}
+
+enum MeetStatus {
+  @JsonValue('Sudah dipublish')
+  sudahDipublish,
+  @JsonValue('Belum dipublish')
+  belumDipublish;
+
+  String get text => switch (this) {
+        sudahDipublish => 'Sudah Dipublish',
+        belumDipublish => 'Belum Dipublish',
       };
 }

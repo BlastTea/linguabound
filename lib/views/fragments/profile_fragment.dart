@@ -37,14 +37,16 @@ class ProfileFragment extends StatelessWidget {
             textColor: kColorWhite,
             onTap: () {},
           ),
-          const Divider(),
-          ListTile(
-            leading: const Icon(Icons.link),
-            title: const Text('Tautkan Akun'),
-            iconColor: kColorWhite,
-            textColor: kColorWhite,
-            onTap: () {},
-          ),
+          if (currentUser?.detail?.mapOrNull(remaja: (value) => value.kodeOrangTua ?? '-', orangTua: (value) => value.kode) != null) ...[
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.link),
+              title: const Text('Kode Orang Tua'),
+              subtitle: Text(currentUser?.detail?.mapOrNull(remaja: (value) => value.kodeOrangTua, orangTua: (value) => value.kode) ?? '-'),
+              iconColor: kColorWhite,
+              textColor: kColorWhite,
+            ),
+          ],
           const Divider(),
           ListTile(
             leading: const Icon(Icons.logout),
