@@ -138,3 +138,90 @@ Map<String, dynamic> _$$LeaderboardImplToJson(_$LeaderboardImpl instance) =>
       'star': instance.star,
       'foto': instance.foto,
     };
+
+_$ExerciseImpl _$$ExerciseImplFromJson(Map<String, dynamic> json) =>
+    _$ExerciseImpl(
+      id: _parseInt(json['id']),
+      remajaId: (json['remaja_id'] as num?)?.toInt(),
+      bagianId: (json['bagian_id'] as num?)?.toInt(),
+      subBagianId: (json['sub_bagian_id'] as num?)?.toInt(),
+      nilai: _parseInt(json['nilai']),
+      completed: _parseBool(json['completed']),
+      namaBagian: json['nama_bagian'] as String?,
+      namaSubBagian: json['nama_sub_bagian'] as String?,
+    );
+
+Map<String, dynamic> _$$ExerciseImplToJson(_$ExerciseImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'remaja_id': instance.remajaId,
+      'bagian_id': instance.bagianId,
+      'sub_bagian_id': instance.subBagianId,
+      'nilai': instance.nilai,
+      'completed': instance.completed,
+      'nama_bagian': instance.namaBagian,
+      'nama_sub_bagian': instance.namaSubBagian,
+    };
+
+_$DataSoalImpl _$$DataSoalImplFromJson(Map<String, dynamic> json) =>
+    _$DataSoalImpl(
+      soal: json['soal'] == null
+          ? null
+          : Soal.fromJson(json['soal'] as Map<String, dynamic>),
+      pilihan: (json['pilihan'] as List<dynamic>?)
+          ?.map((e) => Pilihan.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$DataSoalImplToJson(_$DataSoalImpl instance) =>
+    <String, dynamic>{
+      'soal': instance.soal,
+      'pilihan': instance.pilihan,
+    };
+
+_$SoalImpl _$$SoalImplFromJson(Map<String, dynamic> json) => _$SoalImpl(
+      id: _parseInt(json['id']),
+      pertanyaan: json['pertanyaan'] as String?,
+      subBagianId: _parseInt(json['sub_bagian_id']),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+    );
+
+Map<String, dynamic> _$$SoalImplToJson(_$SoalImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'pertanyaan': instance.pertanyaan,
+      'sub_bagian_id': instance.subBagianId,
+      'created_at': instance.createdAt?.toIso8601String(),
+      'updated_at': instance.updatedAt?.toIso8601String(),
+    };
+
+_$PilihanImpl _$$PilihanImplFromJson(Map<String, dynamic> json) =>
+    _$PilihanImpl(
+      id: _parseInt(json['id']),
+      pilihan: json['pilihan'] as String?,
+      skor: _parseInt(json['skor']),
+      benar: _parseBool(json['benar']),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+      soalId: _parseInt(json['soal_id']),
+    );
+
+Map<String, dynamic> _$$PilihanImplToJson(_$PilihanImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'pilihan': instance.pilihan,
+      'skor': instance.skor,
+      'benar': instance.benar,
+      'created_at': instance.createdAt?.toIso8601String(),
+      'updated_at': instance.updatedAt?.toIso8601String(),
+      'soal_id': instance.soalId,
+    };

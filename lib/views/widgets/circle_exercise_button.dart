@@ -6,11 +6,13 @@ class CircleExerciseButton extends StatefulWidget {
     this.onPressed,
     this.svgAsset,
     this.enabled = true,
+    this.ignorePointer = false,
   });
 
   final VoidCallback? onPressed;
   final String? svgAsset;
   final bool enabled;
+  final bool ignorePointer;
 
   @override
   State<CircleExerciseButton> createState() => _CircleExerciseButtonState();
@@ -19,7 +21,7 @@ class CircleExerciseButton extends StatefulWidget {
 class _CircleExerciseButtonState extends State<CircleExerciseButton> {
   @override
   Widget build(BuildContext context) => IgnorePointer(
-        ignoring: !widget.enabled,
+        ignoring: !widget.enabled || widget.ignorePointer,
         child: MyFilledButton.circle(
           backgroundColor: widget.enabled ? kColorSurface : const Color(0xFFE5E5E5),
           borderColor: widget.enabled ? null : const Color(0xFFAFAFAF),

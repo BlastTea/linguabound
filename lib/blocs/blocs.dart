@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,3 +18,7 @@ part 'authentication_bloc/authentication_state.dart';
 part 'leaderboard_bloc/leaderboard_bloc.dart';
 part 'leaderboard_bloc/leaderboard_event.dart';
 part 'leaderboard_bloc/leaderboard_state.dart';
+
+part 'exercise_bloc/exercise_bloc.dart';
+part 'exercise_bloc/exercise_event.dart';
+part 'exercise_bloc/exercise_state.dart';

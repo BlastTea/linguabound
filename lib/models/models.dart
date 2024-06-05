@@ -5,6 +5,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'models.g.dart';
 part 'models.freezed.dart';
 
+bool? _parseBool(dynamic data) => data is int? && data != null
+    ? data == 1
+    : data is bool
+        ? data
+        : null;
 int? _parseInt(dynamic value) => value is String? && value != null
     ? int.tryParse(value)
     : value is int
@@ -82,6 +87,60 @@ class Leaderboard with _$Leaderboard {
   }) = _Leaderboard;
 
   factory Leaderboard.fromJson(Map<String, dynamic> json) => _$LeaderboardFromJson(json);
+}
+
+@freezed
+class Exercise with _$Exercise {
+  factory Exercise({
+    @JsonKey(fromJson: _parseInt) int? id,
+    @JsonKey(name: 'remaja_id') int? remajaId,
+    @JsonKey(name: 'bagian_id') int? bagianId,
+    @JsonKey(name: 'sub_bagian_id') int? subBagianId,
+    @JsonKey(fromJson: _parseInt) int? nilai,
+    @JsonKey(fromJson: _parseBool) bool? completed,
+    @JsonKey(name: 'nama_bagian') String? namaBagian,
+    @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian,
+  }) = _Exercise;
+
+  factory Exercise.fromJson(Map<String, dynamic> json) => _$ExerciseFromJson(json);
+}
+
+@freezed
+class DataSoal with _$DataSoal {
+  factory DataSoal({
+    Soal? soal,
+    List<Pilihan>? pilihan,
+  }) = _DataSoal;
+
+  factory DataSoal.fromJson(Map<String, dynamic> json) => _$DataSoalFromJson(json);
+}
+
+@freezed
+class Soal with _$Soal {
+  factory Soal({
+    @JsonKey(fromJson: _parseInt) int? id,
+    String? pertanyaan,
+    @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
+    @JsonKey(name: 'created_at') DateTime? createdAt,
+    @JsonKey(name: 'updated_at') DateTime? updatedAt,
+  }) = _Soal;
+
+  factory Soal.fromJson(Map<String, dynamic> json) => _$SoalFromJson(json);
+}
+
+@freezed
+class Pilihan with _$Pilihan {
+  factory Pilihan({
+    @JsonKey(fromJson: _parseInt) int? id,
+    String? pilihan,
+    @JsonKey(fromJson: _parseInt) int? skor,
+    @JsonKey(fromJson: _parseBool) bool? benar,
+    @JsonKey(name: 'created_at') DateTime? createdAt,
+    @JsonKey(name: 'updated_at') DateTime? updatedAt,
+    @JsonKey(name: 'soal_id', fromJson: _parseInt) int? soalId,
+  }) = _Pilihan;
+
+  factory Pilihan.fromJson(Map<String, dynamic> json) => _$PilihanFromJson(json);
 }
 
 enum UserRole {

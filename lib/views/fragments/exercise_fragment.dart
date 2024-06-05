@@ -8,12 +8,6 @@ class ExerciseFragment extends StatefulWidget {
 }
 
 class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerProviderStateMixin {
-  final List<GlobalKey> _buttonKeys = List.generate(16, (index) => GlobalKey());
-
-  final List<bool> _actives = List.generate(16, [0, 1].contains);
-
-  final ScrollController _scrollController = ScrollController();
-
   late AnimationController _animationController;
 
   @override
@@ -30,122 +24,141 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
   @override
   void dispose() {
     _animationController.dispose();
-    _scrollController.dispose();
     super.dispose();
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        backgroundColor: const Color(0xFFA590A7),
-        body: Column(
-          children: [
-            Container(
-              height: MediaQuery.viewPaddingOf(context).top,
-              color: kColorSurface,
-            ),
-            Expanded(
-              child: Stack(
+  Widget build(BuildContext context) => BlocBuilder<ExerciseBloc, ExerciseState>(
+        builder: (context, stateExercise) {
+          if (stateExercise is ExerciseDataLoaded) {
+            return Scaffold(
+              backgroundColor: const Color(0xFFA590A7),
+              body: Column(
                 children: [
-                  CustomScrollView(
-                    controller: _scrollController,
-                    slivers: [
-                      SliverStickyHeader(
-                        overlapsContent: false,
-                        header: buildContainerHeader(
-                          context: context,
-                          title: 'Bagian 1',
-                          mention: 'Pemula',
-                          description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 5 soal acak',
-                        ),
-                        sliver: buildPartBody(
-                          context: context,
-                          startIndex: 0,
-                          actives: _actives.skip(0).toList(),
-                        ),
-                      ),
-                      SliverStickyHeader(
-                        header: buildContainerHeader(
-                          context: context,
-                          title: 'Bagian 2',
-                          mention: 'Petualang',
-                          description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 10 soal acak',
-                        ),
-                        sliver: buildPartBody(
-                          context: context,
-                          startIndex: 4,
-                          actives: _actives.skip(4).toList(),
-                          alignment: PartBodyAlignment.right,
-                        ),
-                      ),
-                      SliverStickyHeader(
-                        header: buildContainerHeader(
-                          context: context,
-                          title: 'Bagian 3',
-                          mention: 'Pejuang',
-                          description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 15 soal acak',
-                        ),
-                        sliver: buildPartBody(
-                          context: context,
-                          startIndex: 8,
-                          actives: _actives.skip(8).toList(),
-                        ),
-                      ),
-                      SliverStickyHeader(
-                        header: buildContainerHeader(
-                          context: context,
-                          title: 'Bagian 4',
-                          mention: 'Legenda',
-                          description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 20 soal acak',
-                        ),
-                        sliver: buildPartBody(
-                          context: context,
-                          startIndex: 12,
-                          actives: _actives.skip(12).toList(),
-                          alignment: PartBodyAlignment.right,
-                        ),
-                      ),
-                    ],
+                  Container(
+                    height: MediaQuery.viewPaddingOf(context).top,
+                    color: kColorSurface,
                   ),
-                  if (mounted)
-                    AnimatedBuilder(
-                      animation: _animationController,
-                      builder: (context, child) {
-                        try {
-                          int index = _actives.lastIndexWhere((element) => element);
+                  Expanded(
+                    child: Stack(
+                      children: [
+                        CustomScrollView(
+                          controller: stateExercise.scrollController,
+                          slivers: [
+                            SliverStickyHeader(
+                              overlapsContent: false,
+                              header: buildContainerHeader(
+                                context: context,
+                                title: 'Bagian 1',
+                                mention: 'Pemula',
+                                description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 5 soal acak',
+                              ),
+                              sliver: buildPartBody(
+                                context: context,
+                                stateExercise: stateExercise,
+                                startIndex: 0,
+                              ),
+                            ),
+                            SliverStickyHeader(
+                              header: buildContainerHeader(
+                                context: context,
+                                title: 'Bagian 2',
+                                mention: 'Pejuang',
+                                description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 10 soal acak',
+                              ),
+                              sliver: buildPartBody(
+                                context: context,
+                                stateExercise: stateExercise,
+                                startIndex: 4,
+                                alignment: PartBodyAlignment.right,
+                              ),
+                            ),
+                            SliverStickyHeader(
+                              header: buildContainerHeader(
+                                context: context,
+                                title: 'Bagian 3',
+                                mention: 'Petualang',
+                                description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 15 soal acak',
+                              ),
+                              sliver: buildPartBody(
+                                context: context,
+                                stateExercise: stateExercise,
+                                startIndex: 8,
+                              ),
+                            ),
+                            SliverStickyHeader(
+                              header: buildContainerHeader(
+                                context: context,
+                                title: 'Bagian 4',
+                                mention: 'Legenda',
+                                description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 20 soal acak',
+                              ),
+                              sliver: buildPartBody(
+                                context: context,
+                                stateExercise: stateExercise,
+                                startIndex: 12,
+                                alignment: PartBodyAlignment.right,
+                              ),
+                            ),
+                          ],
+                        ),
+                        if (mounted)
+                          AnimatedBuilder(
+                            animation: _animationController,
+                            builder: (context, child) {
+                              try {
+                                Offset? activeButtonOffset = (stateExercise.buttonKeys[stateExercise.currentActiveIndex].currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero);
 
-                          Offset? activeButtonOffset = (_buttonKeys[index].currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero);
-
-                          return Positioned(
-                            top: (activeButtonOffset?.dy ?? 0.0) - 70.0 + (5.0 * CurvedAnimation(parent: _animationController, curve: Curves.easeInOut).value),
-                            left: (activeButtonOffset?.dx ?? 0.0) - 10.0,
-                            child: (activeButtonOffset?.dy ?? 0.0) < 180.0
-                                ? Container()
-                                : Stack(
-                                    children: [
-                                      SvgPicture.asset(
-                                        'assets/svgs/bubble message start.svg',
-                                      ),
-                                      Positioned(
-                                        top: 12.0,
-                                        left: index > 0 ? 14.0 : 16.0,
-                                        child: Text(
-                                          index > 0 ? 'Lanjut' : 'Mulai',
-                                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
+                                return Positioned(
+                                  top: (activeButtonOffset?.dy ?? 0.0) - 70.0 + (5.0 * CurvedAnimation(parent: _animationController, curve: Curves.easeInOut).value),
+                                  left: (activeButtonOffset?.dx ?? 0.0) - 10.0,
+                                  child: (activeButtonOffset?.dy ?? 0.0) < 180.0
+                                      ? Container()
+                                      : Stack(
+                                          children: [
+                                            SvgPicture.asset(
+                                              'assets/svgs/bubble message start.svg',
+                                            ),
+                                            Positioned(
+                                              top: 12.0,
+                                              left: stateExercise.currentActiveIndex > 0 ? 14.0 : 16.0,
+                                              child: Text(
+                                                stateExercise.currentActiveIndex > 0 ? 'Lanjut' : 'Mulai',
+                                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                          );
-                        } catch (e) {
-                          return Container();
-                        }
-                      },
+                                );
+                              } catch (e) {
+                                return Container();
+                              }
+                            },
+                          ),
+                      ],
                     ),
+                  ),
                 ],
               ),
+            );
+          } else if (stateExercise is ExerciseError) {
+            return Scaffold(
+              body: SafeArea(
+                child: ErrorOccuredButton(
+                  onRetryPressed: () => MyApp.exerciseBloc.add(InitializeExerciseData()),
+                ),
+              ),
+            );
+          }
+
+          return const Scaffold(
+            body: SafeArea(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
             ),
-          ],
-        ),
+          );
+        },
       );
 
   Widget buildContainerHeader({
@@ -185,8 +198,8 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
 
   Widget buildPartBody({
     required BuildContext context,
+    required ExerciseDataLoaded stateExercise,
     required int startIndex,
-    required List<bool> actives,
     PartBodyAlignment alignment = PartBodyAlignment.left,
   }) {
     bool isLeft = alignment == PartBodyAlignment.left;
@@ -230,10 +243,11 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
               right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
               child: CircleExerciseButton(
-                key: _buttonKeys[startIndex],
+                key: stateExercise.buttonKeys[startIndex],
                 svgAsset: 'star',
-                onPressed: actives[0] ? () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const AssesmentPage())) : () {},
-                enabled: actives[0],
+                onPressed: stateExercise.currentActiveIndex >= startIndex ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex])) : () {},
+                enabled: stateExercise.currentActiveIndex >= startIndex,
+                ignorePointer: startIndex < stateExercise.currentActiveIndex,
               ),
             ),
             Positioned(
@@ -241,10 +255,11 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
               right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
               child: CircleExerciseButton(
-                key: _buttonKeys[startIndex + 1],
+                key: stateExercise.buttonKeys[startIndex + 1],
                 svgAsset: 'padlock',
-                onPressed: actives[1] ? () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const AssesmentPage())) : () {},
-                enabled: actives[1],
+                onPressed: stateExercise.currentActiveIndex >= startIndex + 1 ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex + 1])) : () {},
+                enabled: stateExercise.currentActiveIndex >= startIndex + 1,
+                ignorePointer: startIndex + 1 < stateExercise.currentActiveIndex,
               ),
             ),
             Positioned(
@@ -252,10 +267,11 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
               right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
               child: CircleExerciseButton(
-                key: _buttonKeys[startIndex + 2],
+                key: stateExercise.buttonKeys[startIndex + 2],
                 svgAsset: 'book',
-                onPressed: actives[2] ? () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const AssesmentPage())) : () {},
-                enabled: actives[2],
+                onPressed: stateExercise.currentActiveIndex >= startIndex + 2 ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex + 2])) : () {},
+                enabled: stateExercise.currentActiveIndex >= startIndex + 2,
+                ignorePointer: startIndex + 2 < stateExercise.currentActiveIndex,
               ),
             ),
             Positioned(
@@ -263,10 +279,11 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
               right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
               child: CircleExerciseButton(
-                key: _buttonKeys[startIndex + 3],
+                key: stateExercise.buttonKeys[startIndex + 3],
                 svgAsset: 'trophy',
-                onPressed: actives[3] ? () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const AssesmentPage())) : () {},
-                enabled: actives[3],
+                onPressed: stateExercise.currentActiveIndex >= startIndex + 3 ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex + 3])) : () {},
+                enabled: stateExercise.currentActiveIndex >= startIndex + 3,
+                ignorePointer: startIndex + 3 < stateExercise.currentActiveIndex,
               ),
             ),
           ],

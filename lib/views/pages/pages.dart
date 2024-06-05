@@ -18,7 +18,7 @@ import 'package:m_widget/m_widget.dart';
 
 part 'home_page.dart';
 part 'detail_meet_page.dart';
-part 'assesment_page.dart';
+part 'assessment_page.dart';
 part 'leaderboard_page.dart';
 part 'edit_profile_page.dart';
 part 'change_password_page.dart';

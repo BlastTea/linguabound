@@ -1677,3 +1677,1003 @@ abstract class _Leaderboard implements Leaderboard {
   _$$LeaderboardImplCopyWith<_$LeaderboardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+Exercise _$ExerciseFromJson(Map<String, dynamic> json) {
+  return _Exercise.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Exercise {
+  @JsonKey(fromJson: _parseInt)
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'remaja_id')
+  int? get remajaId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'bagian_id')
+  int? get bagianId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sub_bagian_id')
+  int? get subBagianId => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseInt)
+  int? get nilai => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseBool)
+  bool? get completed => throw _privateConstructorUsedError;
+  @JsonKey(name: 'nama_bagian')
+  String? get namaBagian => throw _privateConstructorUsedError;
+  @JsonKey(name: 'nama_sub_bagian')
+  String? get namaSubBagian => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ExerciseCopyWith<Exercise> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ExerciseCopyWith<$Res> {
+  factory $ExerciseCopyWith(Exercise value, $Res Function(Exercise) then) =
+      _$ExerciseCopyWithImpl<$Res, Exercise>;
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      @JsonKey(name: 'remaja_id') int? remajaId,
+      @JsonKey(name: 'bagian_id') int? bagianId,
+      @JsonKey(name: 'sub_bagian_id') int? subBagianId,
+      @JsonKey(fromJson: _parseInt) int? nilai,
+      @JsonKey(fromJson: _parseBool) bool? completed,
+      @JsonKey(name: 'nama_bagian') String? namaBagian,
+      @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian});
+}
+
+/// @nodoc
+class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
+    implements $ExerciseCopyWith<$Res> {
+  _$ExerciseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? remajaId = freezed,
+    Object? bagianId = freezed,
+    Object? subBagianId = freezed,
+    Object? nilai = freezed,
+    Object? completed = freezed,
+    Object? namaBagian = freezed,
+    Object? namaSubBagian = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      remajaId: freezed == remajaId
+          ? _value.remajaId
+          : remajaId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      bagianId: freezed == bagianId
+          ? _value.bagianId
+          : bagianId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      subBagianId: freezed == subBagianId
+          ? _value.subBagianId
+          : subBagianId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      nilai: freezed == nilai
+          ? _value.nilai
+          : nilai // ignore: cast_nullable_to_non_nullable
+              as int?,
+      completed: freezed == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      namaBagian: freezed == namaBagian
+          ? _value.namaBagian
+          : namaBagian // ignore: cast_nullable_to_non_nullable
+              as String?,
+      namaSubBagian: freezed == namaSubBagian
+          ? _value.namaSubBagian
+          : namaSubBagian // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ExerciseImplCopyWith<$Res>
+    implements $ExerciseCopyWith<$Res> {
+  factory _$$ExerciseImplCopyWith(
+          _$ExerciseImpl value, $Res Function(_$ExerciseImpl) then) =
+      __$$ExerciseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      @JsonKey(name: 'remaja_id') int? remajaId,
+      @JsonKey(name: 'bagian_id') int? bagianId,
+      @JsonKey(name: 'sub_bagian_id') int? subBagianId,
+      @JsonKey(fromJson: _parseInt) int? nilai,
+      @JsonKey(fromJson: _parseBool) bool? completed,
+      @JsonKey(name: 'nama_bagian') String? namaBagian,
+      @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian});
+}
+
+/// @nodoc
+class __$$ExerciseImplCopyWithImpl<$Res>
+    extends _$ExerciseCopyWithImpl<$Res, _$ExerciseImpl>
+    implements _$$ExerciseImplCopyWith<$Res> {
+  __$$ExerciseImplCopyWithImpl(
+      _$ExerciseImpl _value, $Res Function(_$ExerciseImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? remajaId = freezed,
+    Object? bagianId = freezed,
+    Object? subBagianId = freezed,
+    Object? nilai = freezed,
+    Object? completed = freezed,
+    Object? namaBagian = freezed,
+    Object? namaSubBagian = freezed,
+  }) {
+    return _then(_$ExerciseImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      remajaId: freezed == remajaId
+          ? _value.remajaId
+          : remajaId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      bagianId: freezed == bagianId
+          ? _value.bagianId
+          : bagianId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      subBagianId: freezed == subBagianId
+          ? _value.subBagianId
+          : subBagianId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      nilai: freezed == nilai
+          ? _value.nilai
+          : nilai // ignore: cast_nullable_to_non_nullable
+              as int?,
+      completed: freezed == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      namaBagian: freezed == namaBagian
+          ? _value.namaBagian
+          : namaBagian // ignore: cast_nullable_to_non_nullable
+              as String?,
+      namaSubBagian: freezed == namaSubBagian
+          ? _value.namaSubBagian
+          : namaSubBagian // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ExerciseImpl implements _Exercise {
+  _$ExerciseImpl(
+      {@JsonKey(fromJson: _parseInt) this.id,
+      @JsonKey(name: 'remaja_id') this.remajaId,
+      @JsonKey(name: 'bagian_id') this.bagianId,
+      @JsonKey(name: 'sub_bagian_id') this.subBagianId,
+      @JsonKey(fromJson: _parseInt) this.nilai,
+      @JsonKey(fromJson: _parseBool) this.completed,
+      @JsonKey(name: 'nama_bagian') this.namaBagian,
+      @JsonKey(name: 'nama_sub_bagian') this.namaSubBagian});
+
+  factory _$ExerciseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ExerciseImplFromJson(json);
+
+  @override
+  @JsonKey(fromJson: _parseInt)
+  final int? id;
+  @override
+  @JsonKey(name: 'remaja_id')
+  final int? remajaId;
+  @override
+  @JsonKey(name: 'bagian_id')
+  final int? bagianId;
+  @override
+  @JsonKey(name: 'sub_bagian_id')
+  final int? subBagianId;
+  @override
+  @JsonKey(fromJson: _parseInt)
+  final int? nilai;
+  @override
+  @JsonKey(fromJson: _parseBool)
+  final bool? completed;
+  @override
+  @JsonKey(name: 'nama_bagian')
+  final String? namaBagian;
+  @override
+  @JsonKey(name: 'nama_sub_bagian')
+  final String? namaSubBagian;
+
+  @override
+  String toString() {
+    return 'Exercise(id: $id, remajaId: $remajaId, bagianId: $bagianId, subBagianId: $subBagianId, nilai: $nilai, completed: $completed, namaBagian: $namaBagian, namaSubBagian: $namaSubBagian)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ExerciseImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.remajaId, remajaId) ||
+                other.remajaId == remajaId) &&
+            (identical(other.bagianId, bagianId) ||
+                other.bagianId == bagianId) &&
+            (identical(other.subBagianId, subBagianId) ||
+                other.subBagianId == subBagianId) &&
+            (identical(other.nilai, nilai) || other.nilai == nilai) &&
+            (identical(other.completed, completed) ||
+                other.completed == completed) &&
+            (identical(other.namaBagian, namaBagian) ||
+                other.namaBagian == namaBagian) &&
+            (identical(other.namaSubBagian, namaSubBagian) ||
+                other.namaSubBagian == namaSubBagian));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, remajaId, bagianId,
+      subBagianId, nilai, completed, namaBagian, namaSubBagian);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ExerciseImplCopyWith<_$ExerciseImpl> get copyWith =>
+      __$$ExerciseImplCopyWithImpl<_$ExerciseImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ExerciseImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Exercise implements Exercise {
+  factory _Exercise(
+          {@JsonKey(fromJson: _parseInt) final int? id,
+          @JsonKey(name: 'remaja_id') final int? remajaId,
+          @JsonKey(name: 'bagian_id') final int? bagianId,
+          @JsonKey(name: 'sub_bagian_id') final int? subBagianId,
+          @JsonKey(fromJson: _parseInt) final int? nilai,
+          @JsonKey(fromJson: _parseBool) final bool? completed,
+          @JsonKey(name: 'nama_bagian') final String? namaBagian,
+          @JsonKey(name: 'nama_sub_bagian') final String? namaSubBagian}) =
+      _$ExerciseImpl;
+
+  factory _Exercise.fromJson(Map<String, dynamic> json) =
+      _$ExerciseImpl.fromJson;
+
+  @override
+  @JsonKey(fromJson: _parseInt)
+  int? get id;
+  @override
+  @JsonKey(name: 'remaja_id')
+  int? get remajaId;
+  @override
+  @JsonKey(name: 'bagian_id')
+  int? get bagianId;
+  @override
+  @JsonKey(name: 'sub_bagian_id')
+  int? get subBagianId;
+  @override
+  @JsonKey(fromJson: _parseInt)
+  int? get nilai;
+  @override
+  @JsonKey(fromJson: _parseBool)
+  bool? get completed;
+  @override
+  @JsonKey(name: 'nama_bagian')
+  String? get namaBagian;
+  @override
+  @JsonKey(name: 'nama_sub_bagian')
+  String? get namaSubBagian;
+  @override
+  @JsonKey(ignore: true)
+  _$$ExerciseImplCopyWith<_$ExerciseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+DataSoal _$DataSoalFromJson(Map<String, dynamic> json) {
+  return _DataSoal.fromJson(json);
+}
+
+/// @nodoc
+mixin _$DataSoal {
+  Soal? get soal => throw _privateConstructorUsedError;
+  List<Pilihan>? get pilihan => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DataSoalCopyWith<DataSoal> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DataSoalCopyWith<$Res> {
+  factory $DataSoalCopyWith(DataSoal value, $Res Function(DataSoal) then) =
+      _$DataSoalCopyWithImpl<$Res, DataSoal>;
+  @useResult
+  $Res call({Soal? soal, List<Pilihan>? pilihan});
+
+  $SoalCopyWith<$Res>? get soal;
+}
+
+/// @nodoc
+class _$DataSoalCopyWithImpl<$Res, $Val extends DataSoal>
+    implements $DataSoalCopyWith<$Res> {
+  _$DataSoalCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? soal = freezed,
+    Object? pilihan = freezed,
+  }) {
+    return _then(_value.copyWith(
+      soal: freezed == soal
+          ? _value.soal
+          : soal // ignore: cast_nullable_to_non_nullable
+              as Soal?,
+      pilihan: freezed == pilihan
+          ? _value.pilihan
+          : pilihan // ignore: cast_nullable_to_non_nullable
+              as List<Pilihan>?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SoalCopyWith<$Res>? get soal {
+    if (_value.soal == null) {
+      return null;
+    }
+
+    return $SoalCopyWith<$Res>(_value.soal!, (value) {
+      return _then(_value.copyWith(soal: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$DataSoalImplCopyWith<$Res>
+    implements $DataSoalCopyWith<$Res> {
+  factory _$$DataSoalImplCopyWith(
+          _$DataSoalImpl value, $Res Function(_$DataSoalImpl) then) =
+      __$$DataSoalImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Soal? soal, List<Pilihan>? pilihan});
+
+  @override
+  $SoalCopyWith<$Res>? get soal;
+}
+
+/// @nodoc
+class __$$DataSoalImplCopyWithImpl<$Res>
+    extends _$DataSoalCopyWithImpl<$Res, _$DataSoalImpl>
+    implements _$$DataSoalImplCopyWith<$Res> {
+  __$$DataSoalImplCopyWithImpl(
+      _$DataSoalImpl _value, $Res Function(_$DataSoalImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? soal = freezed,
+    Object? pilihan = freezed,
+  }) {
+    return _then(_$DataSoalImpl(
+      soal: freezed == soal
+          ? _value.soal
+          : soal // ignore: cast_nullable_to_non_nullable
+              as Soal?,
+      pilihan: freezed == pilihan
+          ? _value._pilihan
+          : pilihan // ignore: cast_nullable_to_non_nullable
+              as List<Pilihan>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$DataSoalImpl implements _DataSoal {
+  _$DataSoalImpl({this.soal, final List<Pilihan>? pilihan})
+      : _pilihan = pilihan;
+
+  factory _$DataSoalImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DataSoalImplFromJson(json);
+
+  @override
+  final Soal? soal;
+  final List<Pilihan>? _pilihan;
+  @override
+  List<Pilihan>? get pilihan {
+    final value = _pilihan;
+    if (value == null) return null;
+    if (_pilihan is EqualUnmodifiableListView) return _pilihan;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'DataSoal(soal: $soal, pilihan: $pilihan)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DataSoalImpl &&
+            (identical(other.soal, soal) || other.soal == soal) &&
+            const DeepCollectionEquality().equals(other._pilihan, _pilihan));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, soal, const DeepCollectionEquality().hash(_pilihan));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DataSoalImplCopyWith<_$DataSoalImpl> get copyWith =>
+      __$$DataSoalImplCopyWithImpl<_$DataSoalImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DataSoalImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _DataSoal implements DataSoal {
+  factory _DataSoal({final Soal? soal, final List<Pilihan>? pilihan}) =
+      _$DataSoalImpl;
+
+  factory _DataSoal.fromJson(Map<String, dynamic> json) =
+      _$DataSoalImpl.fromJson;
+
+  @override
+  Soal? get soal;
+  @override
+  List<Pilihan>? get pilihan;
+  @override
+  @JsonKey(ignore: true)
+  _$$DataSoalImplCopyWith<_$DataSoalImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Soal _$SoalFromJson(Map<String, dynamic> json) {
+  return _Soal.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Soal {
+  @JsonKey(fromJson: _parseInt)
+  int? get id => throw _privateConstructorUsedError;
+  String? get pertanyaan => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
+  int? get subBagianId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SoalCopyWith<Soal> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SoalCopyWith<$Res> {
+  factory $SoalCopyWith(Soal value, $Res Function(Soal) then) =
+      _$SoalCopyWithImpl<$Res, Soal>;
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      String? pertanyaan,
+      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt});
+}
+
+/// @nodoc
+class _$SoalCopyWithImpl<$Res, $Val extends Soal>
+    implements $SoalCopyWith<$Res> {
+  _$SoalCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? pertanyaan = freezed,
+    Object? subBagianId = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      pertanyaan: freezed == pertanyaan
+          ? _value.pertanyaan
+          : pertanyaan // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subBagianId: freezed == subBagianId
+          ? _value.subBagianId
+          : subBagianId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$SoalImplCopyWith<$Res> implements $SoalCopyWith<$Res> {
+  factory _$$SoalImplCopyWith(
+          _$SoalImpl value, $Res Function(_$SoalImpl) then) =
+      __$$SoalImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      String? pertanyaan,
+      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt});
+}
+
+/// @nodoc
+class __$$SoalImplCopyWithImpl<$Res>
+    extends _$SoalCopyWithImpl<$Res, _$SoalImpl>
+    implements _$$SoalImplCopyWith<$Res> {
+  __$$SoalImplCopyWithImpl(_$SoalImpl _value, $Res Function(_$SoalImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? pertanyaan = freezed,
+    Object? subBagianId = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+  }) {
+    return _then(_$SoalImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      pertanyaan: freezed == pertanyaan
+          ? _value.pertanyaan
+          : pertanyaan // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subBagianId: freezed == subBagianId
+          ? _value.subBagianId
+          : subBagianId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$SoalImpl implements _Soal {
+  _$SoalImpl(
+      {@JsonKey(fromJson: _parseInt) this.id,
+      this.pertanyaan,
+      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) this.subBagianId,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'updated_at') this.updatedAt});
+
+  factory _$SoalImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SoalImplFromJson(json);
+
+  @override
+  @JsonKey(fromJson: _parseInt)
+  final int? id;
+  @override
+  final String? pertanyaan;
+  @override
+  @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
+  final int? subBagianId;
+  @override
+  @JsonKey(name: 'created_at')
+  final DateTime? createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  final DateTime? updatedAt;
+
+  @override
+  String toString() {
+    return 'Soal(id: $id, pertanyaan: $pertanyaan, subBagianId: $subBagianId, createdAt: $createdAt, updatedAt: $updatedAt)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SoalImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.pertanyaan, pertanyaan) ||
+                other.pertanyaan == pertanyaan) &&
+            (identical(other.subBagianId, subBagianId) ||
+                other.subBagianId == subBagianId) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, pertanyaan, subBagianId, createdAt, updatedAt);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SoalImplCopyWith<_$SoalImpl> get copyWith =>
+      __$$SoalImplCopyWithImpl<_$SoalImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SoalImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Soal implements Soal {
+  factory _Soal(
+      {@JsonKey(fromJson: _parseInt) final int? id,
+      final String? pertanyaan,
+      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
+      final int? subBagianId,
+      @JsonKey(name: 'created_at') final DateTime? createdAt,
+      @JsonKey(name: 'updated_at') final DateTime? updatedAt}) = _$SoalImpl;
+
+  factory _Soal.fromJson(Map<String, dynamic> json) = _$SoalImpl.fromJson;
+
+  @override
+  @JsonKey(fromJson: _parseInt)
+  int? get id;
+  @override
+  String? get pertanyaan;
+  @override
+  @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
+  int? get subBagianId;
+  @override
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  DateTime? get updatedAt;
+  @override
+  @JsonKey(ignore: true)
+  _$$SoalImplCopyWith<_$SoalImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Pilihan _$PilihanFromJson(Map<String, dynamic> json) {
+  return _Pilihan.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Pilihan {
+  @JsonKey(fromJson: _parseInt)
+  int? get id => throw _privateConstructorUsedError;
+  String? get pilihan => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseInt)
+  int? get skor => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseBool)
+  bool? get benar => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'soal_id', fromJson: _parseInt)
+  int? get soalId => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PilihanCopyWith<Pilihan> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PilihanCopyWith<$Res> {
+  factory $PilihanCopyWith(Pilihan value, $Res Function(Pilihan) then) =
+      _$PilihanCopyWithImpl<$Res, Pilihan>;
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      String? pilihan,
+      @JsonKey(fromJson: _parseInt) int? skor,
+      @JsonKey(fromJson: _parseBool) bool? benar,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt,
+      @JsonKey(name: 'soal_id', fromJson: _parseInt) int? soalId});
+}
+
+/// @nodoc
+class _$PilihanCopyWithImpl<$Res, $Val extends Pilihan>
+    implements $PilihanCopyWith<$Res> {
+  _$PilihanCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? pilihan = freezed,
+    Object? skor = freezed,
+    Object? benar = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? soalId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      pilihan: freezed == pilihan
+          ? _value.pilihan
+          : pilihan // ignore: cast_nullable_to_non_nullable
+              as String?,
+      skor: freezed == skor
+          ? _value.skor
+          : skor // ignore: cast_nullable_to_non_nullable
+              as int?,
+      benar: freezed == benar
+          ? _value.benar
+          : benar // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      soalId: freezed == soalId
+          ? _value.soalId
+          : soalId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PilihanImplCopyWith<$Res> implements $PilihanCopyWith<$Res> {
+  factory _$$PilihanImplCopyWith(
+          _$PilihanImpl value, $Res Function(_$PilihanImpl) then) =
+      __$$PilihanImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      String? pilihan,
+      @JsonKey(fromJson: _parseInt) int? skor,
+      @JsonKey(fromJson: _parseBool) bool? benar,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt,
+      @JsonKey(name: 'soal_id', fromJson: _parseInt) int? soalId});
+}
+
+/// @nodoc
+class __$$PilihanImplCopyWithImpl<$Res>
+    extends _$PilihanCopyWithImpl<$Res, _$PilihanImpl>
+    implements _$$PilihanImplCopyWith<$Res> {
+  __$$PilihanImplCopyWithImpl(
+      _$PilihanImpl _value, $Res Function(_$PilihanImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? pilihan = freezed,
+    Object? skor = freezed,
+    Object? benar = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? soalId = freezed,
+  }) {
+    return _then(_$PilihanImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      pilihan: freezed == pilihan
+          ? _value.pilihan
+          : pilihan // ignore: cast_nullable_to_non_nullable
+              as String?,
+      skor: freezed == skor
+          ? _value.skor
+          : skor // ignore: cast_nullable_to_non_nullable
+              as int?,
+      benar: freezed == benar
+          ? _value.benar
+          : benar // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      soalId: freezed == soalId
+          ? _value.soalId
+          : soalId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PilihanImpl implements _Pilihan {
+  _$PilihanImpl(
+      {@JsonKey(fromJson: _parseInt) this.id,
+      this.pilihan,
+      @JsonKey(fromJson: _parseInt) this.skor,
+      @JsonKey(fromJson: _parseBool) this.benar,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'updated_at') this.updatedAt,
+      @JsonKey(name: 'soal_id', fromJson: _parseInt) this.soalId});
+
+  factory _$PilihanImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PilihanImplFromJson(json);
+
+  @override
+  @JsonKey(fromJson: _parseInt)
+  final int? id;
+  @override
+  final String? pilihan;
+  @override
+  @JsonKey(fromJson: _parseInt)
+  final int? skor;
+  @override
+  @JsonKey(fromJson: _parseBool)
+  final bool? benar;
+  @override
+  @JsonKey(name: 'created_at')
+  final DateTime? createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  final DateTime? updatedAt;
+  @override
+  @JsonKey(name: 'soal_id', fromJson: _parseInt)
+  final int? soalId;
+
+  @override
+  String toString() {
+    return 'Pilihan(id: $id, pilihan: $pilihan, skor: $skor, benar: $benar, createdAt: $createdAt, updatedAt: $updatedAt, soalId: $soalId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PilihanImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.pilihan, pilihan) || other.pilihan == pilihan) &&
+            (identical(other.skor, skor) || other.skor == skor) &&
+            (identical(other.benar, benar) || other.benar == benar) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.soalId, soalId) || other.soalId == soalId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, pilihan, skor, benar, createdAt, updatedAt, soalId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PilihanImplCopyWith<_$PilihanImpl> get copyWith =>
+      __$$PilihanImplCopyWithImpl<_$PilihanImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PilihanImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Pilihan implements Pilihan {
+  factory _Pilihan(
+          {@JsonKey(fromJson: _parseInt) final int? id,
+          final String? pilihan,
+          @JsonKey(fromJson: _parseInt) final int? skor,
+          @JsonKey(fromJson: _parseBool) final bool? benar,
+          @JsonKey(name: 'created_at') final DateTime? createdAt,
+          @JsonKey(name: 'updated_at') final DateTime? updatedAt,
+          @JsonKey(name: 'soal_id', fromJson: _parseInt) final int? soalId}) =
+      _$PilihanImpl;
+
+  factory _Pilihan.fromJson(Map<String, dynamic> json) = _$PilihanImpl.fromJson;
+
+  @override
+  @JsonKey(fromJson: _parseInt)
+  int? get id;
+  @override
+  String? get pilihan;
+  @override
+  @JsonKey(fromJson: _parseInt)
+  int? get skor;
+  @override
+  @JsonKey(fromJson: _parseBool)
+  bool? get benar;
+  @override
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  DateTime? get updatedAt;
+  @override
+  @JsonKey(name: 'soal_id', fromJson: _parseInt)
+  int? get soalId;
+  @override
+  @JsonKey(ignore: true)
+  _$$PilihanImplCopyWith<_$PilihanImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
