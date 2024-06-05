@@ -3505,3 +3505,724 @@ abstract class _Meet implements Meet {
   _$$MeetImplCopyWith<_$MeetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+ChatbotData _$ChatbotDataFromJson(Map<String, dynamic> json) {
+  return _ChatbotData.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ChatbotData {
+  String get text => throw _privateConstructorUsedError;
+  set text(String value) => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_sender')
+  bool get isSender => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_sender')
+  set isSender(bool value) => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sent_at')
+  DateTime get sentAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sent_at')
+  set sentAt(DateTime value) => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ChatbotDataCopyWith<ChatbotData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ChatbotDataCopyWith<$Res> {
+  factory $ChatbotDataCopyWith(
+          ChatbotData value, $Res Function(ChatbotData) then) =
+      _$ChatbotDataCopyWithImpl<$Res, ChatbotData>;
+  @useResult
+  $Res call(
+      {String text,
+      @JsonKey(name: 'is_sender') bool isSender,
+      @JsonKey(name: 'sent_at') DateTime sentAt});
+}
+
+/// @nodoc
+class _$ChatbotDataCopyWithImpl<$Res, $Val extends ChatbotData>
+    implements $ChatbotDataCopyWith<$Res> {
+  _$ChatbotDataCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+    Object? isSender = null,
+    Object? sentAt = null,
+  }) {
+    return _then(_value.copyWith(
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      isSender: null == isSender
+          ? _value.isSender
+          : isSender // ignore: cast_nullable_to_non_nullable
+              as bool,
+      sentAt: null == sentAt
+          ? _value.sentAt
+          : sentAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ChatbotDataImplCopyWith<$Res>
+    implements $ChatbotDataCopyWith<$Res> {
+  factory _$$ChatbotDataImplCopyWith(
+          _$ChatbotDataImpl value, $Res Function(_$ChatbotDataImpl) then) =
+      __$$ChatbotDataImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String text,
+      @JsonKey(name: 'is_sender') bool isSender,
+      @JsonKey(name: 'sent_at') DateTime sentAt});
+}
+
+/// @nodoc
+class __$$ChatbotDataImplCopyWithImpl<$Res>
+    extends _$ChatbotDataCopyWithImpl<$Res, _$ChatbotDataImpl>
+    implements _$$ChatbotDataImplCopyWith<$Res> {
+  __$$ChatbotDataImplCopyWithImpl(
+      _$ChatbotDataImpl _value, $Res Function(_$ChatbotDataImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+    Object? isSender = null,
+    Object? sentAt = null,
+  }) {
+    return _then(_$ChatbotDataImpl(
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      isSender: null == isSender
+          ? _value.isSender
+          : isSender // ignore: cast_nullable_to_non_nullable
+              as bool,
+      sentAt: null == sentAt
+          ? _value.sentAt
+          : sentAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ChatbotDataImpl implements _ChatbotData {
+  _$ChatbotDataImpl(
+      {required this.text,
+      @JsonKey(name: 'is_sender') required this.isSender,
+      @JsonKey(name: 'sent_at') required this.sentAt});
+
+  factory _$ChatbotDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChatbotDataImplFromJson(json);
+
+  @override
+  String text;
+  @override
+  @JsonKey(name: 'is_sender')
+  bool isSender;
+  @override
+  @JsonKey(name: 'sent_at')
+  DateTime sentAt;
+
+  @override
+  String toString() {
+    return 'ChatbotData(text: $text, isSender: $isSender, sentAt: $sentAt)';
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChatbotDataImplCopyWith<_$ChatbotDataImpl> get copyWith =>
+      __$$ChatbotDataImplCopyWithImpl<_$ChatbotDataImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ChatbotDataImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ChatbotData implements ChatbotData {
+  factory _ChatbotData(
+      {required String text,
+      @JsonKey(name: 'is_sender') required bool isSender,
+      @JsonKey(name: 'sent_at') required DateTime sentAt}) = _$ChatbotDataImpl;
+
+  factory _ChatbotData.fromJson(Map<String, dynamic> json) =
+      _$ChatbotDataImpl.fromJson;
+
+  @override
+  String get text;
+  set text(String value);
+  @override
+  @JsonKey(name: 'is_sender')
+  bool get isSender;
+  @JsonKey(name: 'is_sender')
+  set isSender(bool value);
+  @override
+  @JsonKey(name: 'sent_at')
+  DateTime get sentAt;
+  @JsonKey(name: 'sent_at')
+  set sentAt(DateTime value);
+  @override
+  @JsonKey(ignore: true)
+  _$$ChatbotDataImplCopyWith<_$ChatbotDataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$MessageBubbleList {
+  List<List<MessageBubbleData>> get data => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $MessageBubbleListCopyWith<MessageBubbleList> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MessageBubbleListCopyWith<$Res> {
+  factory $MessageBubbleListCopyWith(
+          MessageBubbleList value, $Res Function(MessageBubbleList) then) =
+      _$MessageBubbleListCopyWithImpl<$Res, MessageBubbleList>;
+  @useResult
+  $Res call({List<List<MessageBubbleData>> data});
+}
+
+/// @nodoc
+class _$MessageBubbleListCopyWithImpl<$Res, $Val extends MessageBubbleList>
+    implements $MessageBubbleListCopyWith<$Res> {
+  _$MessageBubbleListCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_value.copyWith(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as List<List<MessageBubbleData>>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$MessageBubbleListImplCopyWith<$Res>
+    implements $MessageBubbleListCopyWith<$Res> {
+  factory _$$MessageBubbleListImplCopyWith(_$MessageBubbleListImpl value,
+          $Res Function(_$MessageBubbleListImpl) then) =
+      __$$MessageBubbleListImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<List<MessageBubbleData>> data});
+}
+
+/// @nodoc
+class __$$MessageBubbleListImplCopyWithImpl<$Res>
+    extends _$MessageBubbleListCopyWithImpl<$Res, _$MessageBubbleListImpl>
+    implements _$$MessageBubbleListImplCopyWith<$Res> {
+  __$$MessageBubbleListImplCopyWithImpl(_$MessageBubbleListImpl _value,
+      $Res Function(_$MessageBubbleListImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$MessageBubbleListImpl(
+      data: null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as List<List<MessageBubbleData>>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MessageBubbleListImpl implements _MessageBubbleList {
+  const _$MessageBubbleListImpl(
+      {required final List<List<MessageBubbleData>> data})
+      : _data = data;
+
+  final List<List<MessageBubbleData>> _data;
+  @override
+  List<List<MessageBubbleData>> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'MessageBubbleList(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MessageBubbleListImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MessageBubbleListImplCopyWith<_$MessageBubbleListImpl> get copyWith =>
+      __$$MessageBubbleListImplCopyWithImpl<_$MessageBubbleListImpl>(
+          this, _$identity);
+}
+
+abstract class _MessageBubbleList implements MessageBubbleList {
+  const factory _MessageBubbleList(
+          {required final List<List<MessageBubbleData>> data}) =
+      _$MessageBubbleListImpl;
+
+  @override
+  List<List<MessageBubbleData>> get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$MessageBubbleListImplCopyWith<_$MessageBubbleListImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+MessageBubbleData _$MessageBubbleDataFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'dateTime':
+      return MessageBubbleDataDateTime.fromJson(json);
+    case 'text':
+      return MessageBubbleDataText.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'MessageBubbleData',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
+/// @nodoc
+mixin _$MessageBubbleData {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? dateTime) dateTime,
+    required TResult Function(String? message, DateTime? sentAt, bool isSender)
+        text,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? dateTime)? dateTime,
+    TResult? Function(String? message, DateTime? sentAt, bool isSender)? text,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? dateTime)? dateTime,
+    TResult Function(String? message, DateTime? sentAt, bool isSender)? text,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MessageBubbleDataDateTime value) dateTime,
+    required TResult Function(MessageBubbleDataText value) text,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(MessageBubbleDataDateTime value)? dateTime,
+    TResult? Function(MessageBubbleDataText value)? text,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MessageBubbleDataDateTime value)? dateTime,
+    TResult Function(MessageBubbleDataText value)? text,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MessageBubbleDataCopyWith<$Res> {
+  factory $MessageBubbleDataCopyWith(
+          MessageBubbleData value, $Res Function(MessageBubbleData) then) =
+      _$MessageBubbleDataCopyWithImpl<$Res, MessageBubbleData>;
+}
+
+/// @nodoc
+class _$MessageBubbleDataCopyWithImpl<$Res, $Val extends MessageBubbleData>
+    implements $MessageBubbleDataCopyWith<$Res> {
+  _$MessageBubbleDataCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$MessageBubbleDataDateTimeImplCopyWith<$Res> {
+  factory _$$MessageBubbleDataDateTimeImplCopyWith(
+          _$MessageBubbleDataDateTimeImpl value,
+          $Res Function(_$MessageBubbleDataDateTimeImpl) then) =
+      __$$MessageBubbleDataDateTimeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime? dateTime});
+}
+
+/// @nodoc
+class __$$MessageBubbleDataDateTimeImplCopyWithImpl<$Res>
+    extends _$MessageBubbleDataCopyWithImpl<$Res,
+        _$MessageBubbleDataDateTimeImpl>
+    implements _$$MessageBubbleDataDateTimeImplCopyWith<$Res> {
+  __$$MessageBubbleDataDateTimeImplCopyWithImpl(
+      _$MessageBubbleDataDateTimeImpl _value,
+      $Res Function(_$MessageBubbleDataDateTimeImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dateTime = freezed,
+  }) {
+    return _then(_$MessageBubbleDataDateTimeImpl(
+      dateTime: freezed == dateTime
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$MessageBubbleDataDateTimeImpl implements MessageBubbleDataDateTime {
+  const _$MessageBubbleDataDateTimeImpl({this.dateTime, final String? $type})
+      : $type = $type ?? 'dateTime';
+
+  factory _$MessageBubbleDataDateTimeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MessageBubbleDataDateTimeImplFromJson(json);
+
+  @override
+  final DateTime? dateTime;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'MessageBubbleData.dateTime(dateTime: $dateTime)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MessageBubbleDataDateTimeImpl &&
+            (identical(other.dateTime, dateTime) ||
+                other.dateTime == dateTime));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, dateTime);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MessageBubbleDataDateTimeImplCopyWith<_$MessageBubbleDataDateTimeImpl>
+      get copyWith => __$$MessageBubbleDataDateTimeImplCopyWithImpl<
+          _$MessageBubbleDataDateTimeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? dateTime) dateTime,
+    required TResult Function(String? message, DateTime? sentAt, bool isSender)
+        text,
+  }) {
+    return dateTime(this.dateTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? dateTime)? dateTime,
+    TResult? Function(String? message, DateTime? sentAt, bool isSender)? text,
+  }) {
+    return dateTime?.call(this.dateTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? dateTime)? dateTime,
+    TResult Function(String? message, DateTime? sentAt, bool isSender)? text,
+    required TResult orElse(),
+  }) {
+    if (dateTime != null) {
+      return dateTime(this.dateTime);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MessageBubbleDataDateTime value) dateTime,
+    required TResult Function(MessageBubbleDataText value) text,
+  }) {
+    return dateTime(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(MessageBubbleDataDateTime value)? dateTime,
+    TResult? Function(MessageBubbleDataText value)? text,
+  }) {
+    return dateTime?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MessageBubbleDataDateTime value)? dateTime,
+    TResult Function(MessageBubbleDataText value)? text,
+    required TResult orElse(),
+  }) {
+    if (dateTime != null) {
+      return dateTime(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$MessageBubbleDataDateTimeImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class MessageBubbleDataDateTime implements MessageBubbleData {
+  const factory MessageBubbleDataDateTime({final DateTime? dateTime}) =
+      _$MessageBubbleDataDateTimeImpl;
+
+  factory MessageBubbleDataDateTime.fromJson(Map<String, dynamic> json) =
+      _$MessageBubbleDataDateTimeImpl.fromJson;
+
+  DateTime? get dateTime;
+  @JsonKey(ignore: true)
+  _$$MessageBubbleDataDateTimeImplCopyWith<_$MessageBubbleDataDateTimeImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MessageBubbleDataTextImplCopyWith<$Res> {
+  factory _$$MessageBubbleDataTextImplCopyWith(
+          _$MessageBubbleDataTextImpl value,
+          $Res Function(_$MessageBubbleDataTextImpl) then) =
+      __$$MessageBubbleDataTextImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? message, DateTime? sentAt, bool isSender});
+}
+
+/// @nodoc
+class __$$MessageBubbleDataTextImplCopyWithImpl<$Res>
+    extends _$MessageBubbleDataCopyWithImpl<$Res, _$MessageBubbleDataTextImpl>
+    implements _$$MessageBubbleDataTextImplCopyWith<$Res> {
+  __$$MessageBubbleDataTextImplCopyWithImpl(_$MessageBubbleDataTextImpl _value,
+      $Res Function(_$MessageBubbleDataTextImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+    Object? sentAt = freezed,
+    Object? isSender = null,
+  }) {
+    return _then(_$MessageBubbleDataTextImpl(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      sentAt: freezed == sentAt
+          ? _value.sentAt
+          : sentAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      isSender: null == isSender
+          ? _value.isSender
+          : isSender // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$MessageBubbleDataTextImpl implements MessageBubbleDataText {
+  const _$MessageBubbleDataTextImpl(
+      {this.message, this.sentAt, this.isSender = true, final String? $type})
+      : $type = $type ?? 'text';
+
+  factory _$MessageBubbleDataTextImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MessageBubbleDataTextImplFromJson(json);
+
+  @override
+  final String? message;
+  @override
+  final DateTime? sentAt;
+  @override
+  @JsonKey()
+  final bool isSender;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'MessageBubbleData.text(message: $message, sentAt: $sentAt, isSender: $isSender)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MessageBubbleDataTextImpl &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.sentAt, sentAt) || other.sentAt == sentAt) &&
+            (identical(other.isSender, isSender) ||
+                other.isSender == isSender));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, message, sentAt, isSender);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MessageBubbleDataTextImplCopyWith<_$MessageBubbleDataTextImpl>
+      get copyWith => __$$MessageBubbleDataTextImplCopyWithImpl<
+          _$MessageBubbleDataTextImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? dateTime) dateTime,
+    required TResult Function(String? message, DateTime? sentAt, bool isSender)
+        text,
+  }) {
+    return text(message, sentAt, isSender);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? dateTime)? dateTime,
+    TResult? Function(String? message, DateTime? sentAt, bool isSender)? text,
+  }) {
+    return text?.call(message, sentAt, isSender);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? dateTime)? dateTime,
+    TResult Function(String? message, DateTime? sentAt, bool isSender)? text,
+    required TResult orElse(),
+  }) {
+    if (text != null) {
+      return text(message, sentAt, isSender);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MessageBubbleDataDateTime value) dateTime,
+    required TResult Function(MessageBubbleDataText value) text,
+  }) {
+    return text(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(MessageBubbleDataDateTime value)? dateTime,
+    TResult? Function(MessageBubbleDataText value)? text,
+  }) {
+    return text?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MessageBubbleDataDateTime value)? dateTime,
+    TResult Function(MessageBubbleDataText value)? text,
+    required TResult orElse(),
+  }) {
+    if (text != null) {
+      return text(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$MessageBubbleDataTextImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class MessageBubbleDataText implements MessageBubbleData {
+  const factory MessageBubbleDataText(
+      {final String? message,
+      final DateTime? sentAt,
+      final bool isSender}) = _$MessageBubbleDataTextImpl;
+
+  factory MessageBubbleDataText.fromJson(Map<String, dynamic> json) =
+      _$MessageBubbleDataTextImpl.fromJson;
+
+  String? get message;
+  DateTime? get sentAt;
+  bool get isSender;
+  @JsonKey(ignore: true)
+  _$$MessageBubbleDataTextImplCopyWith<_$MessageBubbleDataTextImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}

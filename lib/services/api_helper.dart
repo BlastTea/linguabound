@@ -74,7 +74,7 @@ final class ApiHelper {
     if (files != null) request.files.addAll(files);
     if (fields != null) request.fields.addAll(fields);
 
-    debugPrint('(http request) : ${request.method} ${request.url} ${request.headers} ${request.fields}');
+    debugPrint('(http request) : ${request.method} ${request.url} ${request.headers} ${request.fields} ${request.files}');
 
     http.StreamedResponse response;
     if (timeout == null) {
@@ -210,6 +210,7 @@ final class ApiHelper {
     }
     MyApp.meetBloc.add(SetMeetToInitial());
     MyApp.editProfileBloc.add(SetEditProfileToInitial());
+    MyApp.chatbotBloc.add(SetChatbotToInitial());
   }
 
   static Future<dynamic> get({required String pathUrl}) => _request(method: 'GET', uri: Uri.parse('$_url/$pathUrl'));

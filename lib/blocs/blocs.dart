@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:linguabound/models/models.dart';
 import 'package:linguabound/services/services.dart';
 import 'package:linguabound/utils/utils.dart';
@@ -36,3 +37,7 @@ part 'history_exercise_bloc/history_exercise_state.dart';
 part 'edit_profile_bloc/edit_profile_bloc.dart';
 part 'edit_profile_bloc/edit_profile_event.dart';
 part 'edit_profile_bloc/edit_profile_state.dart';
+
+part 'chatbot_bloc/chatbot_bloc.dart';
+part 'chatbot_bloc/chatbot_event.dart';
+part 'chatbot_bloc/chatbot_state.dart';

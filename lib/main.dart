@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:linguabound/blocs/blocs.dart';
 import 'package:linguabound/services/services.dart';
 import 'package:linguabound/utils/utils.dart';
@@ -20,6 +21,11 @@ void main() async {
     ApiHelper.handleError(e);
   }
 
+  model = GenerativeModel(
+    model: 'gemini-1.5-flash-latest',
+    apiKey: dotenv.env['GEMINI_API_KEY']!,
+  );
+
   runApp(const MyApp());
 }
 
@@ -32,6 +38,7 @@ class MyApp extends StatelessWidget {
   static MeetBloc meetBloc = MeetBloc();
   static HistoryExerciseBloc historyExerciseBloc = HistoryExerciseBloc();
   static EditProfileBloc editProfileBloc = EditProfileBloc();
+  static ChatbotBloc chatbotBloc = ChatbotBloc();
 
   @override
   Widget build(BuildContext context) => MultiBlocProvider(
@@ -42,6 +49,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => meetBloc),
           BlocProvider(create: (context) => historyExerciseBloc),
           BlocProvider(create: (context) => editProfileBloc),
+          BlocProvider(create: (context) => chatbotBloc),
         ],
         child: LinguaboundMaterialApp(
           title: 'Linguabound',

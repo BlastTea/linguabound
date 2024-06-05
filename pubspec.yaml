@@ -15,16 +15,17 @@ dependencies:
   flutter_sticky_header: ^0.6.5
   flutter_svg: ^2.0.10+1
   freezed_annotation: ^2.4.1
+  google_generative_ai: ^0.4.3
   http: ^1.2.1
   json_annotation: ^4.9.0
   linguabound_widget:
     git:
       url: https://github.com/BlastTea/linguabound_widget.git
-      ref: e4728c1f0a11eed4fe1c9cc9fc35909cf6940595
+      ref: 64ccaeb4b68c078a9ff3bd3fa04092ba90b0dd07
   m_widget:
     git:
       url: https://github.com/BlastTea/MWidget.git
-      ref: b1191678af1bbefe4ffde909b42804708bb5ab17
+      ref: 4f285c5835ba30d05c67749e61aa3fc8a9395bbf
   open_file_plus: ^3.4.1+1
   path: ^1.9.0
   path_provider: ^2.1.3

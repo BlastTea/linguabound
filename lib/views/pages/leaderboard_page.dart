@@ -61,7 +61,12 @@ class LeaderboardPage extends StatelessWidget {
                           width: 56.0,
                           height: 56.0,
                           image: CachedNetworkImageProvider(leaderboard.foto ?? ''),
-                          cachedNetworkImageError: (e) => const AssetImage('assets/images/person.jpg'),
+                          containerBackgroundColor: const Color(0xFFA590A7),
+                          dialogBackgroundColor: const Color(0xFFA590A7),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SvgPicture.asset('assets/svgs/profile.svg'),
+                          ),
                         ),
                         const SizedBox(width: 8.0),
                         Column(

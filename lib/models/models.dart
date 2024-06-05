@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'models.g.dart';
@@ -182,6 +183,126 @@ class Meet with _$Meet {
   }) = _Meet;
 
   factory Meet.fromJson(Map<String, dynamic> json) => _$MeetFromJson(json);
+}
+
+@unfreezed
+class ChatbotData with _$ChatbotData {
+  factory ChatbotData({
+    required String text,
+    @JsonKey(name: 'is_sender') required bool isSender,
+    @JsonKey(name: 'sent_at') required DateTime sentAt,
+  }) = _ChatbotData;
+
+  factory ChatbotData.fromJson(Map<String, dynamic> json) => _$ChatbotDataFromJson(json);
+}
+
+@freezed
+class MessageBubbleList with _$MessageBubbleList {
+  const factory MessageBubbleList({required List<List<MessageBubbleData>> data}) = _MessageBubbleList;
+
+  factory MessageBubbleList.fromChatbotData({required List<ChatbotData> chatbotData}) {
+    List<List<MessageBubbleData>> results = [];
+    List<MessageBubbleData> messageBubbles = [];
+
+    for (ChatbotData data in chatbotData) {
+      DateTime? lastDate;
+      DateTime currentDate = data.sentAt;
+
+      if (lastDate != null && (currentDate.day != lastDate.day || currentDate.month != lastDate.month || currentDate.year != lastDate.year)) messageBubbles.add(MessageBubbleData.dateTime(dateTime: lastDate));
+
+      messageBubbles.add(
+        MessageBubbleData.text(
+          message: data.text,
+          isSender: data.isSender,
+          sentAt: data.sentAt,
+        ),
+      );
+
+      lastDate = data.sentAt;
+    }
+
+    results.add(messageBubbles);
+
+    return MessageBubbleList(data: results);
+  }
+
+  // factory MessageBubbleList.fromRoom({required List<RoomChatMe> rooms}) {
+  //   List<List<MessageBubbleData>> results = [];
+
+  //   for (RoomChatMe room in rooms) {
+  //     List<MessageBubbleData> messageBubbles = [];
+  //     DateTime? lastDate;
+
+  //     for (int i = 0; i < (room.riwayats?.length ?? 0); i++) {
+  //       RiwayatChatMe riwayat = room.riwayats![i];
+  //       List<int?>? waktuChat = riwayat.waktuChat?.split(':').map((e) => int.tryParse(e)).toList();
+  //       DateTime currentChatDate = DateTime(riwayat.tglChat!.year, riwayat.tglChat!.month, riwayat.tglChat!.day, waktuChat?[0] ?? 0, waktuChat?[1] ?? 0, waktuChat?[2] ?? 0);
+
+  //       if (lastDate != null && (currentChatDate.day != lastDate.day || currentChatDate.month != lastDate.month || currentChatDate.year != lastDate.year)) messageBubbles.add(MessageBubbleData.dateTime(dateTime: lastDate));
+
+  //       messageBubbles.add(MessageBubbleData.text(
+  //         message: riwayat.pesan,
+  //         sentAt: currentChatDate,
+  //         isSender: riwayat.userId == currentUser?.idUser,
+  //       ));
+
+  //       if (i == room.riwayats!.length - 1) messageBubbles.add(MessageBubbleData.dateTime(dateTime: currentChatDate));
+
+  //       lastDate = currentChatDate;
+  //     }
+
+  //     results.add(messageBubbles);
+  //   }
+
+  //   return MessageBubbleList(data: results);
+  // }
+
+  // factory MessageBubbleList.fromTanyaAhli({required List<TanyaAhli> tanyaAhlis}) {
+  //   List<List<MessageBubbleData>> results = [];
+
+  //   for (TanyaAhli tanyaAhli in tanyaAhlis) {
+  //     List<MessageBubbleData> messageBubbles = [];
+  //     DateTime? lastDate;
+
+  //     if (tanyaAhli.jawabanAhli != null) {
+  //       lastDate = tanyaAhli.jawabanAhli!.waktuJawaban;
+
+  //       messageBubbles.add(MessageBubbleData.text(
+  //         message: tanyaAhli.jawabanAhli?.jawabanAhli,
+  //         sentAt: lastDate,
+  //       ));
+  //     }
+
+  //     DateTime currentChatDate = tanyaAhli.waktuTanya!;
+
+  //     if (lastDate != null && (currentChatDate.day != lastDate.day || currentChatDate.month != lastDate.month || currentChatDate.year != lastDate.year)) messageBubbles.add(MessageBubbleData.dateTime(dateTime: lastDate));
+
+  //     messageBubbles.add(MessageBubbleData.text(
+  //       message: tanyaAhli.pertanyaan,
+  //       sentAt: currentChatDate,
+  //       isSender: false,
+  //     ));
+
+  //     results.add(messageBubbles);
+  //   }
+
+  //   return MessageBubbleList(data: results);
+  // }
+}
+
+@freezed
+sealed class MessageBubbleData with _$MessageBubbleData {
+  const factory MessageBubbleData.dateTime({
+    DateTime? dateTime,
+  }) = MessageBubbleDataDateTime;
+
+  const factory MessageBubbleData.text({
+    String? message,
+    DateTime? sentAt,
+    @Default(true) bool isSender,
+  }) = MessageBubbleDataText;
+
+  factory MessageBubbleData.fromJson(Map<String, dynamic> json) => _$MessageBubbleDataFromJson(json);
 }
 
 enum UserRole {

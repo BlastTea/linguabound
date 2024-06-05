@@ -30,6 +30,7 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
       ChangeImageResult result = await ImageContainer.handleChangeImage(
         showDelete: _currentImageData != null,
         sheetTitleText: 'Ganti Foto Profile',
+        sheetImageItemWidth: 88.0,
       );
 
       if (result.isDelete) {
@@ -72,7 +73,7 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
             if (currentUser?.role == UserRole.remaja) 'username': _textControllerUsername.text.trim(),
           },
           files: [
-            if (_currentImageData != null) http.MultipartFile.fromBytes('file', _currentImageData!, filename: 'file.png'),
+            if (_currentImageData != null) http.MultipartFile.fromBytes('foto', _currentImageData!, filename: 'image.png'),
           ],
         );
       } catch (e) {

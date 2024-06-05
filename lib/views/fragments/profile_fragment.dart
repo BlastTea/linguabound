@@ -16,12 +16,13 @@ class ProfileFragment extends StatelessWidget {
               width: 48.0,
               height: 48.0,
               icon: Icons.person,
-              border: const Border(),
               image: CachedNetworkImageProvider(currentUser?.foto ?? ''),
-              cachedNetworkImageError: (e) => const AssetImage('assets/images/person.jpg'),
-              borderRadius: BorderRadius.circular(24.0),
-              extendedAppBar: AppBar(
-                title: Text(currentUser?.name ?? 'Guest'),
+              borderRadius: const BorderRadius.all(Radius.circular(24.0)),
+              containerBackgroundColor: const Color(0xFFA590A7),
+              dialogBackgroundColor: const Color(0xFFA590A7),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.asset('assets/svgs/profile.svg'),
               ),
             ),
             title: Text(currentUser?.name ?? 'Guest'),

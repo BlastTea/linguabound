@@ -13,6 +13,7 @@ import 'package:linguabound/models/models.dart';
 import 'package:linguabound/services/services.dart';
 import 'package:linguabound/utils/utils.dart';
 import 'package:linguabound/views/fragments/fragments.dart';
+import 'package:linguabound/views/widgets/widgets.dart';
 import 'package:linguabound_widget/linguabound_widget.dart';
 import 'package:m_widget/m_widget.dart';
 import 'package:open_file_plus/open_file_plus.dart';
@@ -26,6 +27,7 @@ part 'assessment_page.dart';
 part 'leaderboard_page.dart';
 part 'edit_profile_page.dart';
 part 'change_password_page.dart';
+part 'chatbot_page.dart';
 
 part 'on_boarding_page.dart';
 

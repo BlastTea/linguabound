@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:linguabound/models/models.dart';
 import 'package:linguabound/views/pages/pages.dart';
 import 'package:linguabound_widget/linguabound_widget.dart';
@@ -14,3 +15,5 @@ const kDummyPictureProfileUrl = 'https://avatars.githubusercontent.com/u/1164761
 const keyToken = 'token';
 
 User? currentUser;
+
+late GenerativeModel model;

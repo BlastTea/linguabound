@@ -433,6 +433,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+  google_generative_ai:
+    dependency: "direct main"
+    description:
+      name: google_generative_ai
+      sha256: "76e35d93b8c1cd888f69a1a371f8c5dc54cec372b6c74a4c0a5d506e7cf82c1a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.3"
   graphs:
     dependency: transitive
     description:
@@ -605,11 +613,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: e4728c1f0a11eed4fe1c9cc9fc35909cf6940595
-      resolved-ref: e4728c1f0a11eed4fe1c9cc9fc35909cf6940595
+      ref: "64ccaeb4b68c078a9ff3bd3fa04092ba90b0dd07"
+      resolved-ref: "64ccaeb4b68c078a9ff3bd3fa04092ba90b0dd07"
       url: "https://github.com/BlastTea/linguabound_widget.git"
     source: git
-    version: "1.6.4"
+    version: "1.6.8"
   lints:
     dependency: transitive
     description:
@@ -630,11 +638,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: b1191678af1bbefe4ffde909b42804708bb5ab17
-      resolved-ref: b1191678af1bbefe4ffde909b42804708bb5ab17
+      ref: "4f285c5835ba30d05c67749e61aa3fc8a9395bbf"
+      resolved-ref: "4f285c5835ba30d05c67749e61aa3fc8a9395bbf"
       url: "https://github.com/BlastTea/MWidget.git"
     source: git
-    version: "3.8.1"
+    version: "3.9.1"
   matcher:
     dependency: transitive
     description:

@@ -14,16 +14,29 @@ class HomeFragment extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IgnorePointer(
-                    child: MyFilledButton.circle(
-                      radius: 40.0,
-                      padding: EdgeInsets.zero,
-                      pressedBottomBorderWidth: 0.0,
-                      onPressed: () {},
-                      image: DecorationImage(
-                        image: CachedNetworkImageProvider(currentUser?.foto ?? ''),
-                        fit: BoxFit.cover,
-                      ),
+                  // IgnorePointer(
+                  //   child: MyFilledButton.circle(
+                  //     radius: 40.0,
+                  //     padding: EdgeInsets.zero,
+                  //     pressedBottomBorderWidth: 0.0,
+                  //     onPressed: () {},
+                  //     image: DecorationImage(
+                  //       image: CachedNetworkImageProvider(currentUser?.foto ?? ''),
+                  //       fit: BoxFit.cover,
+                  //     ),
+                  //   ),
+                  // ),
+                  ImageContainer.hero(
+                    tag: 'home profile',
+                    width: 40.0,
+                    height: 40.0,
+                    image: CachedNetworkImageProvider(currentUser?.foto ?? ''),
+                    borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                    containerBackgroundColor: const Color(0xFFA590A7),
+                    dialogBackgroundColor: const Color(0xFFA590A7),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SvgPicture.asset('assets/svgs/profile.svg'),
                     ),
                   ),
                   if (currentUser?.role == UserRole.remaja)
@@ -59,20 +72,20 @@ class HomeFragment extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               sliver: SliverToBoxAdapter(
                 child: BannerContainer(
-                  title: const Text('10 dalam 1 sesi'),
-                  subtitle: const Text('Marilah terbuka pada hal-hal yang paling penting'),
+                  title: const Text('Chat dengan AI'),
+                  subtitle: const Text('Tingkatkan kemampuan bahasa Inggris Kamu dengan teknologi AI!'),
                   actions: [
                     TextButton(
-                      onPressed: () => homePageKey.currentState?.setSelectedIndex(2),
+                      onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const ChatbotPage())),
                       style: TextButton.styleFrom(padding: EdgeInsets.zero),
                       child: Text(
-                        'Meet Sekarang',
+                        'Chat Sekarang',
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
                       ),
                     ),
                     const SizedBox(width: 8.0),
                     const Icon(
-                      Icons.date_range_outlined,
+                      Icons.forum,
                       color: kColorBorder,
                       size: 17.0,
                     )

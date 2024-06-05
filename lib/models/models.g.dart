@@ -307,3 +307,53 @@ const _$MeetStatusEnumMap = {
   MeetStatus.sudahDipublish: 'Sudah dipublish',
   MeetStatus.belumDipublish: 'Belum dipublish',
 };
+
+_$ChatbotDataImpl _$$ChatbotDataImplFromJson(Map<String, dynamic> json) =>
+    _$ChatbotDataImpl(
+      text: json['text'] as String,
+      isSender: json['is_sender'] as bool,
+      sentAt: DateTime.parse(json['sent_at'] as String),
+    );
+
+Map<String, dynamic> _$$ChatbotDataImplToJson(_$ChatbotDataImpl instance) =>
+    <String, dynamic>{
+      'text': instance.text,
+      'is_sender': instance.isSender,
+      'sent_at': instance.sentAt.toIso8601String(),
+    };
+
+_$MessageBubbleDataDateTimeImpl _$$MessageBubbleDataDateTimeImplFromJson(
+        Map<String, dynamic> json) =>
+    _$MessageBubbleDataDateTimeImpl(
+      dateTime: json['dateTime'] == null
+          ? null
+          : DateTime.parse(json['dateTime'] as String),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$MessageBubbleDataDateTimeImplToJson(
+        _$MessageBubbleDataDateTimeImpl instance) =>
+    <String, dynamic>{
+      'dateTime': instance.dateTime?.toIso8601String(),
+      'runtimeType': instance.$type,
+    };
+
+_$MessageBubbleDataTextImpl _$$MessageBubbleDataTextImplFromJson(
+        Map<String, dynamic> json) =>
+    _$MessageBubbleDataTextImpl(
+      message: json['message'] as String?,
+      sentAt: json['sentAt'] == null
+          ? null
+          : DateTime.parse(json['sentAt'] as String),
+      isSender: json['isSender'] as bool? ?? true,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$MessageBubbleDataTextImplToJson(
+        _$MessageBubbleDataTextImpl instance) =>
+    <String, dynamic>{
+      'message': instance.message,
+      'sentAt': instance.sentAt?.toIso8601String(),
+      'isSender': instance.isSender,
+      'runtimeType': instance.$type,
+    };
