@@ -56,6 +56,7 @@ class LeaderboardPage extends StatelessWidget {
                         },
                         const SizedBox(width: 8.0),
                         ImageContainer.hero(
+                          key: UniqueKey(),
                           tag: 'Leaderboard $index',
                           width: 56.0,
                           height: 56.0,

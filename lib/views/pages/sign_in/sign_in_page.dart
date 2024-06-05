@@ -9,11 +9,11 @@ class SignInPage extends StatelessWidget {
           stateAuthentication as AuthenticationDataLoaded;
 
           if (kDebugMode) {
-            stateAuthentication.textControllerEmailSignIn.text = dotenv.env['USERNAME_DUMMY_ORANGTUA']!;
-            stateAuthentication.textControllerPasswordSignIn.text = dotenv.env['PASSWORD_DUMMY_ORANGTUA']!;
+            // stateAuthentication.textControllerEmailSignIn.text = dotenv.env['USERNAME_DUMMY_ORANGTUA']!;
+            // stateAuthentication.textControllerPasswordSignIn.text = dotenv.env['PASSWORD_DUMMY_ORANGTUA']!;
 
-            // stateAuthentication.textControllerEmailSignIn.text = dotenv.env['USERNAME_DUMMY_REMAJA']!;
-            // stateAuthentication.textControllerPasswordSignIn.text = dotenv.env['PASSWORD_DUMMY_REMAJA']!;
+            stateAuthentication.textControllerEmailSignIn.text = dotenv.env['USERNAME_DUMMY_REMAJA']!;
+            stateAuthentication.textControllerPasswordSignIn.text = dotenv.env['PASSWORD_DUMMY_REMAJA']!;
           }
 
           return Scaffold(

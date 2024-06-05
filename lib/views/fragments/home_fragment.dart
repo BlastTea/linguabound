@@ -20,8 +20,8 @@ class HomeFragment extends StatelessWidget {
                       padding: EdgeInsets.zero,
                       pressedBottomBorderWidth: 0.0,
                       onPressed: () {},
-                      image: const DecorationImage(
-                        image: NetworkImage(kDummyPictureProfileUrl),
+                      image: DecorationImage(
+                        image: CachedNetworkImageProvider(currentUser?.foto ?? ''),
                         fit: BoxFit.cover,
                       ),
                     ),

@@ -17,7 +17,8 @@ class ProfileFragment extends StatelessWidget {
               height: 48.0,
               icon: Icons.person,
               border: const Border(),
-              image: const NetworkImage(kDummyPictureProfileUrl),
+              image: CachedNetworkImageProvider(currentUser?.foto ?? ''),
+              cachedNetworkImageError: (e) => const AssetImage('assets/images/person.jpg'),
               borderRadius: BorderRadius.circular(24.0),
               extendedAppBar: AppBar(
                 title: Text(currentUser?.name ?? 'Guest'),
@@ -45,6 +46,11 @@ class ProfileFragment extends StatelessWidget {
               subtitle: Text(currentUser?.detail?.mapOrNull(remaja: (value) => value.kodeOrangTua, orangTua: (value) => value.kode) ?? '-'),
               iconColor: kColorWhite,
               textColor: kColorWhite,
+              onTap: () {
+                Clipboard.setData(ClipboardData(text: currentUser?.detail?.mapOrNull(remaja: (value) => value.kodeOrangTua, orangTua: (value) => value.kode) ?? '-'));
+                NavigationHelper.clearSnackBars();
+                NavigationHelper.showSnackBar(const SnackBar(content: Text('Kode telah disalin ke Clipboard')));
+              },
             ),
           ],
           const Divider(),

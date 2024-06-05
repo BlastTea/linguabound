@@ -130,6 +130,7 @@ final class ApiHelper {
         MyApp.historyExerciseBloc.add(InitializeHistoryExerciseData());
       }
       MyApp.meetBloc.add(InitializeMeetData());
+      MyApp.editProfileBloc.add(InitializeEditProfileData());
     }
   }
 
@@ -208,6 +209,7 @@ final class ApiHelper {
       MyApp.historyExerciseBloc.add(SetHistoryExerciseToInitial());
     }
     MyApp.meetBloc.add(SetMeetToInitial());
+    MyApp.editProfileBloc.add(SetEditProfileToInitial());
   }
 
   static Future<dynamic> get({required String pathUrl}) => _request(method: 'GET', uri: Uri.parse('$_url/$pathUrl'));
@@ -228,7 +230,7 @@ final class ApiHelper {
   }) =>
       _requestMultipart(
         method: 'POST',
-        uri: Uri.parse('$_url/api/$pathUrl'),
+        uri: Uri.parse('$_url/$pathUrl'),
         fields: fields,
         files: files,
         timeout: timeout,

@@ -54,6 +54,13 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) => currentUser?.role == UserRole.remaja && currentUser?.detail?.mapOrNull(remaja: (value) => value.kodeOrangTua) == null
       ? Scaffold(
+          appBar: AppBar(
+            leading: const IconButton(
+              onPressed: ApiHelper.signOut,
+              icon: Icon(Icons.logout),
+              tooltip: 'Logout',
+            ),
+          ),
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),

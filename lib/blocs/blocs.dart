@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +11,7 @@ import 'package:linguabound/utils/utils.dart';
 import 'package:linguabound/views/pages/pages.dart';
 import 'package:linguabound_widget/linguabound_widget.dart';
 import 'package:m_widget/m_widget.dart';
+import 'package:http/http.dart' as http;
 
 part 'authentication_bloc/authentication_bloc.dart';
 part 'authentication_bloc/authentication_event.dart';
@@ -30,3 +32,7 @@ part 'meet_bloc/meet_state.dart';
 part 'history_exercise_bloc/history_exercise_bloc.dart';
 part 'history_exercise_bloc/history_exercise_event.dart';
 part 'history_exercise_bloc/history_exercise_state.dart';
+
+part 'edit_profile_bloc/edit_profile_bloc.dart';
+part 'edit_profile_bloc/edit_profile_event.dart';
+part 'edit_profile_bloc/edit_profile_state.dart';
