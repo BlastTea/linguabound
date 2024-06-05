@@ -106,7 +106,7 @@ class Exercise with _$Exercise {
 }
 
 @freezed
-class HistoryExercise with _$Exercise {
+class HistoryExercise with _$HistoryExercise {
   factory HistoryExercise({
     @JsonKey(fromJson: _parseInt) int? id,
     @JsonKey(name: 'remaja_id', fromJson: _parseInt) int? remajaId,

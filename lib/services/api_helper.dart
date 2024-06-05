@@ -126,6 +126,8 @@ final class ApiHelper {
       MyApp.leaderboardBloc.add(InitializeLeaderboardData());
       if (currentUser?.role == UserRole.remaja) {
         MyApp.exerciseBloc.add(InitializeExerciseData());
+      } else if (currentUser?.role == UserRole.parent) {
+        MyApp.historyExerciseBloc.add(InitializeHistoryExerciseData());
       }
       MyApp.meetBloc.add(InitializeMeetData());
     }
@@ -202,6 +204,8 @@ final class ApiHelper {
     MyApp.leaderboardBloc.add(SetLeaderboardToInitial());
     if (currentUser?.role == UserRole.remaja) {
       MyApp.exerciseBloc.add(SetExerciseToInitial());
+    } else if (currentUser?.role == UserRole.parent) {
+      MyApp.historyExerciseBloc.add(SetHistoryExerciseToInitial());
     }
     MyApp.meetBloc.add(SetMeetToInitial());
   }

@@ -80,7 +80,7 @@ class HomePageState extends State<HomePage> {
       : Scaffold(
           body: [
             const HomeFragment(),
-            const ExerciseFragment(),
+            if (currentUser?.role == UserRole.remaja) const ExerciseFragment() else const HistoryExerciseFragment(),
             if (currentUser?.role == UserRole.remaja) const MeetFragment(),
             const ProfileFragment(),
           ][_selectedIndex],

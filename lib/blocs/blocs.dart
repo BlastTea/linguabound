@@ -26,3 +26,7 @@ part 'exercise_bloc/exercise_state.dart';
 part 'meet_bloc/meet_bloc.dart';
 part 'meet_bloc/meet_event.dart';
 part 'meet_bloc/meet_state.dart';
+
+part 'history_exercise_bloc/history_exercise_bloc.dart';
+part 'history_exercise_bloc/history_exercise_event.dart';
+part 'history_exercise_bloc/history_exercise_state.dart';

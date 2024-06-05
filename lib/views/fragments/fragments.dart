@@ -13,9 +13,9 @@ import 'package:linguabound/views/pages/pages.dart';
 import 'package:linguabound/views/widgets/widgets.dart';
 import 'package:linguabound_widget/linguabound_widget.dart';
 import 'package:m_widget/m_widget.dart';
-import 'package:path/path.dart';
 
 part 'home_fragment.dart';
 part 'exercise_fragment.dart';
 part 'meet_fragment.dart';
 part 'profile_fragment.dart';
+part 'history_exercise_fragment.dart';

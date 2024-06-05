@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
   static LeaderboardBloc leaderboardBloc = LeaderboardBloc();
   static ExerciseBloc exerciseBloc = ExerciseBloc();
   static MeetBloc meetBloc = MeetBloc();
+  static HistoryExerciseBloc historyExerciseBloc = HistoryExerciseBloc();
 
   @override
   Widget build(BuildContext context) => MultiBlocProvider(
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => leaderboardBloc),
           BlocProvider(create: (context) => exerciseBloc),
           BlocProvider(create: (context) => meetBloc),
+          BlocProvider(create: (context) => historyExerciseBloc),
         ],
         child: LinguaboundMaterialApp(
           title: 'Linguabound',
