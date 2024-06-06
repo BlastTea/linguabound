@@ -37,7 +37,7 @@ class ProfileFragment extends StatelessWidget {
             title: const Text('Ganti Password'),
             iconColor: kColorWhite,
             textColor: kColorWhite,
-            onTap: () {},
+            onTap: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const ChangePasswordPage())),
           ),
           if (currentUser?.detail?.mapOrNull(remaja: (value) => value.kodeOrangTua ?? '-', orangTua: (value) => value.kode) != null) ...[
             const Divider(),

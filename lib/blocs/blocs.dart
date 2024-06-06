@@ -41,3 +41,7 @@ part 'edit_profile_bloc/edit_profile_state.dart';
 part 'chatbot_bloc/chatbot_bloc.dart';
 part 'chatbot_bloc/chatbot_event.dart';
 part 'chatbot_bloc/chatbot_state.dart';
+
+part 'change_password_bloc/change_password_bloc.dart';
+part 'change_password_bloc/change_password_event.dart';
+part 'change_password_bloc/change_password_state.dart';

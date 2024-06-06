@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
   static HistoryExerciseBloc historyExerciseBloc = HistoryExerciseBloc();
   static EditProfileBloc editProfileBloc = EditProfileBloc();
   static ChatbotBloc chatbotBloc = ChatbotBloc();
+  static ChangePasswordBloc changePasswordBloc = ChangePasswordBloc();
 
   @override
   Widget build(BuildContext context) => MultiBlocProvider(
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => historyExerciseBloc),
           BlocProvider(create: (context) => editProfileBloc),
           BlocProvider(create: (context) => chatbotBloc),
+          BlocProvider(create: (context) => changePasswordBloc),
         ],
         child: LinguaboundMaterialApp(
           title: 'Linguabound',

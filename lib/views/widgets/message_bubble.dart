@@ -29,6 +29,7 @@ class MessageBubble extends StatelessWidget {
             child: _MessageBubble(
               message: message,
               sentAt: sentAt,
+              isSender: isSender,
             ),
           ),
         ),
@@ -156,10 +157,12 @@ class _MessageBubble extends LeafRenderObjectWidget {
   const _MessageBubble({
     required this.message,
     required this.sentAt,
+    required this.isSender,
   });
 
   final String message;
   final TimeOfDay sentAt;
+  final bool isSender;
 
   @override
   RenderObject createRenderObject(BuildContext context) => _RenderMessageBubble(
@@ -168,6 +171,7 @@ class _MessageBubble extends LeafRenderObjectWidget {
         textDirection: Directionality.of(context),
         colorScheme: Theme.of(context).colorScheme,
         textTheme: Theme.of(context).textTheme,
+        isSender: isSender,
       );
 
   @override
@@ -183,6 +187,7 @@ class _RenderMessageBubble extends RenderBox {
     required TextDirection textDirection,
     required this.colorScheme,
     required this.textTheme,
+    required this.isSender,
   }) {
     _message = message;
     _sentAt = sentAt;
@@ -208,6 +213,8 @@ class _RenderMessageBubble extends RenderBox {
 
   final TextTheme textTheme;
 
+  final bool isSender;
+
   late String _message;
   String get message => _message;
   set message(String value) {
@@ -230,9 +237,9 @@ class _RenderMessageBubble extends RenderBox {
     markNeedsLayout();
   }
 
-  TextSpan get _messageTextSpan => TextSpan(text: message, style: textTheme.titleSmall!.copyWith(color: colorScheme.onPrimary));
+  TextSpan get _messageTextSpan => TextSpan(text: message, style: textTheme.titleSmall!.copyWith(color: !isSender ? kColorWhite : colorScheme.onPrimary));
 
-  TextSpan get _sentAtTextSpan => TextSpan(text: sentAt.toFormattedString(), style: textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary));
+  TextSpan get _sentAtTextSpan => TextSpan(text: sentAt.toFormattedString(), style: textTheme.bodyMedium!.copyWith(color: !isSender ? kColorWhite : colorScheme.onPrimary));
 
   @override
   void performLayout() {

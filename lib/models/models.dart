@@ -208,6 +208,7 @@ class MessageBubbleList with _$MessageBubbleList {
       DateTime? lastDate;
       DateTime currentDate = data.sentAt;
 
+      // ignore: unnecessary_null_comparison
       if (lastDate != null && (currentDate.day != lastDate.day || currentDate.month != lastDate.month || currentDate.year != lastDate.year)) messageBubbles.add(MessageBubbleData.dateTime(dateTime: lastDate));
 
       messageBubbles.add(

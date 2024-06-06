@@ -247,10 +247,14 @@ final class ApiHelper {
 
       if (e['data']['message'] == 'The email has already been taken.') return showErrorDialog('Email sudah dipakai');
 
+      if (e['data']['message'] == 'Harap masukkan password lama yang sesuai!') return showErrorDialog('Password lama tidak sesuai');
+
       while (NavigationHelper.canGoBack()) {
         NavigationHelper.back();
       }
       NavigationHelper.toReplacement(MaterialPageRoute(builder: (context) => const SignInPage()));
+
+      ApiHelper.signOut();
 
       return showInformationDialog('Sesi Anda telah berakhir');
     }

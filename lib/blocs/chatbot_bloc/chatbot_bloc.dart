@@ -28,6 +28,7 @@ class ChatbotBloc extends Bloc<ChatbotEvent, ChatbotState> {
       _data.add(ChatbotData(text: '', isSender: false, sentAt: now));
 
       _messageBubbleList = MessageBubbleList.fromChatbotData(chatbotData: _data.reversed.toList());
+      _messageBubbleKey = UniqueKey();
       emit(_chatbotDataLoaded);
 
       try {
