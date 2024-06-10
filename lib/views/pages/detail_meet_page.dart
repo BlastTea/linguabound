@@ -87,8 +87,8 @@ class DetailMeetPage extends StatelessWidget {
 
                         throw 'NOTHING';
                       } catch (e) {
+                        NavigationHelper.back();
                         if (e != 'NOTHING') {
-                          NavigationHelper.back();
                           ApiHelper.handleError(e);
                           return;
                         }

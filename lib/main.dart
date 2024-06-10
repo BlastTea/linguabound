@@ -24,6 +24,24 @@ void main() async {
   model = GenerativeModel(
     model: 'gemini-1.5-flash-latest',
     apiKey: dotenv.env['GEMINI_API_KEY']!,
+    safetySettings: [
+      SafetySetting(
+        HarmCategory.dangerousContent,
+        HarmBlockThreshold.none,
+      ),
+      SafetySetting(
+        HarmCategory.harassment,
+        HarmBlockThreshold.none,
+      ),
+      SafetySetting(
+        HarmCategory.hateSpeech,
+        HarmBlockThreshold.none,
+      ),
+      SafetySetting(
+        HarmCategory.sexuallyExplicit,
+        HarmBlockThreshold.none,
+      ),
+    ],
   );
 
   runApp(const MyApp());
